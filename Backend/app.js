@@ -5,11 +5,10 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 
-const configDB = require('./config/database.js');
+const configDB = require('./config/mongooseConfig.js');
 mongoose.connect(configDB.url);
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
 
 const app = express();
 
@@ -24,7 +23,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/api/', require('./routes/api'));
 
 // catch 404 and forward to error handler

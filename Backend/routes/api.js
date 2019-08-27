@@ -1,6 +1,6 @@
 const express = require('express');
 let router = express.Router();
 
-// router.use('/users', require("../controllersV2/api/users/index"));
+router.use('/user', require("../controllers/userController"));
 
 module.exports = router;
