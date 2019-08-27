@@ -17,3 +17,12 @@ class User(
     val breweryManager: BreweryManager,
     val location: String
 )
+
+class UserWithPassword(
+    val username: String,
+    val name: Name,
+    val email: String,
+    val breweryManager: BreweryManager,
+    val location: String,
+    val password: String
+)
