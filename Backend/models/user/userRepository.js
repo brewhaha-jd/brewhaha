@@ -36,4 +36,4 @@ module.exports = {
 
 const User = require('./userEntity');
 const userMapper = require('./userMapper');
-const mongoErrorHandler = require('../../error_handlers/mongo');
+const mongoErrorHandler = require('../../error_handlers/mongoErrorHandler');

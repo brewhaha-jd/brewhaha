@@ -1,7 +1,6 @@
 const
     express = require('express'),
-    userService = require('../services/user');
-const mongoErrorHandler = require('../error_handlers/mongo');
+    userService = require('../services/userService');
 
 let router = express.Router();
 
