@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Brewhaha_Android</string>
+
+    <string name="email_login">Email Address</string>
+
+    <string name="password_login">Password</string>
 </resources>
