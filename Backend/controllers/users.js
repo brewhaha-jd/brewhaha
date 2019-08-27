@@ -13,8 +13,8 @@ let router = express.Router();
 // });
 
 router.post('/', function (req, res) {
-    userService.create(req.body, function (entity) {
-        res.send(entity)
+    userService.create(req.body, function (response) {
+        res.status(response[0]).send(response[1])
     });
 });
 

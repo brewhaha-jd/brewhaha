@@ -1,12 +1,12 @@
 module.exports = {
 
 	create: function (resource, callback) {
-		resource.save(function (err) {
+		const entity = userMapper.mapResourceToEntity(resource);
+		entity.save(function (err) {
 			if (err) {
-				console.log(err);
-				callback(null)
+				callback(mongoErrorHandler.throwMongoError(err))
 			} else {
-				callback(resource)
+				callback([201, entity])
 			}
 		});
 	}
@@ -16,3 +16,5 @@ module.exports = {
 
 
 const User = require('./userEntity');
+const userMapper = require('./userMapper');
+const mongoErrorHandler = require('../../error_handlers/mongo');
