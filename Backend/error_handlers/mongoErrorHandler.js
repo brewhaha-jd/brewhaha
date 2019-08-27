@@ -9,5 +9,11 @@ module.exports = {
             console.log(err)
         }
         return [responseCode, response];
+    },
+
+    throwMongoNotFound: function () {
+        let responseCode = 404;
+        let response = "The requested resource does not exist";
+        return [responseCode, response];
     }
 };
