@@ -1,9 +1,10 @@
-package com.example.brewhaha_android
+package com.example.brewhaha_android.Controllers
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.example.brewhaha_android.R
 
 class MainActivity : AppCompatActivity() {
 
