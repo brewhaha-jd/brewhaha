@@ -27,7 +27,7 @@ class RegisterActivity : AppCompatActivity() {
         _username = findViewById(R.id.username) as TextInputEditText
         _first_name = findViewById(R.id.firstName) as TextInputEditText
         _last_name = findViewById(R.id.lastName) as TextInputEditText
-//        registerButton.setOnClickListener()
+        // TODO: set registerButton.setOnClickListener()
 
     }
 }

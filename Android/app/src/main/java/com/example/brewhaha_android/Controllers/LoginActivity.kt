@@ -24,7 +24,7 @@ class LoginActivity : AppCompatActivity() {
         _login_button = findViewById<MaterialButton>(R.id.loginButton)
         _email_text = findViewById<TextInputEditText>(R.id.emailText)
         _password_text = findViewById<TextInputEditText>(R.id.passwordText)
-//        _login_button.setOnClickListener()
+//      TODO: set _login_button.setOnClickListener()
 
         _register_button!!.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
