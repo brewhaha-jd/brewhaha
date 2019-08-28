@@ -8,10 +8,10 @@
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
-            android:theme="@style/AppTheme">
-        <activity android:name=".login">
-        </activity>
-        <activity android:name=".Controllers.MainActivity">
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar.Bridge">
+        <activity android:name=".Controllers.MainActivity"></activity>
+        <activity android:name=".Controllers.RegisterActivity"></activity>
+        <activity android:name=".Controllers.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
