@@ -1,9 +1,13 @@
 const
     hasher = require('password-hash');
     jwt = require('jsonwebtoken');
+    randtoken = require('rand-token');
 
     authRepo = require('../models/auth/authRepository');
     userRepo = require('../models/user/userRepository');
+    refreshTokenRepo = require('../models/refreshToken/refreshTokenRepository');
+    RefreshToken = require('../models/refreshToken/refreshTokenEntity');
+
     errorHandler = require('../error_handlers/errorHandler');
 
 module.exports = {
@@ -21,12 +25,12 @@ module.exports = {
     },
 
     authenticate: function (username, password, callback) {
-        authRepo.getByUsernameAndPopulateUser(username, function (err, authEntity) {
-            if (err) {
+        authRepo.getByUsernameAndPopulateUser(username, function (mongoErr, authEntity) {
+            if (mongoErr) {
                 errorHandler.throwError(function (err) {
                     callback(err, null)
                 });
-                callback(err)
+                callback(mongoErr)
             } else if (authEntity == null) {
                 errorHandler.throwMongoNotFound(function (err) {
                     callback(err, null);
@@ -39,7 +43,25 @@ module.exports = {
                 let token = jwt.sign(authEntity.user.toJSON(), global.config.tokenSecret, {
                     expiresIn: global.config.tokenExpiresIn
                 });
-                callback(err, token)
+                let refreshToken = randtoken.uid(256);
+                let refreshTokenEntity = new RefreshToken({
+                    createdAt: new Date().toISOString(),
+                    refreshToken: refreshToken,
+                    user: authEntity.user._id
+                });
+                refreshTokenRepo.create(refreshTokenEntity, function (mongoRefreshTokenError) {
+                    if(mongoRefreshTokenError) {
+                        errorHandler.throwError(mongoRefreshTokenError, function (err) {
+                            callback(err, null)
+                        })
+                    } else {
+                        let response = {
+                            token: token,
+                            refreshToken: refreshToken
+                        };
+                        callback(null, response)
+                    }
+                });
             }
         })
     },
