@@ -12,24 +12,18 @@ router.use(function (req, res, next) {
 
 router.get('/', function (req, res, next) {
     userService.getAll(function (err, userEntities) {
-        if(err) {
-            res.locals.err = err;
-        } else {
-            res.locals.statusCode = 200;
-            res.locals.response = userEntities;
-        }
+        res.locals.err = err;
+        res.locals.statusCode = 200;
+        res.locals.response = userEntities;
         next()
     });
 });
 
 router.get('/:id', function (req, res, next) {
     userService.getById(req.params.id, function (err, userEntity) {
-        if(err) {
-            res.locals.err = err;
-        } else {
-            res.locals.statusCode = 200;
-            res.locals.response = userEntity;
-        }
+        res.locals.err = err;
+        res.locals.statusCode = 200;
+        res.locals.response = userEntity;
         next()
     });
 });
