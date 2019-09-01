@@ -2,6 +2,7 @@ const
     express = require('express'),
     userService = require('../services/userService');
     tokenValidation = require('../middleware/tokenValidation');
+    errorChecking = require('../middleware/errorChecking');
 
 let router = express.Router();
 
@@ -28,13 +29,8 @@ router.get('/:id', function (req, res, next) {
     });
 });
 
-
 router.use(function (req, res) {
-    if(res.locals.err){
-        res.locals.statusCode = res.locals.err.statusCode;
-        res.locals.response = res.locals.err.response;
-    }
-    res.status(res.locals.statusCode).send(res.locals.response)
+    errorChecking.checkErrors(req, res)
 });
 
 module.exports = router;
