@@ -65,4 +65,36 @@ module.exports = {
             }
         })
     },
+    
+    useRefreshToken: function (refreshToken, username, callback) {
+        refreshTokenRepo.getByRefreshToken(refreshToken, function (mongoErr, entity) {
+            if (mongoErr) {
+                errorHandler.throwError(function (err) {
+                    callback(err, null)
+                });
+                callback(mongoErr)
+            } else if (entity == null) {
+                errorHandler.throwMongoNotFound(function (err) {
+                    callback(err, null);
+                })
+            } else if (entity.user.username !== username) {
+                errorHandler.throwInvalidAuthentication(function (err) {
+                    callback(err, null)
+                })
+            } else {
+                let token = jwt.sign(entity.user.toJSON(), global.config.tokenSecret, {
+                    expiresIn: global.config.tokenExpiresIn
+                });
+                refreshTokenRepo.updateCreatedAt(refreshToken, new Date().toISOString(), function (createErr) {
+                    if(createErr) {
+                        errorHandler.throwError(createErr, function (err) {
+                            callback(err, null);
+                        })
+                    } else {
+                        callback(null, token)
+                    }
+                })
+            }
+        })
+    }
 };

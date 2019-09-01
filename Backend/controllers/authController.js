@@ -24,6 +24,17 @@ router.post('/createUser', function (req, res, next) {
     });
 });
 
+router.post('/token', function (req, res, next) {
+    authService.useRefreshToken(req.body.refreshToken, req.body.username, function (err, newToken) {
+        res.locals.err = err;
+        res.locals.statusCode = 202;
+        res.locals.response = newToken;
+        next()
+    });
+});
+
+
+
 router.use(function (req, res) {
     errorChecking.checkErrors(req, res)
 });
