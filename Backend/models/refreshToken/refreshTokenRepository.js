@@ -1,3 +1,5 @@
+const RefreshToken = require('./refreshTokenEntity');
+
 module.exports = {
 
 	create: function (refreshTokenEntity, callback) {
@@ -18,8 +20,3 @@ module.exports = {
 		})
 	}
 };
-
-
-
-
-const RefreshToken = require('./refreshTokenEntity');

@@ -1,5 +1,5 @@
 const
-    express = require('express'),
+    express = require('express');
     userService = require('../services/userService');
     tokenValidation = require('../middleware/tokenValidation');
     errorChecking = require('../middleware/errorChecking');

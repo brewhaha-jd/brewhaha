@@ -1,3 +1,7 @@
+const
+    User = require('./userEntity');
+    userMapper = require('./userMapper');
+
 module.exports = {
 
     getAll: function (callback) {
@@ -19,9 +23,3 @@ module.exports = {
 		});
 	}
 };
-
-
-
-
-const User = require('./userEntity');
-const userMapper = require('./userMapper');

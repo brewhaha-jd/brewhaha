@@ -1,3 +1,5 @@
+const Auth = require('./authEntity');
+
 module.exports = {
 
 	create: function (authEntity, callback) {
@@ -12,8 +14,3 @@ module.exports = {
 		})
 	}
 };
-
-
-
-
-const Auth = require('./authEntity');

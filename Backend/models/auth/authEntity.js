@@ -1,8 +1,9 @@
 /**
  * Created by nickhutchinson on 8/26/19.
  */
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const
+	mongoose = require('mongoose');
+	Schema = mongoose.Schema;
 
 const authSchema = mongoose.Schema({
 	username: {
