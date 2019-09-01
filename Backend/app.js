@@ -5,8 +5,10 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 
-const configDB = require('./config/mongooseConfig.js');
-mongoose.connect(configDB.url);
+global.config = require('./config');
+
+const configDB = global.config.mongoConfig;
+mongoose.connect(configDB);
 
 const indexRouter = require('./routes/index');
 
