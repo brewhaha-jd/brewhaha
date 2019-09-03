@@ -16,7 +16,7 @@ class BackendConnection {
 
     init {
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://nickhutch.com:3000/api")
+            .baseUrl("http://nickhutch.com:3000/api/")
             .addConverterFactory(MoshiConverterFactory.create())
             .build()
 
