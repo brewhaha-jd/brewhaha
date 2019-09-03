@@ -26,3 +26,8 @@ class UserWithPassword(
     val location: String,
     val password: String
 )
+
+class LoginUser(
+    val username: String,
+    val password: String
+)

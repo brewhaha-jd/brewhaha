@@ -1,5 +1,7 @@
 package com.example.brewhaha_android.Api
 
+import com.example.brewhaha_android.Models.AuthToken
+import com.example.brewhaha_android.Models.LoginUser
 import com.example.brewhaha_android.Models.User
 import com.example.brewhaha_android.Models.UserWithPassword
 import com.google.gson.Gson
@@ -14,19 +16,21 @@ class BackendConnection {
 
     init {
         val retrofit = Retrofit.Builder()
-            .baseUrl("TODO: REPLACE STRING")
+            .baseUrl("http://nickhutch.com:3000/api")
             .addConverterFactory(MoshiConverterFactory.create())
             .build()
 
         backendApi = retrofit.create(BackendInterface::class.java)
     }
 
-    fun getUser(userId: Int) : Call<User> {
-        return backendApi.getUser(userId)
+    fun getUser(token: AuthToken, userId: Int) : Call<User> {
+        return backendApi.getUser(token.token, userId)
     }
 
-    fun login(username: String, password: String) : Call<User>? {
-        return null
+    fun login(user: LoginUser) : Call<AuthToken> {
+        val gson: Gson = GsonBuilder().setPrettyPrinting().create()
+        val loginUserJson: String = gson.toJson(user)
+        return backendApi.login(loginUserJson)
     }
 
     fun register(user: UserWithPassword) : Call<String> {
