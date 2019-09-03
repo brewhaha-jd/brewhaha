@@ -19,5 +19,4 @@ interface BackendInterface {
     @Headers("Content-type: application/json")
     @POST("/auth/users/login")
     fun login(@Body user: String) : Call<AuthToken>
-
 }
