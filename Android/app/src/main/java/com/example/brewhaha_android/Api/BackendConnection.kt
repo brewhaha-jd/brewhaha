@@ -6,18 +6,27 @@ import com.example.brewhaha_android.Models.User
 import com.example.brewhaha_android.Models.UserWithPassword
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import java.util.concurrent.TimeUnit
 
 class BackendConnection {
 
-    private val backendApi: BackendInterface
+    public val backendApi: BackendInterface
 
     init {
+        val client = OkHttpClient.Builder()
+            .connectTimeout(20, TimeUnit.SECONDS)
+            .readTimeout(20, TimeUnit.SECONDS)
+            .writeTimeout(20, TimeUnit.SECONDS)
+            .build()
+
         val retrofit = Retrofit.Builder()
             .baseUrl("http://nickhutch.com:3000/api/")
             .addConverterFactory(MoshiConverterFactory.create())
+            .client(client)
             .build()
 
         backendApi = retrofit.create(BackendInterface::class.java)
@@ -28,14 +37,10 @@ class BackendConnection {
     }
 
     fun login(user: LoginUser) : Call<AuthToken> {
-        val gson: Gson = GsonBuilder().setPrettyPrinting().create()
-        val loginUserJson: String = gson.toJson(user)
-        return backendApi.login(loginUserJson)
+        return backendApi.login(user)
     }
 
     fun register(user: UserWithPassword) : Call<String> {
-        val gson: Gson = GsonBuilder().setPrettyPrinting().create()
-        val userJson: String = gson.toJson(user)
-        return backendApi.registerUser(userJson)
+        return backendApi.registerUser(user)
     }
 }

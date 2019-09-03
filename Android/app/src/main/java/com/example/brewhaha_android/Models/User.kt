@@ -1,16 +1,19 @@
 package com.example.brewhaha_android.Models
 
-class Name(
+import com.google.gson.annotations.Expose
+import com.google.gson.annotations.SerializedName
+
+data class Name(
     val firstName: String,
     val lastName: String
 )
 
-class BreweryManager(
+data class BreweryManager(
     val isManager: Boolean,
     val brewery: String
 )
 
-class User(
+data class User(
     val username: String,
     val name: Name,
     val email: String,
@@ -18,7 +21,7 @@ class User(
     val location: String
 )
 
-class UserWithPassword(
+data class UserWithPassword(
     val username: String,
     val name: Name,
     val email: String,
@@ -27,7 +30,12 @@ class UserWithPassword(
     val password: String
 )
 
-class LoginUser(
+data class LoginUser(
+    @SerializedName("username")
+    @Expose
     val username: String,
+
+    @SerializedName("password")
+    @Expose
     val password: String
 )
