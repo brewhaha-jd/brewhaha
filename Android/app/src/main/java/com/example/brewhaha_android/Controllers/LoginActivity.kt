@@ -11,8 +11,6 @@ import android.widget.EditText
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import org.jetbrains.anko.doAsync
-import org.jetbrains.anko.toast
-import org.jetbrains.anko.uiThread
 
 class LoginActivity(private val api: BackendConnection = BackendConnection()) : AppCompatActivity() {
 
@@ -40,26 +38,13 @@ class LoginActivity(private val api: BackendConnection = BackendConnection()) : 
     fun loginButtonClicked() {
         // TODO: get the username
         // TODO: get the password
-        var username = "USERNAME"
-        var password = "PASSWORD"
-        sendLoginRequest(username, password)
+        // TODO: Send Login Request
     }
 
     fun sendLoginRequest(username: String, password: String) {
         var user: User?
         doAsync {
-            val call = api.login(username, password)
-            val result = call!!.execute()
-            if (result.isSuccessful) {
-                user = result.body()
-                uiThread {
-                    // TODO: Create Intent
-                }
-            } else {
-                uiThread {
-                    toast(result.message())
-                }
-            }
+            // TODO: Make API Call
         }
     }
 }
