@@ -10,7 +10,9 @@ router.post('/createUser', function (req, res, next) {
     userService.createUserAndAuth(req.body, function (err, userEntity) {
         res.locals.err = err;
         res.locals.statusCode = 201;
-        res.locals.response = "/api/user/" + userEntity._id;
+	if (userEntity !== null) {
+	    res.locals.response = "/api/user/" + userEntity._id;
+	}	
         next()
     });
 });
