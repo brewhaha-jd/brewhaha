@@ -15,9 +15,8 @@ interface BackendInterface {
     fun getUser(@Header("x-access-token") accessToken: String, @Path("id") id: Int) : Call<User>
 
     @POST("auth/createUser")
-    fun registerUser(@Body user: UserWithPassword) : Call<String>
+    fun registerUser(@Header("Content-type") contentType: String, @Body user: UserWithPassword) : Call<String>
 
-//    @Headers("{Content-type: application/json}")
     @POST("auth/login")
     fun login(@Header("Content-type") contentType: String, @Body user: LoginUser) : Call<AuthToken>
 }

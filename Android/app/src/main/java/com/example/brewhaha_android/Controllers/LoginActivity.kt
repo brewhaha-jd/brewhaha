@@ -24,6 +24,7 @@ class LoginActivity(private val api: BackendConnection = BackendConnection()) : 
     var _email_text: EditText? = null
     var _password_text: EditText? = null
 
+    //TODO: make the user automatically login if a refresh token is saved
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -34,8 +35,7 @@ class LoginActivity(private val api: BackendConnection = BackendConnection()) : 
         _password_text = findViewById<TextInputEditText>(R.id.passwordText)
 
         _register_button!!.setOnClickListener {
-            val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
+            registerButtonClicked()
         }
         _login_button!!.setOnClickListener{
             loginButtonClicked()
@@ -54,6 +54,11 @@ class LoginActivity(private val api: BackendConnection = BackendConnection()) : 
         sendLoginRequest(user)
     }
 
+    fun registerButtonClicked() {
+        val intent = Intent(this, RegisterActivity::class.java)
+        startActivity(intent)
+    }
+
     fun sendLoginRequest(loginUser: LoginUser) {
         Log.d("Login", "Making login Request")
         doAsync {
@@ -61,8 +66,7 @@ class LoginActivity(private val api: BackendConnection = BackendConnection()) : 
             if (call.isSuccessful) {
                 val token = call.body()
                 uiThread {
-                    Log.d("Login", "Got the token")
-                    Log.d("Login", "Token: " + call.body().token)
+                    Log.d("Login", "Succesful")
 
                     val sharedPref = getSharedPreferences("BREWHAHA_PREF", Context.MODE_PRIVATE)
                     var editor = sharedPref.edit()

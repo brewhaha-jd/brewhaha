@@ -39,6 +39,6 @@ class BackendConnection {
     }
 
     fun register(user: UserWithPassword) : Call<String> {
-        return backendApi.registerUser(user)
+        return backendApi.registerUser("application/json", user)
     }
 }
