@@ -15,7 +15,7 @@ router.post('/createUser', function (req, res, next) {
     });
 });
 
-router.get('/login', function (req, res, next) {
+router.post('/login', function (req, res, next) {
     authService.authenticate(req.body.username, req.body.password, function (err, tokens) {
         res.locals.err = err;
         res.locals.statusCode = 200;
