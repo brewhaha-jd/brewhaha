@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.brewhaha_android.R
-import kotlinx.android.synthetic.main.activity_home.view.*
 
 class HomeActivity : AppCompatActivity() {
     var _token_text: TextView? = null
@@ -21,5 +20,4 @@ class HomeActivity : AppCompatActivity() {
         _token_text!!.text = token.toString()
 
     }
-
 }

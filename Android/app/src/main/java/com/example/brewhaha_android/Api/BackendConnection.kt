@@ -4,8 +4,6 @@ import com.example.brewhaha_android.Models.AuthToken
 import com.example.brewhaha_android.Models.LoginUser
 import com.example.brewhaha_android.Models.User
 import com.example.brewhaha_android.Models.UserWithPassword
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Retrofit
@@ -14,7 +12,7 @@ import java.util.concurrent.TimeUnit
 
 class BackendConnection {
 
-    public val backendApi: BackendInterface
+    private val backendApi: BackendInterface
 
     init {
         val client = OkHttpClient.Builder()
