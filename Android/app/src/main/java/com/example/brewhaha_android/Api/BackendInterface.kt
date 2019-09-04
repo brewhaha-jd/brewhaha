@@ -14,11 +14,10 @@ interface BackendInterface {
     @GET("api/user/{id}")
     fun getUser(@Header("x-access-token") accessToken: String, @Path("id") id: Int) : Call<User>
 
-    @Headers("{Content-type: application/json}")
     @POST("auth/createUser")
     fun registerUser(@Body user: UserWithPassword) : Call<String>
 
-    @Headers("{Content-type: application/json}")
+//    @Headers("{Content-type: application/json}")
     @POST("auth/login")
-    fun login(@Body user: LoginUser) : Call<AuthToken>
+    fun login(@Header("Content-type") contentType: String, @Body user: LoginUser) : Call<AuthToken>
 }

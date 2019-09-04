@@ -35,7 +35,7 @@ class BackendConnection {
     }
 
     fun login(user: LoginUser) : Call<AuthToken> {
-        return backendApi.login(user)
+        return backendApi.login("application/json", user)
     }
 
     fun register(user: UserWithPassword) : Call<String> {

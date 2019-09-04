@@ -71,13 +71,14 @@ class LoginActivity(private val api: BackendConnection = BackendConnection()) : 
                     editor.commit()
                     //TODO: when the user logs out clear this
 
-                    var bundle = bundleOf("token" to token)
+                    var bundle = bundleOf("token" to token.token, "refreshToken" to token.refreshToken)
                     val intent = Intent(baseContext, HomeActivity::class.java)
                     intent.putExtra("bundle", bundle)
                     startActivity(intent)
                 }
             } else {
                 val error = when (call.code()) {
+                    400 -> "Bad Request"
                     401 -> "Invalid credentials"
                     404 -> "Resource not found"
                     409 -> "You are already logged in on another device"
@@ -87,7 +88,7 @@ class LoginActivity(private val api: BackendConnection = BackendConnection()) : 
                 }
                 uiThread {
                     toast(error)
-                    Log.d("Login Error", call.code().toString() + ": " + error)
+                    Log.d("Login Error", call.code().toString())
                 }
             }
         }
