@@ -1,18 +1,25 @@
 package com.example.brewhaha_android.Controllers
 
 import android.app.ProgressDialog
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.bundleOf
 import com.example.brewhaha_android.Api.BackendConnection
+import com.example.brewhaha_android.Models.LoginUser
 import com.example.brewhaha_android.Models.Name
 import com.example.brewhaha_android.Models.UserWithPassword
 import com.example.brewhaha_android.R
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.toast
+import org.jetbrains.anko.uiThread
 
-class RegisterActivity : AppCompatActivity() {
+class RegisterActivity(private val api: BackendConnection = BackendConnection()) : AppCompatActivity() {
 
     var _register_button: MaterialButton? = null
     var _input_email: TextInputEditText? = null
@@ -24,7 +31,6 @@ class RegisterActivity : AppCompatActivity() {
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
-
 
         _input_email = findViewById<TextInputEditText>(R.id.email)
         _input_password = findViewById<TextInputEditText>(R.id.password)
@@ -58,25 +64,73 @@ class RegisterActivity : AppCompatActivity() {
         val password = _input_password!!.text.toString()
 
         val user = UserWithPassword(username, Name(firstName, lastName), email, password)
+        Log.d("Signup Activity", user.toString())
         Log.d("Signup Activity", "Created a user")
-        val response = BackendConnection().register(user).execute()
-        if (response.isSuccessful) {
-            onSignupSuccess()
-        } else {
-            onSignupFailed()
-            Log.d("Signup Activity", response.message())
+        doAsync {
+            Log.d("Signup Activity", "Boutta execute")
+            val register_response = api.register(user).execute()
+            Log.d("Signup Activity", "Executed")
+            if (register_response.isSuccessful) {
+                Log.d("Signup Activity", "Successful registration")
+                uiThread {
+                    progressDialog.cancel()
+                    _register_button!!.isEnabled = true
+                    Toast.makeText(baseContext, "Welcome!", Toast.LENGTH_LONG).show()
+                }
+                val login_response = api.login(LoginUser(username, password)).execute()
+                if (login_response.isSuccessful) {
+                    val token = login_response.body()
+                    uiThread {
+                        Log.d("Login", "Succesful")
+
+                        val sharedPref = getSharedPreferences("BREWHAHA_PREF", Context.MODE_PRIVATE)
+                        var editor = sharedPref.edit()
+                        editor.putString("token", token.token)
+                        editor.putString("refreshToken", token.refreshToken)
+                        editor.commit()
+                        //TODO: when the user logs out clear this
+
+                        var bundle = bundleOf("token" to token.token, "refreshToken" to token.refreshToken)
+                        val intent = Intent(baseContext, HomeActivity::class.java)
+                        intent.putExtra("bundle", bundle)
+                        startActivity(intent)
+                    }
+                } else {
+                    val error = when (login_response.code()) {
+                        400 -> "Bad Request"
+                        401 -> "Invalid credentials"
+                        404 -> "Resource not found"
+                        409 -> "You are already logged in on another device"
+                        500 -> "Something went wrong, try again!"
+                        else -> "Make sure you are connected to the internet and try again!"
+
+                    }
+                    uiThread {
+                        toast(error)
+                        Log.d("Login Error", login_response.code().toString())
+                    }
+                }
+            } else {
+                val error = when (register_response.code()) {
+                    400 -> "Bad Request"
+                    401 -> "Invalid credentials"
+                    404 -> "Resource not found"
+                    409 -> "You are already logged in on another device"
+                    500 -> "Something went wrong, try again!"
+                    else -> "Make sure you are connected to the internet and try again!"
+
+                }
+                uiThread {
+                    progressDialog.cancel()
+                    onSignupFailed(error)
+                }
+            }
         }
     }
 
-
-    fun onSignupSuccess() {
-        _register_button!!.isEnabled = true
-        Toast.makeText(baseContext, "Welcome!", Toast.LENGTH_LONG).show()
-    }
-
-    fun onSignupFailed() {
-        Toast.makeText(baseContext, "Signup Failed", Toast.LENGTH_LONG).show()
-
+    fun onSignupFailed(error: String? = "") {
+        Log.d("Signup Activity", "Signup Failed" + error)
+        Toast.makeText(baseContext, "Signup Failed" + error, Toast.LENGTH_LONG).show()
         _register_button!!.isEnabled = true
     }
 

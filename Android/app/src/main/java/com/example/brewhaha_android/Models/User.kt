@@ -15,19 +15,19 @@ data class BreweryManager(
 
 data class User(
     val username: String,
-    val name: Name?= null,
-    val email: String?= null,
-    val breweryManager: BreweryManager? = null,
-    val location: String? = null
+    val name: Name,
+    val email: String,
+    val breweryManager: BreweryManager? = BreweryManager(false, ""),
+    val location: String? = ""
 )
 
 data class UserWithPassword(
     val username: String,
-    val name: Name?= null,
-    val email: String?= null,
+    val name: Name,
+    val email: String,
     val password: String,
-    val breweryManager: BreweryManager? = null,
-    val location: String? = null
+    val breweryManager: BreweryManager? = BreweryManager(false, ""),
+    val location: String? = ""
 )
 
 data class LoginUser(
