@@ -76,7 +76,8 @@ module.exports = {
                     } else {
                         let response = {
                             token: token,
-                            refreshToken: refreshToken
+                            refreshToken: refreshToken,
+                            userId: authEntity.user._id
                         };
                         callback(null, response)
                     }
