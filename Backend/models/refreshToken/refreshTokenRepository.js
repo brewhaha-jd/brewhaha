@@ -18,5 +18,11 @@ module.exports = {
 		RefreshToken.updateOne({refreshToken: refreshToken}, {createdAt: newCreatedAt}, function (err) {
 			callback(err)
 		})
+	},
+
+	deleteByUser: function (userId, callback) {
+		RefreshToken.deleteOne({user: userId}, function (err) {
+			callback(err)
+		})
 	}
 };

@@ -33,6 +33,15 @@ router.post('/token', function (req, res, next) {
     });
 });
 
+router.post('/logout', function (req, res, next) {
+    authService.logout(req.body.userId, function (err) {
+        res.locals.err = err;
+        res.locals.statusCode = 204;
+        // res.locals.response = 'user logged out';
+        next()
+    })
+});
+
 
 
 router.use(function (req, res) {
