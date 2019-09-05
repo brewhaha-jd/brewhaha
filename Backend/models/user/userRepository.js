@@ -21,5 +21,11 @@ module.exports = {
 		entity.save(function (err, entity) {
             callback(err, entity);
 		});
-	}
+	},
+
+    delete: function (userId, callback) {
+        User.deleteOne({_id: userId}, function (err) {
+            callback(err)
+        })
+    }
 };

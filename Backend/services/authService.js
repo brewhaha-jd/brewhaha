@@ -12,16 +12,23 @@ const
 
 module.exports = {
     create: function (authResource, callback) {
-        authResource.password = hasher.generate(authResource.password);
-        authRepo.create(authResource, function (mongoErr) {
-            if (mongoErr) {
-                errorHandler.throwError(mongoErr, function (err) {
-                    callback(err)
-                })
-            } else {
-                callback(null)
-            }
-        })
+        try {
+            authResource.password = hasher.generate(authResource.password);
+            authRepo.create(authResource, function (mongoErr) {
+                if (mongoErr) {
+                    errorHandler.throwError(mongoErr, function (err) {
+                        callback(err)
+                    })
+                } else {
+                    callback(null)
+                }
+            })
+        } catch (e) {
+            userRepo.delete(authResource.user, function (err) {
+                if (err) console.log(err);
+                callback(e)
+            })
+        }
     },
 
     logout: function (userId, callback) {

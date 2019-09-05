@@ -9,6 +9,9 @@ module.exports = {
         if (errorIn.code === 11000) { //mongo error
             err.statusCode = 409;
             err.response = errorIn.errmsg;
+        } else if (errorIn.message === "Invalid password") {
+            err.statusCode = 400;
+            err.response = errorIn.message;
         } else {
             console.log(errorIn)
         }
