@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.example.brewhaha_android">
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
             android:allowBackup="true"
@@ -12,6 +13,7 @@
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar.Bridge">
         <activity android:name=".Controllers.MainActivity"></activity>
         <activity android:name=".Controllers.RegisterActivity"></activity>
+        <activity android:name=".Controllers.HomeActivity"></activity>
         <activity android:name=".Controllers.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
