@@ -24,6 +24,18 @@ module.exports = {
         })
     },
 
+    logout: function (userId, callback) {
+        refreshTokenRepo.deleteByUser(userId, function (mongoErr) {
+            if (mongoErr) {
+                errorHandler.throwError(mongoErr, function (err) {
+                    callback(err)
+                })
+            } else {
+                callback(null)
+            }
+        })
+    },
+
     authenticate: function (username, password, callback) {
         authRepo.getByUsernameAndPopulateUser(username, function (mongoErr, authEntity) {
             if (mongoErr) {
