@@ -4,30 +4,45 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 data class Name(
+    @SerializedName("firstName")
     val firstName: String,
+    @SerializedName("lastName")
     val lastName: String
 )
 
 data class BreweryManager(
+    @SerializedName("isManager")
     val isManager: Boolean,
+    @SerializedName("brewery")
     val brewery: String
 )
 
 data class User(
+    @SerializedName("username")
     val username: String,
+    @SerializedName("name")
     val name: Name,
+    @SerializedName("email")
     val email: String,
-    val breweryManager: BreweryManager? = BreweryManager(false, ""),
-    val location: String? = ""
+    @SerializedName("breweryManager")
+    val breweryManager: BreweryManager = BreweryManager(false, ""),
+    @SerializedName("location")
+    val location: String = ""
 )
 
 data class UserWithPassword(
+    @SerializedName("username")
     val username: String,
+    @SerializedName("name")
     val name: Name,
+    @SerializedName("email")
     val email: String,
+    @SerializedName("password")
     val password: String,
-    val breweryManager: BreweryManager? = BreweryManager(false, ""),
-    val location: String? = ""
+    @SerializedName("breweryManager")
+    val breweryManager: BreweryManager = BreweryManager(false, ""),
+    @SerializedName("location")
+    val location: String = ""
 )
 
 data class LoginUser(
