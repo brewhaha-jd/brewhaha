@@ -7,8 +7,6 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.brewhaha_android.Api.BackendConnection
 import com.example.brewhaha_android.R
-import android.widget.Button
-import android.widget.EditText
 import androidx.core.os.bundleOf
 import com.example.brewhaha_android.Models.LoginUser
 import com.google.android.material.button.MaterialButton
@@ -19,10 +17,10 @@ import org.jetbrains.anko.uiThread
 
 class LoginActivity(private val api: BackendConnection = BackendConnection()) : AppCompatActivity() {
 
-    var _register_button: Button? = null
-    var _login_button: Button? = null
-    var _email_text: EditText? = null
-    var _password_text: EditText? = null
+    var _register_button: MaterialButton? = null
+    var _login_button: MaterialButton? = null
+    var _username_text: TextInputEditText? = null
+    var _password_text: TextInputEditText? = null
 
     //TODO: make the user automatically login if a refresh token is saved
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +29,7 @@ class LoginActivity(private val api: BackendConnection = BackendConnection()) : 
 
         _register_button = findViewById<MaterialButton>(R.id.registerButton)
         _login_button = findViewById<MaterialButton>(R.id.loginButton)
-        _email_text = findViewById<TextInputEditText>(R.id.emailText)
+        _username_text = findViewById<TextInputEditText>(R.id.usernameText)
         _password_text = findViewById<TextInputEditText>(R.id.passwordText)
 
         _register_button!!.setOnClickListener {
@@ -43,7 +41,7 @@ class LoginActivity(private val api: BackendConnection = BackendConnection()) : 
     }
 
     fun loginButtonClicked() {
-        var username = _email_text?.text.toString()
+        var username = _username_text?.text.toString()
         var password = _password_text?.text.toString()
 
         if (!validate(username, password)) {

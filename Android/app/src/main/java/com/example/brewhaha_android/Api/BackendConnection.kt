@@ -30,7 +30,7 @@ class BackendConnection {
         backendApi = retrofit.create(BackendInterface::class.java)
     }
 
-    fun getUser(token: AuthToken, userId: Int) : Call<User> {
+    fun getUser(token: AuthToken, userId: String) : Call<User> {
         return backendApi.getUser(token.token, userId)
     }
 
@@ -38,7 +38,7 @@ class BackendConnection {
         return backendApi.login("application/json", user)
     }
 
-    fun register(user: UserWithPassword) : Call<String> {
+    fun register(user: UserWithPassword) : Call<User> {
         return backendApi.registerUser("application/json", user)
     }
 }

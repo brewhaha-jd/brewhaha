@@ -9,13 +9,13 @@ import retrofit2.http.*
 
 interface BackendInterface {
     @GET("api/user")
-    fun getAllUsers(@Header("x-access-token") accessToken: String, @Path("id") id: Int) : Call<User>
+    fun getAllUsers(@Header("x-access-token") accessToken: String) : Call<User>
 
     @GET("api/user/{id}")
-    fun getUser(@Header("x-access-token") accessToken: String, @Path("id") id: Int) : Call<User>
+    fun getUser(@Header("x-access-token") accessToken: String, @Path("id") id: String) : Call<User>
 
     @POST("auth/createUser")
-    fun registerUser(@Header("Content-type") contentType: String, @Body user: UserWithPassword) : Call<String>
+    fun registerUser(@Header("Content-type") contentType: String, @Body user: UserWithPassword) : Call<User>
 
     @POST("auth/login")
     fun login(@Header("Content-type") contentType: String, @Body user: LoginUser) : Call<AuthToken>
