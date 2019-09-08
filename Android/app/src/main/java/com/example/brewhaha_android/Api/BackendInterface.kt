@@ -1,9 +1,6 @@
 package com.example.brewhaha_android.Api
 
-import com.example.brewhaha_android.Models.AuthToken
-import com.example.brewhaha_android.Models.LoginUser
-import com.example.brewhaha_android.Models.User
-import com.example.brewhaha_android.Models.UserWithPassword
+import com.example.brewhaha_android.Models.*
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -19,4 +16,7 @@ interface BackendInterface {
 
     @POST("auth/login")
     fun login(@Header("Content-type") contentType: String, @Body user: LoginUser) : Call<AuthToken>
+
+    @POST("auth/logout")
+    fun logout(@Header("Content-type") contentType: String, @Body user: LogoutUser) : Call<Void>
 }

@@ -54,3 +54,9 @@ data class LoginUser(
     @Expose
     val password: String
 )
+
+data class LogoutUser(
+    @SerializedName("userId")
+    @Expose
+    val userId: String
+)

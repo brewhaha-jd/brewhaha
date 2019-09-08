@@ -92,7 +92,8 @@ class RegisterActivity(private val api: BackendConnection = BackendConnection())
 
                             var bundle = bundleOf(
                                 "token" to token.token,
-                                "refreshToken" to token.refreshToken
+                                "refreshToken" to token.refreshToken,
+                                "id" to token.userId
                             )
                             val intent = Intent(baseContext, HomeActivity::class.java)
                             intent.putExtra("bundle", bundle)
@@ -102,7 +103,7 @@ class RegisterActivity(private val api: BackendConnection = BackendConnection())
                         val error = when (login_response.code()) {
                             400 -> "Bad Request"
                             401 -> "Invalid credentials"
-                            404 -> "Resource not found"
+                            404 -> "Invalid Username"
                             409 -> "You are already logged in on another device"
                             500 -> "Something went wrong, try again!"
                             else -> "Make sure you are connected to the internet and try again!"

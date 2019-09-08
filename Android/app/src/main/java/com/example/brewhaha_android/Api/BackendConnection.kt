@@ -1,9 +1,6 @@
 package com.example.brewhaha_android.Api
 
-import com.example.brewhaha_android.Models.AuthToken
-import com.example.brewhaha_android.Models.LoginUser
-import com.example.brewhaha_android.Models.User
-import com.example.brewhaha_android.Models.UserWithPassword
+import com.example.brewhaha_android.Models.*
 import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Retrofit
@@ -40,5 +37,9 @@ class BackendConnection {
 
     fun register(user: UserWithPassword) : Call<User> {
         return backendApi.registerUser("application/json", user)
+    }
+
+    fun logout(user: LogoutUser) : Call<Void> {
+        return backendApi.logout("application/json", user)
     }
 }
