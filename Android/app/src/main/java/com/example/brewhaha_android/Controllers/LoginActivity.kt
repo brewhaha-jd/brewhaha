@@ -70,10 +70,12 @@ class LoginActivity(private val api: BackendConnection = BackendConnection()) : 
                     var editor = sharedPref.edit()
                     editor.putString("token", token.token)
                     editor.putString("refreshToken", token.refreshToken)
+                    Log.d("Login Id", token.userId)
+                    editor.putString("id", token.userId)
                     editor.commit()
                     //TODO: when the user logs out clear this
 
-                    var bundle = bundleOf("token" to token.token, "refreshToken" to token.refreshToken)
+                    var bundle = bundleOf("token" to token.token, "refreshToken" to token.refreshToken, "id" to token.userId)
                     val intent = Intent(baseContext, HomeActivity::class.java)
                     intent.putExtra("bundle", bundle)
                     startActivity(intent)

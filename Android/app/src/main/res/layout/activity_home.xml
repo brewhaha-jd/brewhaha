@@ -15,6 +15,26 @@
             android:layout_marginRight="24dp"
             android:layout_marginTop="56dp">
 
+        <com.google.android.material.button.MaterialButton
+                android:id="@+id/logoutButton"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:padding="12dp"
+                app:backgroundTint="@color/colorAccent"
+                android:text="Logout" />
+
+        <com.google.android.material.textview.MaterialTextView
+                android:text=""
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:id="@+id/userIdTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="50dp"/>
+
         <com.google.android.material.textview.MaterialTextView
                 android:text=""
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
