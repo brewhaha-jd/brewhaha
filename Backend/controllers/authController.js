@@ -8,48 +8,47 @@ let router = express.Router();
 
 router.post('/createUser', function (req, res, next) {
     userService.createUserAndAuth(req.body, function (err, userEntity) {
-        res.locals.err = err;
-        res.locals.statusCode = 201;
-        if (userEntity !== null) {
-            res.locals.response = "/api/user/" + userEntity._id;
-            res.status(res.locals.statusCode).json({userLink: res.locals.response})
+        if (err) {
+            next(err);
         } else {
-            next()
+            let userLink = "/api/user/" + userEntity._id;
+            res.status(201).json({userLink: userLink})
         }
     });
 });
 
 router.post('/login', function (req, res, next) {
-    authService.authenticate(req.body.username, req.body.password, function (err, tokens) {
-        res.locals.err = err;
-        res.locals.statusCode = 200;
-        res.locals.response = tokens;
-        next()
+    authService.authenticate(req.body.username, req.body.password, function (err, response) {
+        if (err) {
+            next(err);
+        } else {
+            res.status(200).json(response)
+        }
     });
 });
 
 router.post('/token', function (req, res, next) {
     authService.useRefreshToken(req.body.refreshToken, req.body.username, function (err, newToken) {
-        res.locals.err = err;
-        res.locals.statusCode = 202;
-        res.locals.response = newToken;
-        next()
+        if (err) {
+            next(err);
+        } else {
+            res.status(202).json({token: newToken})
+        }
     });
 });
 
 router.post('/logout', function (req, res, next) {
     authService.logout(req.body.userId, function (err) {
-        res.locals.err = err;
-        res.locals.statusCode = 204;
-        // res.locals.response = 'user logged out';
-        next()
+        if (err) {
+            next(err);
+        } else {
+            res.status(204).send()
+        }
     })
 });
 
-
-
-router.use(function (req, res) {
-    errorChecking.checkErrors(req, res)
+router.use(function (err, req, res, next) {
+    errorChecking.sendApiError(err, req, res)
 });
 
 module.exports = router;
