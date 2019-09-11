@@ -13,24 +13,26 @@ router.use(function (req, res, next) {
 
 router.get('/', function (req, res, next) {
     userService.getAll(function (err, userEntities) {
-        res.locals.err = err;
-        res.locals.statusCode = 200;
-        res.locals.response = userEntities;
-        next()
+        if (err) {
+            next(err);
+        } else {
+            res.status(200).json(userEntities)
+        }
     });
 });
 
 router.get('/:id', function (req, res, next) {
     userService.getById(req.params.id, function (err, userEntity) {
-        res.locals.err = err;
-        res.locals.statusCode = 200;
-        res.locals.response = userEntity;
-        next()
+        if (err) {
+            next(err);
+        } else {
+            res.status(200).json(userEntity)
+        }
     });
 });
 
-router.use(function (req, res) {
-    errorChecking.checkErrors(req, res)
+router.use(function (err, req, res, next) {
+    errorChecking.sendApiError(err, req, res)
 });
 
 module.exports = router;

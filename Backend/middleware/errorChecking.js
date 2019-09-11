@@ -20,7 +20,10 @@ function checkKnownErrors(err) {
     if (err.code) {
         switch (err.code) {
             case "ER_DUP_ENTRY":
-                err.statusCode = 409
+                err.statusCode = 409;
+            case 11000:
+                err.statusCode = 409;
+                err.message = err.errmsg;
         }
     }
     return err;

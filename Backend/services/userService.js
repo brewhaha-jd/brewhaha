@@ -7,38 +7,23 @@ const
 module.exports = {
 	getAll: function (callback) {
 		userRepo.getAll(function (mongoErr, entities) {
-			if (mongoErr) {
-				errorHandler.throwError(mongoErr, function (err) {
-					callback(err)
-				})
-			} else {
-				callback(null, entities)
-			}
+			callback(mongoErr, entities);
 		})
 	},
 
 	getById: function (id, callback) {
-		userRepo.getById(id, function (mongoErr, entity) {
-			if (mongoErr) {
-				errorHandler.throwError(mongoErr, function (err) {
-					callback(err)
-				})
-			} else if (entity === null) {
-				errorHandler.throwMongoNotFound(function (err) {
-					callback(err)
-				})
-			} else {
-				callback(null, entity)
+		userRepo.getById(id, function (err, entity) {
+			if (entity == null && err != null) {
+				err = errorHandler.throwMongoNotFoundError();
 			}
+			callback(err, entity);
 		})
 	},
 
 	createUserAndAuth: function (resource, callback) {
 		userRepo.create(resource, function (mongoUserErr, userEntity) {
-			if(mongoUserErr) {
-				errorHandler.throwError(mongoUserErr, function (err) {
-					callback(err, null)
-				})
+			if (mongoUserErr) {
+				callback(mongoUserErr, null)
 			} else {
 				let authResource = new Auth({
 					username: userEntity.username,
@@ -47,9 +32,7 @@ module.exports = {
 				});
 				authService.create(authResource, function (mongoAuthErr) {
 					if (mongoAuthErr) {
-						errorHandler.throwError(mongoAuthErr, function (err) {
-							callback(err, null)
-						})
+						callback(mongoAuthErr, null)
 					} else {
 						callback(null, userEntity)
 					}
