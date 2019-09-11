@@ -33,15 +33,16 @@ module.exports = {
 
     authenticate: function (username, password, callback) {
         authRepo.getByUsernameAndPopulateUser(username, function (err, authEntity) {
-            if (authEntity == null && err !== null) {
+            if (authEntity == null && err == null) {
                 err = errorHandler.throwMongoNotFoundError();
-            } else if(hasher.verify(password, authEntity.password) === false) {
+            } else if(authEntity != null && hasher.verify(password, authEntity.password) === false) {
                 err = errorHandler.throwInvalidAuthentication();
             }
 
             if (err) {
                 callback(err, null)
             } else {
+                // noinspection JSObjectNullOrUndefined
                 let token = jwt.sign(authEntity.user.toJSON(), global.config.tokenSecret, {
                     expiresIn: global.config.tokenExpiresIn
                 });

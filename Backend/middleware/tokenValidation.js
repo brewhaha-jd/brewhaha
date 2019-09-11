@@ -4,7 +4,7 @@ const
 
 module.exports = {
     validateToken: function (req, res, next) {
-        var token = req.headers['x-access-token'];
+        let token = req.headers['x-access-token'];
         if(token) {
             jwt.verify(token, global.config.tokenSecret, function (err, decoded) {
                 if (err) {
