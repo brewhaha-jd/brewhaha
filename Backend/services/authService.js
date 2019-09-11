@@ -15,50 +15,34 @@ module.exports = {
         try {
             authResource.password = hasher.generate(authResource.password);
             authRepo.create(authResource, function (mongoErr) {
-                if (mongoErr) {
-                    errorHandler.throwError(mongoErr, function (err) {
-                        callback(err)
-                    })
-                } else {
-                    callback(null)
-                }
+                callback(mongoErr, null)
             })
         } catch (e) {
             userRepo.delete(authResource.user, function (err) {
                 if (err) console.log(err);
-                callback(e)
+                callback(e, null)
             })
         }
     },
 
     logout: function (userId, callback) {
         refreshTokenRepo.deleteByUser(userId, function (mongoErr) {
-            if (mongoErr) {
-                errorHandler.throwError(mongoErr, function (err) {
-                    callback(err)
-                })
-            } else {
-                callback(null)
-            }
+            callback(mongoErr, null);
         })
     },
 
     authenticate: function (username, password, callback) {
-        authRepo.getByUsernameAndPopulateUser(username, function (mongoErr, authEntity) {
-            if (mongoErr) {
-                errorHandler.throwError(function (err) {
-                    callback(err, null)
-                });
-                callback(mongoErr)
-            } else if (authEntity == null) {
-                errorHandler.throwMongoNotFound(function (err) {
-                    callback(err, null);
-                })
-            } else if(hasher.verify(password, authEntity.password) === false) {
-                errorHandler.throwInvalidAuthentication(function (err) {
-                    callback(err, null);
-                });
+        authRepo.getByUsernameAndPopulateUser(username, function (err, authEntity) {
+            if (authEntity == null && err == null) {
+                err = errorHandler.throwMongoNotFoundError();
+            } else if(authEntity != null && hasher.verify(password, authEntity.password) === false) {
+                err = errorHandler.throwInvalidAuthentication();
+            }
+
+            if (err) {
+                callback(err, null)
             } else {
+                // noinspection JSObjectNullOrUndefined
                 let token = jwt.sign(authEntity.user.toJSON(), global.config.tokenSecret, {
                     expiresIn: global.config.tokenExpiresIn
                 });
@@ -70,9 +54,7 @@ module.exports = {
                 });
                 refreshTokenRepo.create(refreshTokenEntity, function (mongoRefreshTokenError) {
                     if(mongoRefreshTokenError) {
-                        errorHandler.throwError(mongoRefreshTokenError, function (err) {
-                            callback(err, null)
-                        })
+                        callback(mongoRefreshTokenError, null)
                     } else {
                         let response = {
                             token: token,
@@ -89,30 +71,19 @@ module.exports = {
     useRefreshToken: function (refreshToken, username, callback) {
         refreshTokenRepo.getByRefreshToken(refreshToken, function (mongoErr, entity) {
             if (mongoErr) {
-                errorHandler.throwError(function (err) {
-                    callback(err, null)
-                });
-                callback(mongoErr)
+                callback(mongoErr, null);
             } else if (entity == null) {
-                errorHandler.throwMongoNotFound(function (err) {
-                    callback(err, null);
-                })
+                let err = errorHandler.throwMongoNotFoundError();
+                callback(err, null);
             } else if (entity.user.username !== username) {
-                errorHandler.throwInvalidAuthentication(function (err) {
-                    callback(err, null)
-                })
+                let err = errorHandler.throwInvalidAuthentication();
+                callback(err, null);
             } else {
                 let token = jwt.sign(entity.user.toJSON(), global.config.tokenSecret, {
                     expiresIn: global.config.tokenExpiresIn
                 });
                 refreshTokenRepo.updateCreatedAt(refreshToken, new Date().toISOString(), function (createErr) {
-                    if(createErr) {
-                        errorHandler.throwError(createErr, function (err) {
-                            callback(err, null);
-                        })
-                    } else {
-                        callback(null, token)
-                    }
+                    callback(createErr, token);
                 })
             }
         })

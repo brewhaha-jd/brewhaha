@@ -18,22 +18,6 @@ module.exports = {
         callback(err);
     },
 
-    throwMongoNotFound: function (callback) {
-        let err = {
-            statusCode: 404,
-            response: "The requested resource does not exist"
-        };
-        callback(err);
-    },
-
-    throwInvalidAuthentication: function (callback) {
-        let err = {
-            statusCode: 401,
-            response: "Invalid credentials"
-        };
-        callback(err);
-    },
-
     throwNoTokenProvidedError: function (callback) {
         let err = {
             statusCode: 403,
@@ -41,4 +25,16 @@ module.exports = {
         };
         callback(err);
     },
+
+    throwMongoNotFoundError: function () {
+        let err = new Error("The requested resource does not exist");
+        err.statusCode = 404;
+        return err;
+    },
+
+    throwInvalidAuthentication: function () {
+        let err = new Error("Invalid credentials");
+        err.statusCode = 401;
+        return err;
+    }
 };
