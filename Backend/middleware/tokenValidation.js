@@ -8,18 +8,15 @@ module.exports = {
         if(token) {
             jwt.verify(token, global.config.tokenSecret, function (err, decoded) {
                 if (err) {
-                    errorHandler.throwInvalidAuthentication(function (err) {
-                        res.status(err.statusCode).send(err.response)
-                    })
+                    err = errorHandler.throwInvalidAuthentication();
+                    next(err)
                 } else {
                     req.decoded = decoded;
                     next();
                 }
             })
         } else {
-            errorHandler.throwNoTokenProvidedError(function (err) {
-                res.status(err.statusCode).send(err.response)
-            })
+            next(errorHandler.throwNoTokenProvidedError())
         }
     }
 };
