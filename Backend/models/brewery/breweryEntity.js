@@ -49,14 +49,17 @@ const brewerySchema = mongoose.Schema({
 			type: String,
 			required: true
 		},
-		latitude: {
-			type: Number,
-			required: true
-		},
-		longitude: {
-			type: Number,
-			required: true
-		},
+		location: {
+			type: {
+				type: String, // Don't do `{ location: { type: String } }`
+				enum: ['Point'], // 'location.type' must be 'Point'
+				required: true
+			},
+			coordinates: {
+				type: [Number],
+				required: true
+			}
+		}
 	},
 	operatingHours: {},
 	website: {

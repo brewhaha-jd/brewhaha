@@ -69,6 +69,13 @@ Returns: 200
 
     {
         "address": {
+            "location": {
+                "coordinates": [
+                    -84.3620936,
+                    33.8503143
+                ],
+                "type": "Point"
+            },
             "number": 3179,
             "line1": "Peachtree Road Northeast",
             "line2": null,
@@ -78,9 +85,7 @@ Returns: 200
             "county": "Fulton County",
             "country": "USA",
             "postalCode": 30305,
-            "telephone": "4042314201",
-            "latitude": 33.8503143,
-            "longitude": -84.3620936
+            "telephone": "4042314201"
         },
         "friendlinessRating": {
             "aggregate": null,
@@ -89,7 +94,7 @@ Returns: 200
             "bathrooms": null,
             "minRecommendedAge": null
         },
-        "_id": "5d799961b1564359df38add1",
+        "_id": "5d79bb022c8a1a5bccbdf22f",
         "name": "Moondogs",
         "website": "https://moondogs.club",
         "__v": 0
