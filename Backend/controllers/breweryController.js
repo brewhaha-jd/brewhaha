@@ -14,6 +14,8 @@ router.use(function (req, res, next) {
 router.get('/', function (req, res, next) {
     if(req.query.location && req.query.range) {
         locationQuery(req, res, next)
+    } else if (req.query.ratingType && req.query.rating) {
+        ratingQuery(req, res, next)
     } else {
         breweryService.getAll(function (err, breweryEntities) {
             if (err) {
@@ -54,7 +56,19 @@ router.use(function (err, req, res, next) {
 module.exports = router;
 
 function locationQuery(req, res, next) {
-    breweryService.getBreweriesNearLocation(req.query.location.split(","), req.query.range, true, function (err, entities) {
+    breweryService.getBreweriesNearLocation(req.query.location.split(","), req.query.range, true,
+        function (err, entities) {
+        if (err) {
+            next(err)
+        } else {
+            res.status(200).json(entities)
+        }
+    })
+}
+
+function ratingQuery(req, res, next) {
+    breweryService.getBreweriesByRatings(req.query.ratingType, req.query.rating, true,
+        function (err, entities) {
         if (err) {
             next(err)
         } else {

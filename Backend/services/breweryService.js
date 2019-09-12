@@ -73,5 +73,22 @@ module.exports = {
 		breweryRepo.getByQuery(query, function (err, entities) {
 			callback(err, entities)
 		})
+	},
+
+	getBreweriesByRatings: function (ratingType, rating, sorted = true, callback) {
+		let query = {};
+		if (ratingType === "minRecommendedAge") {
+			query["friendlinessRating." + ratingType] = {
+				$lte: rating
+			};
+		} else {
+			query["friendlinessRating." + ratingType] = {
+				$gte: rating
+			};
+		}
+
+		breweryRepo.getByQuery(query, function (err, entities) {
+			callback(err, entities)
+		})
 	}
 };

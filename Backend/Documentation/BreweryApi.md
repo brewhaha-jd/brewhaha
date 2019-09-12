@@ -241,6 +241,53 @@ Returns: 200
             "__v": 0
         }
     ]
+    
+ ### Query Brewery By Ratings
+ `GET localhost:3000/api/brewery?ratingType=<ratingType>&rating=<rating>`
+   
+RatingType can be :
+- aggregate: actual > query
+- kidsFood: actual > query
+- kidsEntertainment: actual > query
+- bathrooms: actual > query
+- minRecommendedAge: actual < query
+ 
+ Returns: 200
+
+    [
+        {
+            "address": {
+                "location": {
+                    "coordinates": [
+                        -84.3620936,
+                        33.8503143
+                    ],
+                    "type": "Point"
+                },
+                "number": 3179,
+                "line1": "Peachtree Road Northeast",
+                "line2": null,
+                "line3": null,
+                "city": "Atlanta",
+                "stateOrProvince": "Georgia",
+                "county": "Fulton County",
+                "country": "USA",
+                "postalCode": 30305,
+                "telephone": "4042314201"
+            },
+            "friendlinessRating": {
+                "aggregate": 4.1,
+                "kidsFood": 2,
+                "kidsEntertainment": 2.5,
+                "bathrooms": 5,
+                "minRecommendedAge": 15
+            },
+            "_id": "5d79d4a7859843c95ec78ae5",
+            "name": "Moondogs",
+            "website": "https://moondogs.club",
+            "__v": 0
+        }
+    ]
 
 
 
