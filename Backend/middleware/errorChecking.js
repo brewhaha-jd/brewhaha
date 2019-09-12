@@ -25,6 +25,13 @@ function checkKnownErrors(err) {
                 err.statusCode = 409;
                 err.message = err.errmsg;
         }
+    } else if (err.name) {
+        switch (err.name) {
+            case "CastError":
+                err.statusCode = 400;
+                err.message = "Mongo Casting Error";
+                console.error(err)
+        }
     }
     return err;
 }

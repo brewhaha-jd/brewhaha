@@ -44,5 +44,34 @@ module.exports = {
 				})
 			}
 		});
+	},
+
+	getBreweriesNearLocation: function (location, rangeInMiles, sorted=true, callback) {
+		let query = null;
+		if (sorted) {
+			const METERS_PER_MILE = 1609.34;
+			query = {
+				"address.location": {
+					$nearSphere: {
+						$geometry: {
+							type: "Point",
+							coordinates: location
+						},
+						$maxDistance: rangeInMiles * METERS_PER_MILE
+					}
+				}
+			}
+		} else {
+			query = {
+				"address.location": {
+					$geoWithin: {
+						$centerSphere: [ location, rangeInMiles / 3963.2 ]
+					}
+				}
+			}
+		}
+		breweryRepo.getByQuery(query, function (err, entities) {
+			callback(err, entities)
+		})
 	}
 };
