@@ -90,5 +90,18 @@ module.exports = {
 		breweryRepo.getByQuery(query, function (err, entities) {
 			callback(err, entities)
 		})
-	}
+	},
+
+    getBreweriesBySearchingName: function (search, callback) {
+        let query = [{
+            $match: {
+                name: {
+                    $regex: search, '$options': 'i'
+                }
+            }
+        }];
+        breweryRepo.getByAggregate(query, function (err, entities) {
+            callback(err, entities)
+        })
+    }
 };
