@@ -8,6 +8,13 @@ Returns: 200
     [
         {
             "address": {
+                "location": {
+                    "coordinates": [
+                        -84.3620936,
+                        33.8503143
+                    ],
+                    "type": "Point"
+                },
                 "number": 3179,
                 "line1": "Peachtree Road Northeast",
                 "line2": null,
@@ -17,9 +24,7 @@ Returns: 200
                 "county": "Fulton County",
                 "country": "USA",
                 "postalCode": 30305,
-                "telephone": "4042314201",
-                "latitude": 33.8503143,
-                "longitude": -84.3620936
+                "telephone": "4042314201"
             },
             "friendlinessRating": {
                 "aggregate": null,
@@ -28,15 +33,22 @@ Returns: 200
                 "bathrooms": null,
                 "minRecommendedAge": null
             },
-            "_id": "5d799961b1564359df38add1",
+            "_id": "5d79bb022c8a1a5bccbdf22f",
             "name": "Moondogs",
             "website": "https://moondogs.club",
             "__v": 0
         },
         {
             "address": {
-                "number": 3177,
-                "line1": "Peachtree Road Northeast",
+                "location": {
+                    "coordinates": [
+                        -84.3794737,
+                        33.8420218
+                    ],
+                    "type": "Point"
+                },
+                "number": 3182,
+                "line1": "Roswell Road",
                 "line2": null,
                 "line3": null,
                 "city": "Atlanta",
@@ -44,9 +56,7 @@ Returns: 200
                 "county": "Fulton County",
                 "country": "USA",
                 "postalCode": 30305,
-                "telephone": "4042339801",
-                "latitude": 33.8503143,
-                "longitude": -84.3620936
+                "telephone": "4042543341"
             },
             "friendlinessRating": {
                 "aggregate": null,
@@ -55,9 +65,9 @@ Returns: 200
                 "bathrooms": null,
                 "minRecommendedAge": null
             },
-            "_id": "5d799cfbb1564359df38add2",
-            "name": "The Hole In the Wall",
-            "website": "holeinthewallatlanta.com",
+            "_id": "5d79bed42c8a1a5bccbdf230",
+            "name": "Lost Dog Tavern",
+            "website": "lostdogtavern.com",
             "__v": 0
         }
     ]
