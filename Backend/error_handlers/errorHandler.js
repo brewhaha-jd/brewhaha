@@ -18,12 +18,10 @@ module.exports = {
         callback(err);
     },
 
-    throwNoTokenProvidedError: function (callback) {
-        let err = {
-            statusCode: 403,
-            response: "No token provided"
-        };
-        callback(err);
+    throwNoTokenProvidedError: function () {
+        let err = new Error("No token provided");
+        err.statusCode = 403;
+        return err;
     },
 
     throwMongoNotFoundError: function () {

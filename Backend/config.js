@@ -5,5 +5,9 @@ module.exports = {
 	'mongoConfig'   : 'mongodb://localhost:27017/brewhaha',
 	'tokenSecret'   : 'secretGoesHere!',
 	'tokenExpiresIn': 1140,
-    'refreshTokenExpiresIn': 2592000
+    'refreshTokenExpiresIn': 2592000,
+	'geoCoderConfig': {
+		provider: 'opencage',
+		apiKey: 'API KEY HERE'
+	}
 };
