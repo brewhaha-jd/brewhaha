@@ -15,6 +15,12 @@ module.exports = {
         })
     },
 
+	getByQuery: function(query, callback) {
+    	Brewery.find(query, function (err, entities) {
+			callback(err, entities)
+		})
+	},
+
 	create: function (entity, callback) {
 		entity.save(function (err, entity) {
             callback(err, entity);

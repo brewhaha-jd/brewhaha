@@ -24,8 +24,10 @@ module.exports = {
 				country: resource.address.country,
 				postalCode: resource.address.postalCode,
 				telephone: resource.address.telephone,
-				latitude: resource.address.latitude,
-				longitude: resource.address.longitude,
+				location: {
+					type: "Point",
+					coordinates: [resource.address.longitude, resource.address.latitude]
+				}
 			},
 			operatingHours: resource.operatingHours,
 			website: resource.website,
