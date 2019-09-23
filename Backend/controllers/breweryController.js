@@ -16,6 +16,8 @@ router.get('/', function (req, res, next) {
         locationQuery(req, res, next)
     } else if (req.query.ratingType && req.query.rating) {
         ratingQuery(req, res, next)
+    } else if (req.query.name) {
+        nameQuery(req, res, next)
     } else {
         breweryService.getAll(function (err, breweryEntities) {
             if (err) {
@@ -69,6 +71,16 @@ function locationQuery(req, res, next) {
 function ratingQuery(req, res, next) {
     breweryService.getBreweriesByRatings(req.query.ratingType, req.query.rating, true,
         function (err, entities) {
+        if (err) {
+            next(err)
+        } else {
+            res.status(200).json(entities)
+        }
+    })
+}
+
+function nameQuery(req, res, next) {
+    breweryService.getBreweriesBySearchingName(req.query.name, function (err, entities) {
         if (err) {
             next(err)
         } else {
