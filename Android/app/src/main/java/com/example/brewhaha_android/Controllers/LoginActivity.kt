@@ -11,6 +11,7 @@ import androidx.core.os.bundleOf
 import com.example.brewhaha_android.Models.LoginUser
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
+import kotlinx.android.synthetic.main.activity_register.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.toast
 import org.jetbrains.anko.uiThread

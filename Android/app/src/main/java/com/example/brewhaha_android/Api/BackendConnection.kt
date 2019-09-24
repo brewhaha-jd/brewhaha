@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit
 class BackendConnection {
 
     private val backendApi: BackendInterface
+    private val CONTENT_TYPE: String = "application/json"
 
     init {
         val client = OkHttpClient.Builder()
@@ -32,14 +33,34 @@ class BackendConnection {
     }
 
     fun login(user: LoginUser) : Call<AuthToken> {
-        return backendApi.login("application/json", user)
+        return backendApi.login(CONTENT_TYPE, user)
     }
 
     fun register(user: UserWithPassword) : Call<User> {
-        return backendApi.registerUser("application/json", user)
+        return backendApi.registerUser(CONTENT_TYPE, user)
     }
 
     fun logout(user: LogoutUser) : Call<Void> {
-        return backendApi.logout("application/json", user)
+        return backendApi.logout(CONTENT_TYPE, user)
+    }
+
+    fun getAllBreweries(token: AuthToken) : Call<List<Brewery>> {
+        return backendApi.getAllBreweries(token.token)
+    }
+
+    fun getBreweryById(token: AuthToken, id: String) : Call<Brewery> {
+        return backendApi.getBrewery(token.token, id)
+    }
+
+    fun getBreweryByName(token: AuthToken, name: String) : Call<Brewery> {
+        return backendApi.getBreweryByName(token.token, name)
+    }
+
+    fun getBreweryByRating(token: AuthToken, type: RatingType, rating: Float) : Call<List<Brewery>> {
+        return backendApi.getBreweryByRating(token.token, type, rating)
+    }
+
+    fun getBreweryByLocation(token: AuthToken, long: Double, lat: Double, miles: Double) : Call<List<Brewery>> {
+        return backendApi.getBreweryByLocation(token.token, long, lat, miles)
     }
 }

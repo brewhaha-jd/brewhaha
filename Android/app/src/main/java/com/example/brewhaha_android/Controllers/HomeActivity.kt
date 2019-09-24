@@ -9,36 +9,33 @@ import com.example.brewhaha_android.Api.BackendConnection
 import com.example.brewhaha_android.Models.LogoutUser
 import com.example.brewhaha_android.R
 import com.google.android.material.button.MaterialButton
+import kotlinx.android.synthetic.main.activity_home.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.toast
 import org.jetbrains.anko.uiThread
 
 class HomeActivity(private val api: BackendConnection = BackendConnection()) : AppCompatActivity() {
-    var _token_text: TextView? = null
-    var _refreshToken_text : TextView? = null
-    var _id_text : TextView? = null
     var _logout_button : MaterialButton? = null
+    var _view_brewery_button : MaterialButton? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        _token_text = findViewById<TextView>(R.id.tokenTextView)
-        _refreshToken_text = findViewById<TextView>(R.id.refreshTokenTextView)
-        _id_text = findViewById(R.id.userIdTextView)
         _logout_button = findViewById<MaterialButton>(R.id.logoutButton)
+        _view_brewery_button = findViewById(R.id.viewBreweries)
 
         var tokenBundle = intent.getBundleExtra("bundle")
         var token = tokenBundle["token"] as String
         var refreshToken = tokenBundle["refreshToken"] as String
         var userId = tokenBundle["id"] as String
 
-        _token_text!!.text = token
-        _refreshToken_text!!.text = refreshToken
-        _id_text!!.text = userId
-
         _logout_button!!.setOnClickListener{
             logout(userId)
+        }
+
+        _view_brewery_button!!.setOnClickListener{
+            viewBreweries(tokenBundle)
         }
 
     }
@@ -70,5 +67,11 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
                 }
             }
         }
+    }
+
+    fun viewBreweries(tokenBundle: Bundle) {
+        val intent = Intent(baseContext, ViewBreweryActivity::class.java)
+        intent.putExtra("bundle", tokenBundle)
+        startActivity(intent)
     }
 }

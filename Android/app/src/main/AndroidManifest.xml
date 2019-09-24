@@ -14,6 +14,7 @@
         <activity android:name=".Controllers.MainActivity"></activity>
         <activity android:name=".Controllers.RegisterActivity"></activity>
         <activity android:name=".Controllers.HomeActivity"></activity>
+        <activity android:name=".Controllers.ViewBreweryActivity"></activity>
         <activity android:name=".Controllers.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
