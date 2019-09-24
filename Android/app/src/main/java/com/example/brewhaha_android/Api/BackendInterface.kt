@@ -29,12 +29,12 @@ interface BackendInterface {
     @PUT("brewery")
     fun addBrewery(@Header("x-access-token") accessToken: String, @Header("Content-type") contentType: String, @Body brewery: AddBrewery) : Call<Map<String, String>>
 
-    @GET("brewery?name={Name}")
-    fun getBreweryByName(@Header("x-access-token") accessToken: String, @Query("Name") breweryName: String) : Call<Brewery>
+    @GET("brewery")
+    fun getBreweryByName(@Header("x-access-token") accessToken: String, @Query("name") breweryName: String) : Call<List<Brewery>>
 
-    @GET("brewery?ratingType={Type}&rating={Rating}")
-    fun getBreweryByRating(@Header("x-access-token") accessToken: String, @Query("Type") ratingType: RatingType, @Query("Rating") rating: Float) : Call<List<Brewery>>
+    @GET("brewery")
+    fun getBreweryByRating(@Header("x-access-token") accessToken: String, @Query("ratingType") ratingType: RatingType, @Query("rating") rating: Float) : Call<List<Brewery>>
 
-    @GET("brewery?location={Long},{Lat}&miles={Miles}")
-    fun getBreweryByLocation(@Header("x-access-token") accessToken: String, @Query("Long") longitude: Double, @Query("Lat") latitude: Double, @Query("Miles") miles: Double) : Call<List<Brewery>>
+    @GET("brewery")
+    fun getBreweryByLocation(@Header("x-access-token") accessToken: String, @Query("location") location: List<Double>, @Query("miles") miles: Double) : Call<List<Brewery>>
 }

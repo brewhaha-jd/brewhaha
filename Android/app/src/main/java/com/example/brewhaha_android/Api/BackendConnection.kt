@@ -1,5 +1,6 @@
 package com.example.brewhaha_android.Api
 
+import android.util.Log
 import com.example.brewhaha_android.Models.*
 import okhttp3.OkHttpClient
 import retrofit2.Call
@@ -52,7 +53,7 @@ class BackendConnection {
         return backendApi.getBrewery(token.token, id)
     }
 
-    fun getBreweryByName(token: AuthToken, name: String) : Call<Brewery> {
+    fun getBreweryByName(token: AuthToken, name: String) : Call<List<Brewery>> {
         return backendApi.getBreweryByName(token.token, name)
     }
 
@@ -60,7 +61,7 @@ class BackendConnection {
         return backendApi.getBreweryByRating(token.token, type, rating)
     }
 
-    fun getBreweryByLocation(token: AuthToken, long: Double, lat: Double, miles: Double) : Call<List<Brewery>> {
-        return backendApi.getBreweryByLocation(token.token, long, lat, miles)
+    fun getBreweryByLocation(token: AuthToken, location: List<Double>, miles: Double) : Call<List<Brewery>> {
+        return backendApi.getBreweryByLocation(token.token, location, miles)
     }
 }
