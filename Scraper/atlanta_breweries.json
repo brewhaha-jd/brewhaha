@@ -1,0 +1,2055 @@
+{
+    "businesses": [
+        {
+            "id": "mZvBf41nhigQlnjaKQhlGg",
+            "alias": "sweetwater-brewing-company-atlanta",
+            "name": "SweetWater Brewing Company",
+            "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/dmlwFW2xkU1DHRTm0jcgaA/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/sweetwater-brewing-company-atlanta?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 402,
+            "categories": [
+                {
+                    "alias": "breweries",
+                    "title": "Breweries"
+                }
+            ],
+            "rating": 4,
+            "coordinates": {
+                "latitude": 33.8080799,
+                "longitude": -84.38119
+            },
+            "transactions": [],
+            "price": "$",
+            "location": {
+                "address1": "195 Ottley Dr NE",
+                "address2": "",
+                "address3": "",
+                "city": "Atlanta",
+                "zip_code": "30324",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "195 Ottley Dr NE",
+                    "Atlanta, GA 30324"
+                ]
+            },
+            "phone": "+14046912537",
+            "display_phone": "(404) 691-2537",
+            "distance": 898.0920796299743
+        },
+        {
+            "id": "u6r6hyrSZuXZgFcdiHbu3Q",
+            "alias": "monday-night-brewing-atlanta",
+            "name": "Monday Night Brewing",
+            "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/GrdCMc_j6QOmdnmQHUzxtg/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/monday-night-brewing-atlanta?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 193,
+            "categories": [
+                {
+                    "alias": "breweries",
+                    "title": "Breweries"
+                },
+                {
+                    "alias": "tours",
+                    "title": "Tours"
+                }
+            ],
+            "rating": 4.5,
+            "coordinates": {
+                "latitude": 33.794817,
+                "longitude": -84.40992
+            },
+            "transactions": [],
+            "price": "$",
+            "location": {
+                "address1": "670 Trabert Ave NW",
+                "address2": "",
+                "address3": "",
+                "city": "Atlanta",
+                "zip_code": "30318",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "670 Trabert Ave NW",
+                    "Atlanta, GA 30318"
+                ]
+            },
+            "phone": "+14043527703",
+            "display_phone": "(404) 352-7703",
+            "distance": 3928.0368691032145
+        },
+        {
+            "id": "PwcJr_94970pwvd76Fzl6g",
+            "alias": "scofflaw-brewing-atlanta-3",
+            "name": "Scofflaw Brewing",
+            "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/qGYN2bKDxCtCdeXofI73jg/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/scofflaw-brewing-atlanta-3?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 56,
+            "categories": [
+                {
+                    "alias": "breweries",
+                    "title": "Breweries"
+                }
+            ],
+            "rating": 4.5,
+            "coordinates": {
+                "latitude": 33.81333,
+                "longitude": -84.44479
+            },
+            "transactions": [],
+            "price": "$",
+            "location": {
+                "address1": "1738 Macarthur Blvd NW",
+                "address2": "",
+                "address3": null,
+                "city": "Atlanta",
+                "zip_code": "30318",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "1738 Macarthur Blvd NW",
+                    "Atlanta, GA 30318"
+                ]
+            },
+            "phone": "+14043432832",
+            "display_phone": "(404) 343-2832",
+            "distance": 6582.57696119601
+        },
+        {
+            "id": "wTk-wJyrmRycELTSvdaURQ",
+            "alias": "orpheus-brewing-atlanta",
+            "name": "Orpheus Brewing",
+            "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/ODUCn_ztikJ3fax7_9b_OA/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/orpheus-brewing-atlanta?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 116,
+            "categories": [
+                {
+                    "alias": "breweries",
+                    "title": "Breweries"
+                }
+            ],
+            "rating": 4,
+            "coordinates": {
+                "latitude": 33.79325,
+                "longitude": -84.36877
+            },
+            "transactions": [],
+            "price": "$",
+            "location": {
+                "address1": "1440 Dutch Valley Pl NE",
+                "address2": "",
+                "address3": "",
+                "city": "Atlanta",
+                "zip_code": "30324",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "1440 Dutch Valley Pl NE",
+                    "Atlanta, GA 30324"
+                ]
+            },
+            "phone": "+14043471777",
+            "display_phone": "(404) 347-1777",
+            "distance": 2276.4129854016196
+        },
+        {
+            "id": "GgwjulR_-ik36RnEr_MVug",
+            "alias": "torched-hop-brewing-atlanta",
+            "name": "Torched Hop Brewing",
+            "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/DTfC6uxy5XqV8J5HBrI6OA/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/torched-hop-brewing-atlanta?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 277,
+            "categories": [
+                {
+                    "alias": "gastropubs",
+                    "title": "Gastropubs"
+                },
+                {
+                    "alias": "breweries",
+                    "title": "Breweries"
+                },
+                {
+                    "alias": "tradamerican",
+                    "title": "American (Traditional)"
+                }
+            ],
+            "rating": 4.5,
+            "coordinates": {
+                "latitude": 33.77226,
+                "longitude": -84.37928
+            },
+            "transactions": [],
+            "price": "$$",
+            "location": {
+                "address1": "249 Ponce De Leon Ave NE",
+                "address2": "",
+                "address3": "",
+                "city": "Atlanta",
+                "zip_code": "30308",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "249 Ponce De Leon Ave NE",
+                    "Atlanta, GA 30308"
+                ]
+            },
+            "phone": "+14048352040",
+            "display_phone": "(404) 835-2040",
+            "distance": 4583.363124664949
+        },
+        {
+            "id": "cr8kY21MH2HGPxOlJFSwIQ",
+            "alias": "atlanta-brewing-co-atlanta",
+            "name": "Atlanta Brewing Co",
+            "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/aWuQSn0o1j-NmF1IYLVDoA/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/atlanta-brewing-co-atlanta?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 171,
+            "categories": [
+                {
+                    "alias": "breweries",
+                    "title": "Breweries"
+                }
+            ],
+            "rating": 4,
+            "coordinates": {
+                "latitude": 33.818409,
+                "longitude": -84.4345779
+            },
+            "transactions": [],
+            "price": "$",
+            "location": {
+                "address1": "2323 Defoor Hills Rd NW",
+                "address2": "",
+                "address3": "",
+                "city": "Atlanta",
+                "zip_code": "30318",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "2323 Defoor Hills Rd NW",
+                    "Atlanta, GA 30318"
+                ]
+            },
+            "phone": "+14043555558",
+            "display_phone": "(404) 355-5558",
+            "distance": 5661.007869103892
+        },
+        {
+            "id": "vYS3NS112kbK-HKy1ZXNAA",
+            "alias": "eventide-brewing-atlanta",
+            "name": "Eventide Brewing",
+            "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/L30eWhv0GikITuQuAcYekQ/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/eventide-brewing-atlanta?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 32,
+            "categories": [
+                {
+                    "alias": "breweries",
+                    "title": "Breweries"
+                },
+                {
+                    "alias": "venues",
+                    "title": "Venues & Event Spaces"
+                },
+                {
+                    "alias": "tours",
+                    "title": "Tours"
+                }
+            ],
+            "rating": 4.5,
+            "coordinates": {
+                "latitude": 33.7266960144043,
+                "longitude": -84.3772964477539
+            },
+            "transactions": [],
+            "price": "$",
+            "location": {
+                "address1": "1015 Grant St",
+                "address2": "",
+                "address3": "",
+                "city": "Atlanta",
+                "zip_code": "30315",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "1015 Grant St",
+                    "Atlanta, GA 30315"
+                ]
+            },
+            "phone": "+14049074543",
+            "display_phone": "(404) 907-4543",
+            "distance": 9620.820251392599
+        },
+        {
+            "id": "K0ADYwFpx923NW0Z7nsNfQ",
+            "alias": "new-realm-brewing-atlanta-3",
+            "name": "New Realm Brewing",
+            "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/SNBaNwJZc6ez9PuQPJ4nsQ/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/new-realm-brewing-atlanta-3?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 251,
+            "categories": [
+                {
+                    "alias": "newamerican",
+                    "title": "American (New)"
+                },
+                {
+                    "alias": "brewpubs",
+                    "title": "Brewpubs"
+                }
+            ],
+            "rating": 4,
+            "coordinates": {
+                "latitude": 33.7690333817904,
+                "longitude": -84.3619148284263
+            },
+            "transactions": [],
+            "price": "$$",
+            "location": {
+                "address1": "550 Somerset Ter NE",
+                "address2": "Unit 101",
+                "address3": "",
+                "city": "Atlanta",
+                "zip_code": "30306",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "550 Somerset Ter NE",
+                    "Unit 101",
+                    "Atlanta, GA 30306"
+                ]
+            },
+            "phone": "+14049682777",
+            "display_phone": "(404) 968-2777",
+            "distance": 5030.367401442505
+        },
+        {
+            "id": "dg6NjzkBII6zaHethzVt3Q",
+            "alias": "second-self-beer-company-atlanta-3",
+            "name": "Second Self Beer Company",
+            "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/q5o83zjdVpD07UKQ8BaVGA/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/second-self-beer-company-atlanta-3?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 41,
+            "categories": [
+                {
+                    "alias": "breweries",
+                    "title": "Breweries"
+                },
+                {
+                    "alias": "venues",
+                    "title": "Venues & Event Spaces"
+                }
+            ],
+            "rating": 4,
+            "coordinates": {
+                "latitude": 33.805512,
+                "longitude": -84.4302324
+            },
+            "transactions": [],
+            "price": "$",
+            "location": {
+                "address1": "1317 Logan Cir NW",
+                "address2": "",
+                "address3": "",
+                "city": "Atlanta",
+                "zip_code": "30318",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "1317 Logan Cir NW",
+                    "Atlanta, GA 30318"
+                ]
+            },
+            "phone": "+16789168035",
+            "display_phone": "(678) 916-8035",
+            "distance": 5299.501402016182
+        },
+        {
+            "id": "evES3UDKvljC8FNSYNjN0w",
+            "alias": "three-taverns-brewery-decatur",
+            "name": "Three Taverns Brewery",
+            "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/ddP5bqStmJcESpruJ0ao9w/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/three-taverns-brewery-decatur?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 69,
+            "categories": [
+                {
+                    "alias": "breweries",
+                    "title": "Breweries"
+                }
+            ],
+            "rating": 4.5,
+            "coordinates": {
+                "latitude": 33.7725601,
+                "longitude": -84.2853928
+            },
+            "transactions": [],
+            "price": "$",
+            "location": {
+                "address1": "121 New St",
+                "address2": "",
+                "address3": "",
+                "city": "Decatur",
+                "zip_code": "30030",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "121 New St",
+                    "Decatur, GA 30030"
+                ]
+            },
+            "phone": "+14046003355",
+            "display_phone": "(404) 600-3355",
+            "distance": 9350.084657308471
+        },
+        {
+            "id": "n-wqP-Gm3p9Ip07baPV6Mg",
+            "alias": "monday-night-brewing-garage-atlanta-2",
+            "name": "Monday Night Brewing - Garage",
+            "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/zySoIupqxjFkMQCHoeuptA/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/monday-night-brewing-garage-atlanta-2?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 43,
+            "categories": [
+                {
+                    "alias": "breweries",
+                    "title": "Breweries"
+                },
+                {
+                    "alias": "venues",
+                    "title": "Venues & Event Spaces"
+                }
+            ],
+            "rating": 4.5,
+            "coordinates": {
+                "latitude": 33.7290043,
+                "longitude": -84.4162512
+            },
+            "transactions": [],
+            "price": "$",
+            "location": {
+                "address1": "933 Lee St SW",
+                "address2": "",
+                "address3": null,
+                "city": "Atlanta",
+                "zip_code": "30310",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "933 Lee St SW",
+                    "Atlanta, GA 30310"
+                ]
+            },
+            "phone": "+14043527703",
+            "display_phone": "(404) 352-7703",
+            "distance": 10177.87475296118
+        },
+        {
+            "id": "zLwNSWumn9HVEzQgHaUfPQ",
+            "alias": "wild-heaven-beer-decatur",
+            "name": "Wild Heaven Beer",
+            "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/3x7W9qbyYO1O0rHQN2umiA/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/wild-heaven-beer-decatur?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 83,
+            "categories": [
+                {
+                    "alias": "breweries",
+                    "title": "Breweries"
+                }
+            ],
+            "rating": 4.5,
+            "coordinates": {
+                "latitude": 33.7764807029507,
+                "longitude": -84.2757839
+            },
+            "transactions": [],
+            "price": "$",
+            "location": {
+                "address1": "135B Maple St",
+                "address2": "",
+                "address3": "",
+                "city": "Decatur",
+                "zip_code": "30030",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "135B Maple St",
+                    "Decatur, GA 30030"
+                ]
+            },
+            "phone": "+14049978589",
+            "display_phone": "(404) 997-8589",
+            "distance": 9921.111168621559
+        },
+        {
+            "id": "48UX4Sx-4Nc-uFhVKw7ZrA",
+            "alias": "wrecking-bar-brewpub-atlanta",
+            "name": "Wrecking Bar Brewpub",
+            "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/d86FWBJVHeYcidmRQRhOjA/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/wrecking-bar-brewpub-atlanta?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 637,
+            "categories": [
+                {
+                    "alias": "brewpubs",
+                    "title": "Brewpubs"
+                }
+            ],
+            "rating": 4,
+            "coordinates": {
+                "latitude": 33.762272,
+                "longitude": -84.349724
+            },
+            "transactions": [],
+            "price": "$$",
+            "location": {
+                "address1": "292 Moreland Ave NE",
+                "address2": "",
+                "address3": "",
+                "city": "Atlanta",
+                "zip_code": "30307",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "292 Moreland Ave NE",
+                    "Atlanta, GA 30307"
+                ]
+            },
+            "phone": "+14042212600",
+            "display_phone": "(404) 221-2600",
+            "distance": 6073.979441221416
+        },
+        {
+            "id": "2SZKV3w6GsLjclavdFfcJQ",
+            "alias": "georgia-beer-garden-atlanta",
+            "name": "Georgia Beer Garden",
+            "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/YGWRTAwozpgM_oQPbsvHYg/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/georgia-beer-garden-atlanta?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 56,
+            "categories": [
+                {
+                    "alias": "beergardens",
+                    "title": "Beer Gardens"
+                },
+                {
+                    "alias": "southern",
+                    "title": "Southern"
+                }
+            ],
+            "rating": 4,
+            "coordinates": {
+                "latitude": 33.75455,
+                "longitude": -84.373885
+            },
+            "transactions": [],
+            "price": "$$",
+            "location": {
+                "address1": "420 Edgewood Ave NE",
+                "address2": "",
+                "address3": null,
+                "city": "Atlanta",
+                "zip_code": "30312",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "420 Edgewood Ave NE",
+                    "Atlanta, GA 30312"
+                ]
+            },
+            "phone": "+14044585690",
+            "display_phone": "(404) 458-5690",
+            "distance": 6525.718907834479
+        },
+        {
+            "id": "gQCdXKHUIZ9uqfj9v05KpQ",
+            "alias": "bluetarp-brewing-decatur",
+            "name": "Bluetarp Brewing",
+            "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/CnfM9SWvCIfA4vo7jd42bg/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/bluetarp-brewing-decatur?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 44,
+            "categories": [
+                {
+                    "alias": "breweries",
+                    "title": "Breweries"
+                }
+            ],
+            "rating": 4,
+            "coordinates": {
+                "latitude": 33.77379,
+                "longitude": -84.28353
+            },
+            "transactions": [],
+            "price": "$",
+            "location": {
+                "address1": "731 E College Ave",
+                "address2": "",
+                "address3": "",
+                "city": "Decatur",
+                "zip_code": "30030",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "731 E College Ave",
+                    "Decatur, GA 30030"
+                ]
+            },
+            "phone": "+14046696740",
+            "display_phone": "(404) 669-6740",
+            "distance": 9421.21609346447
+        },
+        {
+            "id": "-X6YB-qWX-nFqOk8vpoPcQ",
+            "alias": "red-hare-brewing-company-marietta",
+            "name": "Red Hare Brewing Company",
+            "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/_ArCLNvKl7WDfudGSf3QbQ/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/red-hare-brewing-company-marietta?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 79,
+            "categories": [
+                {
+                    "alias": "breweries",
+                    "title": "Breweries"
+                },
+                {
+                    "alias": "brewingsupplies",
+                    "title": "Brewing Supplies"
+                }
+            ],
+            "rating": 4,
+            "coordinates": {
+                "latitude": 33.92434,
+                "longitude": -84.49576
+            },
+            "transactions": [],
+            "price": "$",
+            "location": {
+                "address1": "1998 Delk Industrial Blvd",
+                "address2": "",
+                "address3": "",
+                "city": "Marietta",
+                "zip_code": "30067",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "1998 Delk Industrial Blvd",
+                    "Marietta, GA 30067"
+                ]
+            },
+            "phone": "+16784010600",
+            "display_phone": "(678) 401-0600",
+            "distance": 16735.398625789847
+        },
+        {
+            "id": "l7gnzuzGMJ_xulfTfCADxw",
+            "alias": "peachtree-pint-atlanta",
+            "name": "Peachtree Pint",
+            "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/4xWhMqOTZYR2QfDdyjjFTw/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/peachtree-pint-atlanta?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 3,
+            "categories": [
+                {
+                    "alias": "beerbar",
+                    "title": "Beer Bar"
+                }
+            ],
+            "rating": 4.5,
+            "coordinates": {
+                "latitude": 33.8456717944761,
+                "longitude": -84.3616016954184
+            },
+            "transactions": [],
+            "price": "$$",
+            "location": {
+                "address1": "3393 Peachtree Rd NE",
+                "address2": "",
+                "address3": "Food court",
+                "city": "Atlanta",
+                "zip_code": "30326",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "3393 Peachtree Rd NE",
+                    "Food court",
+                    "Atlanta, GA 30326"
+                ]
+            },
+            "phone": "+14048141223",
+            "display_phone": "(404) 814-1223",
+            "distance": 3776.2860255262026
+        },
+        {
+            "id": "aaZrCmSX8p4cdlYWp0985Q",
+            "alias": "contrast-artisan-ales-chamblee",
+            "name": "Contrast Artisan Ales",
+            "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/fB1PBz_cC6jksCZrQuoJoA/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/contrast-artisan-ales-chamblee?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 4,
+            "categories": [
+                {
+                    "alias": "brewpubs",
+                    "title": "Brewpubs"
+                }
+            ],
+            "rating": 5,
+            "coordinates": {
+                "latitude": 33.8945793396513,
+                "longitude": -84.2973993323925
+            },
+            "transactions": [],
+            "location": {
+                "address1": "5504 Peachtree Rd",
+                "address2": "",
+                "address3": null,
+                "city": "Chamblee",
+                "zip_code": "30341",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "5504 Peachtree Rd",
+                    "Chamblee, GA 30341"
+                ]
+            },
+            "phone": "",
+            "display_phone": "",
+            "distance": 11463.228519301063
+        },
+        {
+            "id": "58djCZcrt1X6sO1xDz8U6g",
+            "alias": "arches-brewing-hapeville",
+            "name": "Arches Brewing",
+            "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/Xl3352Up8_EbbQzQAmuPWQ/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/arches-brewing-hapeville?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 26,
+            "categories": [
+                {
+                    "alias": "breweries",
+                    "title": "Breweries"
+                }
+            ],
+            "rating": 4.5,
+            "coordinates": {
+                "latitude": 33.6627349853516,
+                "longitude": -84.4097366333008
+            },
+            "transactions": [],
+            "price": "$",
+            "location": {
+                "address1": "3361 Dogwood Dr",
+                "address2": "",
+                "address3": "",
+                "city": "Hapeville",
+                "zip_code": "30354",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "3361 Dogwood Dr",
+                    "Hapeville, GA 30354"
+                ]
+            },
+            "phone": "+16786532739",
+            "display_phone": "(678) 653-2739",
+            "distance": 17062.604459975773
+        },
+        {
+            "id": "p-u9u4C5Ler_-9YXua320Q",
+            "alias": "urban-tree-cidery-atlanta",
+            "name": "Urban Tree Cidery",
+            "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/CcYRwRD6OynztSVG_m-X8Q/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/urban-tree-cidery-atlanta?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 80,
+            "categories": [
+                {
+                    "alias": "winetastingroom",
+                    "title": "Wine Tasting Room"
+                },
+                {
+                    "alias": "cideries",
+                    "title": "Cideries"
+                }
+            ],
+            "rating": 4.5,
+            "coordinates": {
+                "latitude": 33.7948218371632,
+                "longitude": -84.4148407556039
+            },
+            "transactions": [],
+            "price": "$$",
+            "location": {
+                "address1": "1465 Howell Mill Rd NW",
+                "address2": "",
+                "address3": "",
+                "city": "Atlanta",
+                "zip_code": "30318",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "1465 Howell Mill Rd NW",
+                    "Atlanta, GA 30318"
+                ]
+            },
+            "phone": "+14048555546",
+            "display_phone": "(404) 855-5546",
+            "distance": 4322.418822121863
+        },
+        {
+            "id": "pQXzZHNCzbI8zqjZgm267A",
+            "alias": "asw-distillery-atlanta",
+            "name": "ASW Distillery",
+            "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/wSOwi4ed1GEPFKERHCReBQ/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/asw-distillery-atlanta?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 23,
+            "categories": [
+                {
+                    "alias": "distilleries",
+                    "title": "Distilleries"
+                }
+            ],
+            "rating": 4.5,
+            "coordinates": {
+                "latitude": 33.8095799,
+                "longitude": -84.38208
+            },
+            "transactions": [],
+            "price": "$$",
+            "location": {
+                "address1": "199 Armour Dr NE",
+                "address2": "Ste C",
+                "address3": "",
+                "city": "Atlanta",
+                "zip_code": "30324",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "199 Armour Dr NE",
+                    "Ste C",
+                    "Atlanta, GA 30324"
+                ]
+            },
+            "phone": "+14045902279",
+            "display_phone": "(404) 590-2279",
+            "distance": 872.5327170558685
+        },
+        {
+            "id": "_shyT0oOUQL7EIJmabyJZQ",
+            "alias": "variant-brewing-company-roswell",
+            "name": "Variant Brewing Company",
+            "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/J2sGM4ElDw2Mp3eWdbrVgA/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/variant-brewing-company-roswell?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 40,
+            "categories": [
+                {
+                    "alias": "breweries",
+                    "title": "Breweries"
+                }
+            ],
+            "rating": 5,
+            "coordinates": {
+                "latitude": 34.0256717831587,
+                "longitude": -84.3590152453204
+            },
+            "transactions": [],
+            "price": "$",
+            "location": {
+                "address1": "66 Norcross St",
+                "address2": "",
+                "address3": null,
+                "city": "Roswell",
+                "zip_code": "30075",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "66 Norcross St",
+                    "Roswell, GA 30075"
+                ]
+            },
+            "phone": "+16782428189",
+            "display_phone": "(678) 242-8189",
+            "distance": 23662.739708271318
+        },
+        {
+            "id": "RxFswqKnQILkQUDw_eKcQQ",
+            "alias": "max-lagers-wood-fired-grill-and-brewery-atlanta",
+            "name": "Max Lager's Wood-Fired Grill & Brewery",
+            "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/tOicq08RMJk_zME5NlFBYQ/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/max-lagers-wood-fired-grill-and-brewery-atlanta?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 751,
+            "categories": [
+                {
+                    "alias": "tradamerican",
+                    "title": "American (Traditional)"
+                },
+                {
+                    "alias": "brewpubs",
+                    "title": "Brewpubs"
+                },
+                {
+                    "alias": "sportsbars",
+                    "title": "Sports Bars"
+                }
+            ],
+            "rating": 3.5,
+            "coordinates": {
+                "latitude": 33.76337,
+                "longitude": -84.38708
+            },
+            "transactions": [
+                "delivery",
+                "pickup"
+            ],
+            "price": "$$",
+            "location": {
+                "address1": "320 Peachtree St NE",
+                "address2": null,
+                "address3": "",
+                "city": "Atlanta",
+                "zip_code": "30308",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "320 Peachtree St NE",
+                    "Atlanta, GA 30308"
+                ]
+            },
+            "phone": "+14045254400",
+            "display_phone": "(404) 525-4400",
+            "distance": 5682.119542213877
+        },
+        {
+            "id": "nI8emO_ifheRxglGrBmHHA",
+            "alias": "gate-city-brewing-company-roswell",
+            "name": "Gate City Brewing Company",
+            "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/wGieBRFFsknObdtj5caStg/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/gate-city-brewing-company-roswell?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 59,
+            "categories": [
+                {
+                    "alias": "breweries",
+                    "title": "Breweries"
+                }
+            ],
+            "rating": 4.5,
+            "coordinates": {
+                "latitude": 34.0234274866189,
+                "longitude": -84.3623216583218
+            },
+            "transactions": [],
+            "price": "$",
+            "location": {
+                "address1": "43 Magnolia St",
+                "address2": "",
+                "address3": "",
+                "city": "Roswell",
+                "zip_code": "30075",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "43 Magnolia St",
+                    "Roswell, GA 30075"
+                ]
+            },
+            "phone": "+16784040961",
+            "display_phone": "(678) 404-0961",
+            "distance": 23398.01049413914
+        },
+        {
+            "id": "YrjcinOLvbGWPate2FfXtw",
+            "alias": "naughty-soda-marietta-3",
+            "name": "Naughty Soda / Ironmonger Brewing",
+            "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/ufgsobFElgUiDaWaQOIzZg/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/naughty-soda-marietta-3?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 34,
+            "categories": [
+                {
+                    "alias": "breweries",
+                    "title": "Breweries"
+                }
+            ],
+            "rating": 4.5,
+            "coordinates": {
+                "latitude": 33.9204425,
+                "longitude": -84.4902883
+            },
+            "transactions": [],
+            "price": "$",
+            "location": {
+                "address1": "2129 Northwest Pkwy SE",
+                "address2": "Ste 105",
+                "address3": "",
+                "city": "Marietta",
+                "zip_code": "30067",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "2129 Northwest Pkwy SE",
+                    "Ste 105",
+                    "Marietta, GA 30067"
+                ]
+            },
+            "phone": "+16787428551",
+            "display_phone": "(678) 742-8551",
+            "distance": 16065.92911143688
+        },
+        {
+            "id": "78nxH6TTGtlYMNPReCkXPw",
+            "alias": "reformation-brewery-woodstock-4",
+            "name": "Reformation Brewery",
+            "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/BDIXi8GeC1KgPjsBac9U0A/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/reformation-brewery-woodstock-4?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 13,
+            "categories": [
+                {
+                    "alias": "breweries",
+                    "title": "Breweries"
+                },
+                {
+                    "alias": "beergardens",
+                    "title": "Beer Gardens"
+                },
+                {
+                    "alias": "beerbar",
+                    "title": "Beer Bar"
+                }
+            ],
+            "rating": 4.5,
+            "coordinates": {
+                "latitude": 34.1001523796275,
+                "longitude": -84.5208550923023
+            },
+            "transactions": [],
+            "location": {
+                "address1": "105 Elm St",
+                "address2": "",
+                "address3": null,
+                "city": "Woodstock",
+                "zip_code": "30188",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "105 Elm St",
+                    "Woodstock, GA 30188"
+                ]
+            },
+            "phone": "+16783410828",
+            "display_phone": "(678) 341-0828",
+            "distance": 34675.5562757835
+        },
+        {
+            "id": "bMrtHbJBE96AMtRjzgTX2g",
+            "alias": "glover-park-brewery-marietta",
+            "name": "Glover Park Brewery",
+            "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/NXGWS91cLPJsctHt7g0n0Q/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/glover-park-brewery-marietta?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 12,
+            "categories": [
+                {
+                    "alias": "breweries",
+                    "title": "Breweries"
+                }
+            ],
+            "rating": 4,
+            "coordinates": {
+                "latitude": 33.9501227992599,
+                "longitude": -84.5486666924536
+            },
+            "transactions": [],
+            "location": {
+                "address1": "65 Atlanta St SE",
+                "address2": "",
+                "address3": null,
+                "city": "Marietta",
+                "zip_code": "30060",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "65 Atlanta St SE",
+                    "Marietta, GA 30060"
+                ]
+            },
+            "phone": "+14045551212",
+            "display_phone": "(404) 555-1212",
+            "distance": 22200.324918687216
+        },
+        {
+            "id": "fvuwDSEYL9dhD28uq4d4ww",
+            "alias": "the-porter-beer-bar-atlanta",
+            "name": "The Porter Beer Bar",
+            "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/lrZk4y8lNH6FP0TxhgzpeQ/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/the-porter-beer-bar-atlanta?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 1002,
+            "categories": [
+                {
+                    "alias": "beerbar",
+                    "title": "Beer Bar"
+                }
+            ],
+            "rating": 4.5,
+            "coordinates": {
+                "latitude": 33.76534,
+                "longitude": -84.349827
+            },
+            "transactions": [],
+            "price": "$$",
+            "location": {
+                "address1": "1156 Euclid Ave NE",
+                "address2": "",
+                "address3": "",
+                "city": "Atlanta",
+                "zip_code": "30307",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "1156 Euclid Ave NE",
+                    "Atlanta, GA 30307"
+                ]
+            },
+            "phone": "+14042230393",
+            "display_phone": "(404) 223-0393",
+            "distance": 5759.708799876476
+        },
+        {
+            "id": "0aMSBEl-P3tW6I4v-es67A",
+            "alias": "slow-pour-brewing-company-lawrenceville",
+            "name": "Slow Pour Brewing Company",
+            "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/cmAzzP4QumjLPfihNBlWzA/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/slow-pour-brewing-company-lawrenceville?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 25,
+            "categories": [
+                {
+                    "alias": "breweries",
+                    "title": "Breweries"
+                }
+            ],
+            "rating": 5,
+            "coordinates": {
+                "latitude": 33.9610592862119,
+                "longitude": -83.9883948436255
+            },
+            "transactions": [],
+            "price": "$",
+            "location": {
+                "address1": "407 N Clayton St",
+                "address2": "",
+                "address3": null,
+                "city": "Lawrenceville",
+                "zip_code": "30046",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "407 N Clayton St",
+                    "Lawrenceville, GA 30046"
+                ]
+            },
+            "phone": "",
+            "display_phone": "",
+            "distance": 39175.831189472825
+        },
+        {
+            "id": "ekQiH-mwoLF5reCnbRbjlQ",
+            "alias": "jekyll-brewing-alpharetta",
+            "name": "Jekyll Brewing",
+            "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/EA2nTAecIsxjXuDu1qRLUA/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/jekyll-brewing-alpharetta?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 77,
+            "categories": [
+                {
+                    "alias": "breweries",
+                    "title": "Breweries"
+                }
+            ],
+            "rating": 4.5,
+            "coordinates": {
+                "latitude": 34.086075,
+                "longitude": -84.247494
+            },
+            "transactions": [],
+            "price": "$",
+            "location": {
+                "address1": "2855 Marconi Dr",
+                "address2": "Ste 350",
+                "address3": "",
+                "city": "Alpharetta",
+                "zip_code": "30005",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "2855 Marconi Dr",
+                    "Ste 350",
+                    "Alpharetta, GA 30005"
+                ]
+            },
+            "phone": "+18444535955",
+            "display_phone": "(844) 453-5955",
+            "distance": 32494.984091613725
+        },
+        {
+            "id": "lskm1A82ppPOUOhFRPXUaA",
+            "alias": "southern-beer-tours-atlanta",
+            "name": "Southern Beer Tours",
+            "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/ZAHkwqvDxfjYqNGdPSVvZQ/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/southern-beer-tours-atlanta?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 5,
+            "categories": [
+                {
+                    "alias": "beertours",
+                    "title": "Beer Tours"
+                }
+            ],
+            "rating": 4,
+            "coordinates": {
+                "latitude": 33.8212463085418,
+                "longitude": -84.369340290213
+            },
+            "transactions": [],
+            "location": {
+                "address1": "573 Main St",
+                "address2": "",
+                "address3": "",
+                "city": "Atlanta",
+                "zip_code": "30324",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "573 Main St",
+                    "Atlanta, GA 30324"
+                ]
+            },
+            "phone": "+14045905278",
+            "display_phone": "(404) 590-5278",
+            "distance": 977.0887657121134
+        },
+        {
+            "id": "HKhpfrUw0c-Ovb9QEwDzGA",
+            "alias": "old-4th-distillery-atlanta",
+            "name": "Old 4th Distillery",
+            "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/Uz5FGtDWOg5QzbUsPxuivA/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/old-4th-distillery-atlanta?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 34,
+            "categories": [
+                {
+                    "alias": "distilleries",
+                    "title": "Distilleries"
+                }
+            ],
+            "rating": 4.5,
+            "coordinates": {
+                "latitude": 33.75408,
+                "longitude": -84.37162
+            },
+            "transactions": [],
+            "price": "$$",
+            "location": {
+                "address1": "487 Edgewood Ave",
+                "address2": "",
+                "address3": "",
+                "city": "Atlanta",
+                "zip_code": "30312",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "487 Edgewood Ave",
+                    "Atlanta, GA 30312"
+                ]
+            },
+            "phone": "+14049642533",
+            "display_phone": "(404) 964-2533",
+            "distance": 6574.427129092969
+        },
+        {
+            "id": "LyizNBLFLB4Qkx_0_8_BaQ",
+            "alias": "der-biergarten-atlanta",
+            "name": "Der Biergarten",
+            "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/pKUaA0JjCAIdVU3TjpKfZw/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/der-biergarten-atlanta?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 545,
+            "categories": [
+                {
+                    "alias": "german",
+                    "title": "German"
+                },
+                {
+                    "alias": "beergardens",
+                    "title": "Beer Gardens"
+                }
+            ],
+            "rating": 4,
+            "coordinates": {
+                "latitude": 33.7618737192836,
+                "longitude": -84.3966451981994
+            },
+            "transactions": [],
+            "price": "$$",
+            "location": {
+                "address1": "300 Marietta St NW",
+                "address2": "",
+                "address3": "",
+                "city": "Atlanta",
+                "zip_code": "30313",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "300 Marietta St NW",
+                    "Atlanta, GA 30313"
+                ]
+            },
+            "phone": "+14045212728",
+            "display_phone": "(404) 521-2728",
+            "distance": 6092.136674987872
+        },
+        {
+            "id": "2uMM0XwsCeGQiM-EuaEW1A",
+            "alias": "pontoon-brewing-sandy-springs",
+            "name": "Pontoon Brewing",
+            "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/9XbHcbNDmAeFazbwQoy92g/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/pontoon-brewing-sandy-springs?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 33,
+            "categories": [
+                {
+                    "alias": "breweries",
+                    "title": "Breweries"
+                }
+            ],
+            "rating": 4,
+            "coordinates": {
+                "latitude": 33.991873,
+                "longitude": -84.34456
+            },
+            "transactions": [],
+            "price": "$",
+            "location": {
+                "address1": "8601 Dunwoody Pl",
+                "address2": "Ste 500",
+                "address3": "",
+                "city": "Sandy Springs",
+                "zip_code": "30350",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "8601 Dunwoody Pl",
+                    "Ste 500",
+                    "Sandy Springs, GA 30350"
+                ]
+            },
+            "phone": "+17049293821",
+            "display_phone": "(704) 929-3821",
+            "distance": 20046.35036681658
+        },
+        {
+            "id": "HaGoOH9GzsBZcmPpiEIJvA",
+            "alias": "hopstix-chamblee",
+            "name": "Hopstix",
+            "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/mFKRkYqzwylvKxX1mJLAuw/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/hopstix-chamblee?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 295,
+            "categories": [
+                {
+                    "alias": "breweries",
+                    "title": "Breweries"
+                },
+                {
+                    "alias": "asianfusion",
+                    "title": "Asian Fusion"
+                },
+                {
+                    "alias": "beerbar",
+                    "title": "Beer Bar"
+                }
+            ],
+            "rating": 4,
+            "coordinates": {
+                "latitude": 33.89062,
+                "longitude": -84.30316
+            },
+            "transactions": [],
+            "price": "$$",
+            "location": {
+                "address1": "3404 Pierce Dr NE",
+                "address2": "",
+                "address3": null,
+                "city": "Chamblee",
+                "zip_code": "30341",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "3404 Pierce Dr NE",
+                    "Chamblee, GA 30341"
+                ]
+            },
+            "phone": "+16788882306",
+            "display_phone": "(678) 888-2306",
+            "distance": 10792.358021893693
+        },
+        {
+            "id": "8aFd-A_MxvW3tr3BKOpeWA",
+            "alias": "hop-city-atlanta",
+            "name": "Hop City",
+            "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/4HCbBWb31VErQeVRYahDMA/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/hop-city-atlanta?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 189,
+            "categories": [
+                {
+                    "alias": "beer_and_wine",
+                    "title": "Beer, Wine & Spirits"
+                }
+            ],
+            "rating": 4.5,
+            "coordinates": {
+                "latitude": 33.77907,
+                "longitude": -84.410508
+            },
+            "transactions": [],
+            "price": "$$",
+            "location": {
+                "address1": "1000 Marietta St Nw",
+                "address2": "Ste 302",
+                "address3": "",
+                "city": "Atlanta",
+                "zip_code": "30318",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "1000 Marietta St Nw",
+                    "Ste 302",
+                    "Atlanta, GA 30318"
+                ]
+            },
+            "phone": "+14043509998",
+            "display_phone": "(404) 350-9998",
+            "distance": 5101.798179008355
+        },
+        {
+            "id": "BLWt0_VlO1m0ZDX_cuanKw",
+            "alias": "porter-pizza-and-brewery-gastropub-sandy-springs",
+            "name": "Porter Pizza and Brewery Gastropub",
+            "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/bpx1TLd3Lw5oENsr4qzU7g/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/porter-pizza-and-brewery-gastropub-sandy-springs?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 33,
+            "categories": [
+                {
+                    "alias": "brewpubs",
+                    "title": "Brewpubs"
+                },
+                {
+                    "alias": "pizza",
+                    "title": "Pizza"
+                }
+            ],
+            "rating": 4,
+            "coordinates": {
+                "latitude": 33.9039,
+                "longitude": -84.42993
+            },
+            "transactions": [],
+            "price": "$$",
+            "location": {
+                "address1": "6370 Powers Ferry Rd",
+                "address2": "Ste 101",
+                "address3": "",
+                "city": "Sandy Springs",
+                "zip_code": "30339",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "6370 Powers Ferry Rd",
+                    "Ste 101",
+                    "Sandy Springs, GA 30339"
+                ]
+            },
+            "phone": "+16789966908",
+            "display_phone": "(678) 996-6908",
+            "distance": 11408.81874551476
+        },
+        {
+            "id": "3eGvOTVpmJ6B_dKwfGgXNw",
+            "alias": "hop-city-atlanta-2",
+            "name": "Hop City",
+            "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/F67gd-8_d-vfdWMZQc3nww/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/hop-city-atlanta-2?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 90,
+            "categories": [
+                {
+                    "alias": "beer_and_wine",
+                    "title": "Beer, Wine & Spirits"
+                },
+                {
+                    "alias": "beerbar",
+                    "title": "Beer Bar"
+                }
+            ],
+            "rating": 4,
+            "coordinates": {
+                "latitude": 33.7568837868753,
+                "longitude": -84.3639648478851
+            },
+            "transactions": [],
+            "price": "$$",
+            "location": {
+                "address1": "99 Krog St NE",
+                "address2": null,
+                "address3": "",
+                "city": "Atlanta",
+                "zip_code": "30307",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "99 Krog St NE",
+                    "Atlanta, GA 30307"
+                ]
+            },
+            "phone": "+14703552534",
+            "display_phone": "(470) 355-2534",
+            "distance": 6326.855742883301
+        },
+        {
+            "id": "7wFCbq-wL5uH_v0RlidA4g",
+            "alias": "the-woodlands-project-at-sweetwater-atlanta",
+            "name": "The Woodlands Project at Sweetwater",
+            "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/HeEXM2oiW9WsYJU8pTNtYw/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/the-woodlands-project-at-sweetwater-atlanta?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 1,
+            "categories": [
+                {
+                    "alias": "venues",
+                    "title": "Venues & Event Spaces"
+                },
+                {
+                    "alias": "breweries",
+                    "title": "Breweries"
+                }
+            ],
+            "rating": 5,
+            "coordinates": {
+                "latitude": 33.8080799,
+                "longitude": -84.38119
+            },
+            "transactions": [],
+            "location": {
+                "address1": "195 Ottley Dr NE",
+                "address2": "",
+                "address3": null,
+                "city": "Atlanta",
+                "zip_code": "30324",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "195 Ottley Dr NE",
+                    "Atlanta, GA 30324"
+                ]
+            },
+            "phone": "+14046912537",
+            "display_phone": "(404) 691-2537",
+            "distance": 898.0920796299743
+        },
+        {
+            "id": "9qF7BZhQmMKJbhmPMAEW8g",
+            "alias": "atlanta-beer-bus-atlanta",
+            "name": "Atlanta Beer Bus",
+            "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/W5RSMa926NCRTBbFVfi-RQ/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/atlanta-beer-bus-atlanta?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 11,
+            "categories": [
+                {
+                    "alias": "beertours",
+                    "title": "Beer Tours"
+                }
+            ],
+            "rating": 4.5,
+            "coordinates": {
+                "latitude": 33.77226,
+                "longitude": -84.37928
+            },
+            "transactions": [],
+            "location": {
+                "address1": null,
+                "address2": null,
+                "address3": "",
+                "city": "Atlanta",
+                "zip_code": "30308",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "Atlanta, GA 30308"
+                ]
+            },
+            "phone": "+17706966080",
+            "display_phone": "(770) 696-6080",
+            "distance": 4616.919552385488
+        },
+        {
+            "id": "3tHyy_D3_VBv4eHzaUROGw",
+            "alias": "the-tap-on-ponce-atlanta",
+            "name": "The Tap On Ponce",
+            "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/gJtar-hnnu1fWn69aCO-sw/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/the-tap-on-ponce-atlanta?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 53,
+            "categories": [
+                {
+                    "alias": "beerbar",
+                    "title": "Beer Bar"
+                },
+                {
+                    "alias": "wine_bars",
+                    "title": "Wine Bars"
+                }
+            ],
+            "rating": 4,
+            "coordinates": {
+                "latitude": 33.772969,
+                "longitude": -84.366456
+            },
+            "transactions": [],
+            "price": "$$",
+            "location": {
+                "address1": "675 Ponce De Leon Ave",
+                "address2": "",
+                "address3": "",
+                "city": "Atlanta",
+                "zip_code": "30308",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "675 Ponce De Leon Ave",
+                    "Atlanta, GA 30308"
+                ]
+            },
+            "phone": "+14048352844",
+            "display_phone": "(404) 835-2844",
+            "distance": 4523.731117774819
+        },
+        {
+            "id": "htLRoYpmffdJktIuzr8Tmw",
+            "alias": "burnt-hickory-brewery-kennesaw",
+            "name": "Burnt Hickory Brewery",
+            "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/OVdcZZiTT0fph19Ckq4FBw/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/burnt-hickory-brewery-kennesaw?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 34,
+            "categories": [
+                {
+                    "alias": "breweries",
+                    "title": "Breweries"
+                }
+            ],
+            "rating": 4.5,
+            "coordinates": {
+                "latitude": 34.0330567113441,
+                "longitude": -84.6168494224548
+            },
+            "transactions": [],
+            "price": "$",
+            "location": {
+                "address1": "2260 Moon Station Ct",
+                "address2": "Ste 210",
+                "address3": "",
+                "city": "Kennesaw",
+                "zip_code": "30144",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "2260 Moon Station Ct",
+                    "Ste 210",
+                    "Kennesaw, GA 30144"
+                ]
+            },
+            "phone": "+17705148812",
+            "display_phone": "(770) 514-8812",
+            "distance": 33184.451491005464
+        },
+        {
+            "id": "D5cHsOjZmIH79jcUQETAXg",
+            "alias": "dry-county-brewing-company-kennesaw",
+            "name": "Dry County Brewing Company",
+            "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/Nq0i-HfEcEnNaxbAmIp2eQ/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/dry-county-brewing-company-kennesaw?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 27,
+            "categories": [
+                {
+                    "alias": "breweries",
+                    "title": "Breweries"
+                }
+            ],
+            "rating": 4.5,
+            "coordinates": {
+                "latitude": 34.0214935446883,
+                "longitude": -84.5933784171939
+            },
+            "transactions": [],
+            "price": "$",
+            "location": {
+                "address1": "1500 Lockhart Dr",
+                "address2": "",
+                "address3": null,
+                "city": "Kennesaw",
+                "zip_code": "30144",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "1500 Lockhart Dr",
+                    "Kennesaw, GA 30144"
+                ]
+            },
+            "phone": "+17702500345",
+            "display_phone": "(770) 250-0345",
+            "distance": 30782.212349151287
+        },
+        {
+            "id": "CD196A8ebLnMOlvZpzHcwg",
+            "alias": "the-stout-brothers-smyrna-3",
+            "name": "The Stout Brothers",
+            "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/IUIOO1lNy7Yf14OLWzfj7g/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/the-stout-brothers-smyrna-3?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 79,
+            "categories": [
+                {
+                    "alias": "beer_and_wine",
+                    "title": "Beer, Wine & Spirits"
+                },
+                {
+                    "alias": "beerbar",
+                    "title": "Beer Bar"
+                }
+            ],
+            "rating": 4.5,
+            "coordinates": {
+                "latitude": 33.884194,
+                "longitude": -84.515924
+            },
+            "transactions": [],
+            "price": "$$",
+            "location": {
+                "address1": "1265 W Spring St",
+                "address2": "Ste D",
+                "address3": "",
+                "city": "Smyrna",
+                "zip_code": "30080",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "1265 W Spring St",
+                    "Ste D",
+                    "Smyrna, GA 30080"
+                ]
+            },
+            "phone": "+17703198200",
+            "display_phone": "(770) 319-8200",
+            "distance": 15329.031603232828
+        },
+        {
+            "id": "8W7BmDxRUyrqTZwMYdVwVw",
+            "alias": "gordon-biersch-brewery-restaurant-atlanta-2",
+            "name": "Gordon Biersch Brewery Restaurant",
+            "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/jaTGEl6lbk6EXEfk6fZqbQ/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/gordon-biersch-brewery-restaurant-atlanta-2?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 271,
+            "categories": [
+                {
+                    "alias": "newamerican",
+                    "title": "American (New)"
+                },
+                {
+                    "alias": "breweries",
+                    "title": "Breweries"
+                },
+                {
+                    "alias": "bars",
+                    "title": "Bars"
+                }
+            ],
+            "rating": 3.5,
+            "coordinates": {
+                "latitude": 33.8438727741244,
+                "longitude": -84.3732048841309
+            },
+            "transactions": [
+                "delivery",
+                "pickup"
+            ],
+            "price": "$$",
+            "location": {
+                "address1": "3242 Peachtree Rd NE",
+                "address2": "",
+                "address3": "",
+                "city": "Atlanta",
+                "zip_code": "30305",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "3242 Peachtree Rd NE",
+                    "Atlanta, GA 30305"
+                ]
+            },
+            "phone": "+14042640253",
+            "display_phone": "(404) 264-0253",
+            "distance": 3409.4172522525305
+        },
+        {
+            "id": "zjUlGcgMZTiatU-szhceUQ",
+            "alias": "good-word-brewing-and-public-house-duluth",
+            "name": "Good Word Brewing & Public House",
+            "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/qPIDp27sjXunoOgJtwkYmg/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/good-word-brewing-and-public-house-duluth?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 177,
+            "categories": [
+                {
+                    "alias": "brewpubs",
+                    "title": "Brewpubs"
+                },
+                {
+                    "alias": "newamerican",
+                    "title": "American (New)"
+                },
+                {
+                    "alias": "sandwiches",
+                    "title": "Sandwiches"
+                }
+            ],
+            "rating": 4.5,
+            "coordinates": {
+                "latitude": 34.003293,
+                "longitude": -84.144245
+            },
+            "transactions": [],
+            "price": "$$",
+            "location": {
+                "address1": "3085 Main St",
+                "address2": "Ste 520",
+                "address3": "",
+                "city": "Duluth",
+                "zip_code": "30096",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "3085 Main St",
+                    "Ste 520",
+                    "Duluth, GA 30096"
+                ]
+            },
+            "phone": "+14049732077",
+            "display_phone": "(404) 973-2077",
+            "distance": 29913.564909003926
+        },
+        {
+            "id": "O2i_-qskooCn1Z8p1e3NbA",
+            "alias": "5-seasons-westside-atlanta",
+            "name": "5 Seasons Westside",
+            "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/whn4_29PPW1c0ZlSHefP0A/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/5-seasons-westside-atlanta?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 407,
+            "categories": [
+                {
+                    "alias": "newamerican",
+                    "title": "American (New)"
+                },
+                {
+                    "alias": "breweries",
+                    "title": "Breweries"
+                },
+                {
+                    "alias": "tradamerican",
+                    "title": "American (Traditional)"
+                }
+            ],
+            "rating": 3.5,
+            "coordinates": {
+                "latitude": 33.7788817877223,
+                "longitude": -84.4103053379593
+            },
+            "transactions": [],
+            "price": "$$",
+            "location": {
+                "address1": "1000 Marietta St NW",
+                "address2": "",
+                "address3": "",
+                "city": "Atlanta",
+                "zip_code": "30318",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "1000 Marietta St NW",
+                    "Atlanta, GA 30318"
+                ]
+            },
+            "phone": "+14048753232",
+            "display_phone": "(404) 875-3232",
+            "distance": 5104.941095480255
+        },
+        {
+            "id": "oxWPkfPLlnMRe9a9EaH8Tw",
+            "alias": "tucker-brewing-company-tucker-3",
+            "name": "Tucker Brewing Company",
+            "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/75ps19PwyCdZAzWovL3ZQA/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/tucker-brewing-company-tucker-3?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 11,
+            "categories": [
+                {
+                    "alias": "beertours",
+                    "title": "Beer Tours"
+                },
+                {
+                    "alias": "brewpubs",
+                    "title": "Brewpubs"
+                }
+            ],
+            "rating": 4.5,
+            "coordinates": {
+                "latitude": 33.8433284156724,
+                "longitude": -84.2065849600494
+            },
+            "transactions": [],
+            "price": "$",
+            "location": {
+                "address1": "2003 South Bibb Dr",
+                "address2": "",
+                "address3": null,
+                "city": "Tucker",
+                "zip_code": "30084",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "2003 South Bibb Dr",
+                    "Tucker, GA 30084"
+                ]
+            },
+            "phone": "+18337522400",
+            "display_phone": "(833) 752-2400",
+            "distance": 15788.941794123808
+        },
+        {
+            "id": "9Agduulx2oBnt5Mc_GCsgQ",
+            "alias": "from-the-earth-brewing-company-roswell",
+            "name": "From the Earth Brewing Company",
+            "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/4F58shlZYcjhT5DlyFo4WA/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/from-the-earth-brewing-company-roswell?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 83,
+            "categories": [
+                {
+                    "alias": "gastropubs",
+                    "title": "Gastropubs"
+                },
+                {
+                    "alias": "breweries",
+                    "title": "Breweries"
+                },
+                {
+                    "alias": "newamerican",
+                    "title": "American (New)"
+                }
+            ],
+            "rating": 4,
+            "coordinates": {
+                "latitude": 34.0196967951366,
+                "longitude": -84.3128926625656
+            },
+            "transactions": [],
+            "price": "$$",
+            "location": {
+                "address1": "1570 Holcomb Bridge Rd",
+                "address2": "Ste 405",
+                "address3": "",
+                "city": "Roswell",
+                "zip_code": "30076",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "1570 Holcomb Bridge Rd",
+                    "Ste 405",
+                    "Roswell, GA 30076"
+                ]
+            },
+            "phone": "+17709109799",
+            "display_phone": "(770) 910-9799",
+            "distance": 23633.98150033115
+        },
+        {
+            "id": "pGrpokAy7fn1RUKHX4RrtA",
+            "alias": "the-viking-alchemist-marietta",
+            "name": "The Viking Alchemist",
+            "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/xEEDUhsEgRyJwfyLysdGyw/o.jpg",
+            "is_closed": false,
+            "url": "https://www.yelp.com/biz/the-viking-alchemist-marietta?adjust_creative=G8Fwlj6_HX2_UcIp_u7sag&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=G8Fwlj6_HX2_UcIp_u7sag",
+            "review_count": 5,
+            "categories": [
+                {
+                    "alias": "breweries",
+                    "title": "Breweries"
+                },
+                {
+                    "alias": "wineries",
+                    "title": "Wineries"
+                }
+            ],
+            "rating": 5,
+            "coordinates": {
+                "latitude": 33.93607,
+                "longitude": -84.55833
+            },
+            "transactions": [],
+            "price": "$$$",
+            "location": {
+                "address1": "703 Fairgate",
+                "address2": "Ste 301",
+                "address3": "",
+                "city": "Marietta",
+                "zip_code": "30064",
+                "country": "US",
+                "state": "GA",
+                "display_address": [
+                    "703 Fairgate",
+                    "Ste 301",
+                    "Marietta, GA 30064"
+                ]
+            },
+            "phone": "+16788582813",
+            "display_phone": "(678) 858-2813",
+            "distance": 21849.070883877415
+        }
+    ],
+    "total": 325,
+    "region": {
+        "center": {
+            "longitude": -84.37362670898438,
+            "latitude": 33.81321311652279
+        }
+    }
+}
