@@ -37,6 +37,8 @@ import org.jetbrains.anko.uiThread
 import java.util.concurrent.TimeUnit
 
 class HomeActivity(private val api: BackendConnection = BackendConnection()) : AppCompatActivity() {
+
+    var _mapView_button : MaterialButton? = null
     var _logout_button : MaterialButton? = null
     var _filter_button : MaterialButton? = null
     var _brewery_search : TextInputEditText? = null
@@ -64,6 +66,11 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
             bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
         }
 
+        _mapView_button = findViewById<MaterialButton>(R.id.mapView)
+        _mapView_button!!.setOnClickListener{
+            mapView(tokenBundle!!)
+        }
+
         _brewery_search = findViewById(R.id.brewerySearchBar)
 
         val progressDialog = ProgressDialog(this)
@@ -82,7 +89,6 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
         Log.d("Home", "Got Breweries")
         progressDialog.cancel()
 
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
 
         recyclerView.apply {
             layoutManager = linearLayoutManager
@@ -138,7 +144,13 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
         }
     }
 
-    fun getBreweries() {
+    fun mapView(tokenBundle: Bundle) {
+        val intent = Intent(baseContext, MapsActivity::class.java)
+        intent.putExtra("bundle", tokenBundle)
+        startActivity(intent)
+    }
+
+    private fun getBreweries() {
         val token = AuthToken(tokenBundle!!["token"] as String, "", "")
         Log.d("Home Brewery Call", "getting all breweries")
         doAsync {

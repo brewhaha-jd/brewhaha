@@ -35,8 +35,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,  GoogleMap.OnMarke
 
         mMap = googleMap
         // Add a marker in Atlanta and move the camera
-        val myLocation = LatLng(20.5937, 78.9629)
-        mMap.addMarker(MarkerOptions().position(myLocation).title("Marker in India"))
+        val myLocation = LatLng(33.7490, -84.3880)
+        mMap.addMarker(MarkerOptions().position(myLocation).title("Marker in Atlanta"))
         mMap.moveCamera(CameraUpdateFactory.newLatLng(myLocation))
         mMap.uiSettings.isZoomControlsEnabled = true
     }
