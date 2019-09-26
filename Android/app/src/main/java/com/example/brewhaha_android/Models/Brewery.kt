@@ -42,10 +42,11 @@ data class AddBrewery(
     val website: String
 )
 
-enum class RatingType(
-    val AGGREGATE: String = "aggregate",
-    val KIDS_FOOD: String = "kidsFood",
-    val KIDS_ENTERTAINMENT: String = "kidsEntertainment",
-    val BATHROOMS: String = "bathrooms",
-    val MIN_RECOMEMNDED_AGE: String = "minRecommendedAge"
-)
+enum class RatingType {
+    aggregate,
+    kidsFood,
+    kidsEntertainment,
+    bathrooms,
+    minReccomendedAge
+}
+

@@ -13,6 +13,15 @@ class BackendConnection {
     private val backendApi: BackendInterface
     private val CONTENT_TYPE: String = "application/json"
 
+    enum class QueryParam {
+        Long,
+        Lat,
+        Range,
+        RatingType,
+        Rating,
+        Name,
+    }
+
     init {
         val client = OkHttpClient.Builder()
             .connectTimeout(20, TimeUnit.SECONDS)
@@ -53,15 +62,11 @@ class BackendConnection {
         return backendApi.getBrewery(token.token, id)
     }
 
-    fun getBreweryByName(token: AuthToken, name: String) : Call<List<Brewery>> {
-        return backendApi.getBreweryByName(token.token, name)
-    }
-
-    fun getBreweryByRating(token: AuthToken, type: RatingType, rating: Float) : Call<List<Brewery>> {
-        return backendApi.getBreweryByRating(token.token, type, rating)
-    }
-
-    fun getBreweryByLocation(token: AuthToken, location: List<Double>, miles: Double) : Call<List<Brewery>> {
-        return backendApi.getBreweryByLocation(token.token, location, miles)
+    fun filterBreweries(token: AuthToken, enumQueryMap: Map<QueryParam, String>) : Call<List<Brewery>> {
+        val queryMap: HashMap<String, String> = HashMap()
+        enumQueryMap.keys.forEach {
+            queryMap[it.name.toLowerCase()] = enumQueryMap.getValue((it))
+        }
+        return backendApi.filterBreweries(token.token, queryMap)
     }
 }

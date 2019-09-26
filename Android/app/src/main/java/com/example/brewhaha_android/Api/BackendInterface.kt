@@ -30,11 +30,5 @@ interface BackendInterface {
     fun addBrewery(@Header("x-access-token") accessToken: String, @Header("Content-type") contentType: String, @Body brewery: AddBrewery) : Call<Map<String, String>>
 
     @GET("brewery")
-    fun getBreweryByName(@Header("x-access-token") accessToken: String, @Query("name") breweryName: String) : Call<List<Brewery>>
-
-    @GET("brewery")
-    fun getBreweryByRating(@Header("x-access-token") accessToken: String, @Query("ratingType") ratingType: RatingType, @Query("rating") rating: Float) : Call<List<Brewery>>
-
-    @GET("brewery")
-    fun getBreweryByLocation(@Header("x-access-token") accessToken: String, @Query("location") location: List<Double>, @Query("miles") miles: Double) : Call<List<Brewery>>
+    fun filterBreweries(@Header("x-access-token") accessToken: String, queryMap: Map<String, String>) : Call<List<Brewery>>
 }
