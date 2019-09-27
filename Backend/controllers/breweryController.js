@@ -12,9 +12,11 @@ router.use(function (req, res, next) {
 });
 
 router.get('/', function (req, res, next) {
-    if(req.query.location && req.query.range) {
+    if(req.query.location && req.query.range && !req.query.ratings) {
         locationQuery(req, res, next)
-    } else if (req.query.ratingType && req.query.rating) {
+    } else if (req.query.location && req.query.range && req.query.ratings) {
+        locationAndRatingQuery(req, res, next)
+    } else if (req.query.ratings) {
         ratingQuery(req, res, next)
     } else if (req.query.name) {
         nameQuery(req, res, next)
@@ -68,9 +70,20 @@ function locationQuery(req, res, next) {
     })
 }
 
+function locationAndRatingQuery(req, res, next) {
+    let ratings = processRatingQueries(req);
+    breweryService.getBreweriesByLocationAndRatings(req.query.location.split(","), req.query.range, ratings, function (err, entities) {
+        if (err) {
+            next(err)
+        } else {
+            res.status(200).json(entities)
+        }
+    })
+}
+
 function ratingQuery(req, res, next) {
-    breweryService.getBreweriesByRatings(req.query.ratingType, req.query.rating, true,
-        function (err, entities) {
+    let ratings = processRatingQueries(req);
+    breweryService.getBreweriesByRatings(ratings, true,function (err, entities) {
         if (err) {
             next(err)
         } else {
@@ -87,4 +100,39 @@ function nameQuery(req, res, next) {
             res.status(200).json(entities)
         }
     })
+}
+
+function processRatingQueries(req) {
+    let queries = [];
+    if (req.query.aggregate) {
+        queries.push({
+            name: "aggregate",
+            rating: req.query.aggregate
+        });
+    }
+    if (req.query.kidsFood) {
+        queries.push({
+            name: "kidsFood",
+            rating: req.query.kidsFood
+        });
+    }
+    if (req.query.kidsEntertainment) {
+        queries.push({
+            name: "kidsEntertainment",
+            rating: req.query.kidsEntertainment
+        });
+    }
+    if (req.query.bathrooms) {
+        queries.push({
+            name: "bathrooms",
+            rating: req.query.bathrooms
+        });
+    }
+    if (req.query.minRecommendedAge) {
+        queries.push({
+            name: "minRecommendedAge",
+            rating: req.query.minRecommendedAge
+        });
+    }
+    return queries;
 }

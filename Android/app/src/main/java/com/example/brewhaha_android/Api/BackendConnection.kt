@@ -13,6 +13,18 @@ class BackendConnection {
     private val backendApi: BackendInterface
     private val CONTENT_TYPE: String = "application/json"
 
+    enum class QueryParam(val value: String) {
+        Long("long"),
+        Lat("lat"),
+        Range("range"),
+        Aggregate("aggregate"),
+        KidsFood("kidsFood"),
+        KidsEntertainment("kidsEntertainment"),
+        Bathrooms("Bathrooms"),
+        MinReccomendedAge("minRecommendedAge"),
+        Name("name"),
+    }
+
     init {
         val client = OkHttpClient.Builder()
             .connectTimeout(20, TimeUnit.SECONDS)
@@ -53,15 +65,32 @@ class BackendConnection {
         return backendApi.getBrewery(token.token, id)
     }
 
-    fun getBreweryByName(token: AuthToken, name: String) : Call<List<Brewery>> {
-        return backendApi.getBreweryByName(token.token, name)
+    fun filterBreweries(token: AuthToken, enumQueryMap: Map<QueryParam, String>) : Call<List<Brewery>> {
+        val checkIfFilteringByRatings: Boolean = createSetForRatings(enumQueryMap)
+        val queryMap: HashMap<String, String> = HashMap()
+        enumQueryMap.keys.forEach {
+            queryMap[it.value] = enumQueryMap.getValue((it))
+        }
+        if (checkIfFilteringByRatings) {
+            queryMap["ratings"] = "true"
+        }
+        val res = backendApi.filterBreweries(token.token, queryMap)
+        Log.d("View Breweries", res.request().url().toString())
+        return backendApi.filterBreweries(token.token, queryMap)
     }
 
-    fun getBreweryByRating(token: AuthToken, type: RatingType, rating: Float) : Call<List<Brewery>> {
-        return backendApi.getBreweryByRating(token.token, type, rating)
-    }
-
-    fun getBreweryByLocation(token: AuthToken, location: List<Double>, miles: Double) : Call<List<Brewery>> {
-        return backendApi.getBreweryByLocation(token.token, location, miles)
+    private fun createSetForRatings(enumQueryMap: Map<QueryParam, String>) : Boolean {
+        val ratingsSet : HashSet<QueryParam> = HashSet()
+        ratingsSet.add(QueryParam.Aggregate)
+        ratingsSet.add(QueryParam.MinReccomendedAge)
+        ratingsSet.add(QueryParam.Bathrooms)
+        ratingsSet.add(QueryParam.KidsEntertainment)
+        ratingsSet.add(QueryParam.KidsFood)
+        for (key in enumQueryMap.keys) {
+            if (key in ratingsSet) {
+                return true
+            }
+        }
+        return false
     }
 }

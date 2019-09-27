@@ -2,12 +2,12 @@ package com.example.brewhaha_android.Models
 
 data class Brewery(
     val name: String,
-    val address: Address,
-    val friendlinessRating: FriendlinessRating,
-    val operatingHours: List<String>,
-    val website: String,
-    val _id: String,
-    val __v: String
+    val address: Address? = null,
+    val friendlinessRating: FriendlinessRating? = null,
+    val operatingHours: List<String>? = null,
+    val website: String? = null,
+    val _id: String? = null,
+    val __v: String? = null
 )
 
 data class Address(
@@ -42,10 +42,11 @@ data class AddBrewery(
     val website: String
 )
 
-enum class RatingType(
-    val AGGREGATE: String = "aggregate",
-    val KIDS_FOOD: String = "kidsFood",
-    val KIDS_ENTERTAINMENT: String = "kidsEntertainment",
-    val BATHROOMS: String = "bathrooms",
-    val MIN_RECOMEMNDED_AGE: String = "minRecommendedAge"
-)
+enum class RatingType {
+    aggregate,
+    kidsFood,
+    kidsEntertainment,
+    bathrooms,
+    minReccomendedAge
+}
+

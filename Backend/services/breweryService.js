@@ -75,18 +75,40 @@ module.exports = {
 		})
 	},
 
-	getBreweriesByRatings: function (ratingType, rating, sorted = true, callback) {
-		let query = {};
-		if (ratingType === "minRecommendedAge") {
-			query["friendlinessRating." + ratingType] = {
-				$lte: rating
-			};
-		} else {
-			query["friendlinessRating." + ratingType] = {
-				$gte: rating
-			};
+	getBreweriesByLocationAndRatings: function(location, rangeInMiles, ratings, callback) {
+		const METERS_PER_MILE = 1609.34;
+		let query = {
+			"address.location": {
+				$nearSphere: {
+					$geometry: {
+						type: "Point",
+						coordinates: location
+					},
+					$maxDistance: rangeInMiles * METERS_PER_MILE
+				}
+			}
+		};
+		for (let i = 0; i < ratings.length; i++) {
+			if (ratings[i].name === "minRecommendedAge") {
+				query["friendlinessRating." + ratings[i].name] = {$lte: ratings[i].rating};
+			}
+			query["friendlinessRating." + ratings[i].name] = {$gte: ratings[i].rating};
 		}
+		breweryRepo.getByQuery(query, function (err, entities) {
+			callback(err, entities)
+		})
 
+
+	},
+
+	getBreweriesByRatings: function (ratings, sorted = true, callback) {
+		let query = {};
+		for (let i = 0; i < ratings.length; i++) {
+			if (ratings[i].name === "minRecommendedAge") {
+				query["friendlinessRating." + ratings[i].name] = {$lte: ratings[i].rating};
+			}
+			query["friendlinessRating." + ratings[i].name] = {$gte: ratings[i].rating};
+		}
 		breweryRepo.getByQuery(query, function (err, entities) {
 			callback(err, entities)
 		})
