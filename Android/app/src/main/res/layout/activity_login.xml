@@ -5,6 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorBackground"
         tools:context=".Controllers.LoginActivity">
 
     <LinearLayout
@@ -16,15 +17,15 @@
         android:layout_marginTop="56dp">
 
         <com.google.android.material.textview.MaterialTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="50dp"
-                android:layout_marginBottom="50dp"
-                android:fontFamily="cursive"
-                android:textSize="40sp"
-                android:text="Brewhaha"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="50dp"
+            android:fontFamily="cursive"
+            android:textSize="40sp"
+            android:text="Brewhaha"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <!--  Username Label -->
         <com.google.android.material.textfield.TextInputLayout
@@ -62,8 +63,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:padding="12dp"
-            app:backgroundTint="@color/colorAccent"
+            android:paddingTop="11dp"
+            android:paddingStart="12dp"
+            android:paddingBottom="12dp"
+            android:paddingEnd="12dp"
+            android:textColor="@color/colorBackground"
+            app:backgroundTint="@color/colorPrimaryDark"
             android:text="Login" />
 
         <com.google.android.material.button.MaterialButton
@@ -73,8 +78,12 @@
             android:layout_gravity="center"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="24dp"
-            android:padding="12dp"
-            app:backgroundTint="@color/colorAccent"
+            android:paddingTop="11dp"
+            android:paddingStart="12dp"
+            android:paddingBottom="12dp"
+            android:paddingEnd="12dp"
+            android:textColor="@color/colorBackground"
+            app:backgroundTint="@color/colorPrimaryDark"
             android:text="No account yet? Create one"/>
 
     </LinearLayout>

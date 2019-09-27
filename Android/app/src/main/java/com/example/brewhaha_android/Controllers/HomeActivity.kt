@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.brewhaha_android.Api.BackendConnection
@@ -62,9 +63,11 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
 
         }
         progressDialog.cancel()
+
         recyclerView.apply {
             layoutManager = linearLayoutManager
             adapter = BreweryAdapter(breweryList)
+//            addItemDecoration(DividerItemDecoration(this.context, DividerItemDecoration.VERTICAL))
         }
     }
 
@@ -130,10 +133,17 @@ class BreweryAdapter(val breweryList: List<Brewery>): RecyclerView.Adapter<Brewe
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         Log.d("Home Adapter", breweryList[position].name)
         val brewery = breweryList[position]
-        holder.image?.setImageResource(R.drawable.ic_restaurant_black_48dp)
+        holder.image?.setImageResource(R.drawable.beer_mugs)
         holder.name?.text = brewery.name
-        holder.address?.text = brewery.address!!.line1
-        holder.rating?.text = brewery.friendlinessRating!!.aggregate.toString()
+        holder.address?.text = String.format("%d %s, %s", brewery.address!!.number,
+            brewery.address.line1, brewery.address.postalCode)
+        val rating_double = brewery.friendlinessRating!!.aggregate
+        if (rating_double == null) {
+            holder.rating?.text = "Rating coming soon!"
+        } else {
+            holder.rating?.text = String.format("Rating: %d", rating_double.toString())
+        }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
