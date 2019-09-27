@@ -18,9 +18,11 @@ import com.example.brewhaha_android.Models.AuthToken
 import com.example.brewhaha_android.Models.Brewery
 import com.example.brewhaha_android.Models.LogoutUser
 import com.example.brewhaha_android.R
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textview.MaterialTextView
 import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.filter_sheet.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.toast
 import org.jetbrains.anko.uiThread
@@ -45,8 +47,13 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
         }
 
         _filter_button = findViewById<MaterialButton>(R.id.filterButton)
+        val bottom_sheet_behavior = BottomSheetBehavior.from(filter_sheet)
         _filter_button!!.setOnClickListener {
-        // TODO: make filter sheet
+            if (bottom_sheet_behavior.state != BottomSheetBehavior.STATE_EXPANDED) {
+                bottom_sheet_behavior.state = BottomSheetBehavior.STATE_EXPANDED
+            } else {
+                bottom_sheet_behavior.state = BottomSheetBehavior.STATE_COLLAPSED
+            }
         }
 
 //        search_view.setOnQueryChangeListener(FloatingSearchView.OnQueryChangeListener() {
