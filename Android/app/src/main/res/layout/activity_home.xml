@@ -105,6 +105,18 @@
                 app:backgroundTint="@color/colorAccent"
                 android:text="Map View" />
         </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mapView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:padding="12dp"
+            android:layout_weight="1"
+            android:text="Map View"
+            android:textColor="@color/cardview_light_background"
+            android:textAppearance="@style/TextAppearance.AppCompat.Button"
+            app:backgroundTint="@color/colorAccent" />
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

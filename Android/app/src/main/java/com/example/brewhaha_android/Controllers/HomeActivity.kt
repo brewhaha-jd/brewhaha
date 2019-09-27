@@ -55,7 +55,6 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
         // Logout stuff
         _logout_button = findViewById<MaterialButton>(R.id.logoutButton)
         tokenBundle = intent.getBundleExtra("bundle")
-        val userId = tokenBundle!!["id"] as String
         _logout_button!!.setOnClickListener{
             logout(userId)
         }
