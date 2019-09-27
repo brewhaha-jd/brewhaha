@@ -154,10 +154,7 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
                         Log.d("Home Brewery Call", "Name: " + it)
                     }
                 }
-
-                }
-            }
-            else {
+            } else {
                 uiThread {
                     Log.d("Home Brewery Call","Code: " + response.code())
                     Log.d("Home Brewery Call", "Error Message: " + response.errorBody())
