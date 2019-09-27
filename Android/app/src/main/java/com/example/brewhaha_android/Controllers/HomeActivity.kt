@@ -138,11 +138,6 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
         val token = AuthToken(tokenBundle!!["token"] as String, "", "")
         Log.d("Home Brewery Call", "getting all breweries")
         doAsync {
-            try {
-                val response = api.getAllBreweries(token).execute()
-            } catch (e: Exception) {
-                Log.d("Home", e.toString())
-            }
             val response = api.getAllBreweries(token).execute()
             if (response.isSuccessful) {
                 breweryList = ArrayList(response.body())
