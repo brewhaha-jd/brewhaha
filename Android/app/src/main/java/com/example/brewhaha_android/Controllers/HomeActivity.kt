@@ -52,13 +52,15 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+        tokenBundle = intent.getBundleExtra("bundle")
+        val userId = tokenBundle!!["id"] as String
+
         // Logout stuff
         _logout_button = findViewById<MaterialButton>(R.id.logoutButton)
-        tokenBundle = intent.getBundleExtra("bundle")
         _logout_button!!.setOnClickListener{
             logout(userId)
         }
-
+        
         _filter_button = findViewById<MaterialButton>(R.id.filterButton)
         _filter_button!!.setOnClickListener {
             val bottomSheetFragment = BottomSheetFragment()

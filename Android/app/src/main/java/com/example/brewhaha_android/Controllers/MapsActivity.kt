@@ -27,6 +27,9 @@ class MapsActivity(private val api: BackendConnection = BackendConnection()) : A
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
 
+        tokenBundle = intent.getBundleExtra("bundle")
+        val userId = tokenBundle!!["id"] as String
+
         getBreweries()
 
 
@@ -53,6 +56,7 @@ class MapsActivity(private val api: BackendConnection = BackendConnection()) : A
         //put lat lng marker here with name label
         //      }
         mMap.moveCamera(CameraUpdateFactory.newLatLng(myLocation))
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(15.0f))
         mMap.uiSettings.isZoomControlsEnabled = true
     }
 
@@ -60,7 +64,7 @@ class MapsActivity(private val api: BackendConnection = BackendConnection()) : A
     override fun onMarkerClick(p0: Marker?) = false
 
 
-    fun getBreweries() {
+    private fun getBreweries() {
         val token = AuthToken(tokenBundle!!["token"] as String, "", "")
         Log.d("Home Brewery Call", "getting all breweries")
         doAsync {
