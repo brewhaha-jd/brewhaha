@@ -102,6 +102,7 @@ module.exports = {
 	},
 
 	getBreweriesByRatings: function (ratings, sorted = true, callback) {
+		let query = {};
 		for (let i = 0; i < ratings.length; i++) {
 			if (ratings[i].name === "minRecommendedAge") {
 				query["friendlinessRating." + ratings[i].name] = {$lte: ratings[i].rating};
