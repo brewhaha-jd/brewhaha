@@ -153,6 +153,7 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
                     breweryList.forEach {
                         Log.d("Home Brewery Call", "Name: " + it)
                     }
+                }
 
                 }
             }
