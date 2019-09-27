@@ -5,10 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/filter_sheet"
-    app:behavior_hideable="true"
-    app:behavior_peekHeight="60dp"
-    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+    android:background="@color/cardBackgroun"
+    android:id="@+id/filter_sheet">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -20,6 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="Distance"
+            android:textColor="@color/cardText"
             android:textSize="16dp"
             android:textStyle="bold"
             android:layout_gravity="left"/>
@@ -32,25 +31,25 @@
                 android:layout_height="wrap_content"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:textAllCaps="false"
-                android:text="5 mi"/>
+                android:text="&lt; 5 mi"/>
             <com.google.android.material.button.MaterialButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:textAllCaps="false"
-                android:text="10 mi"/>
+                android:text="&lt; 10 mi"/>
             <com.google.android.material.button.MaterialButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:textAllCaps="false"
-                android:text="15 mi"/>
+                android:text="&lt; 15 mi"/>
             <com.google.android.material.button.MaterialButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:textAllCaps="false"
-                android:text="20+ mi"/>
+                android:text="15+ mi"/>
 
         </com.google.android.material.button.MaterialButtonToggleGroup>
     </LinearLayout>
@@ -65,6 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="Rating"
+            android:textColor="@color/cardText"
             android:textSize="16dp"
             android:textStyle="bold"
             android:layout_gravity="left"/>
