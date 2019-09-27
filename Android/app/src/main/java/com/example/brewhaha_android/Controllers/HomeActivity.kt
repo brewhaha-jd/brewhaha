@@ -1,17 +1,15 @@
 package com.example.brewhaha_android.Controllers
 
+import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.View
-import android.widget.AdapterView
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.brewhaha_android.Api.BackendConnection
 import com.example.brewhaha_android.Models.AuthToken
@@ -21,14 +19,13 @@ import com.example.brewhaha_android.R
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textview.MaterialTextView
 import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.android.synthetic.main.brewery_card.view.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.toast
 import org.jetbrains.anko.uiThread
-import java.util.concurrent.TimeoutException
 
 class HomeActivity(private val api: BackendConnection = BackendConnection()) : AppCompatActivity() {
     var _logout_button : MaterialButton? = null
+    var _filter_button : MaterialButton? = null
     var tokenBundle: Bundle? = null
     lateinit var breweryList: List<Brewery>
     private lateinit var linearLayoutManager: LinearLayoutManager
@@ -45,25 +42,26 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
             logout(userId)
         }
 
+        _filter_button = findViewById<MaterialButton>(R.id.filterButton)
+        _filter_button!!.setOnClickListener {
+        // TODO: make filter sheet
+        }
+
+        val progressDialog = ProgressDialog(this)
+        progressDialog.isIndeterminate = true
+        progressDialog.setMessage("Finding Breweries...")
+        progressDialog.show()
+
         // Get brewery stuff
         linearLayoutManager = LinearLayoutManager(this)
         Log.d("Home", "About to get breweries")
         Log.d("Home", "GetBreweries = ")
         getBreweries()
-        var timer = 0
         while (!(::breweryList.isInitialized)) {
             Thread.sleep(1000)
-            timer++
-            if (timer > 10) {
-                val builder = AlertDialog.Builder(this)
-                builder.setTitle("Cannot fetch breweries")
-                builder.setMessage("Connection may have been lost.")
-                val dialog: AlertDialog = builder.create()
-                dialog.show()
-
-            }
 
         }
+        progressDialog.cancel()
         recyclerView.apply {
             layoutManager = linearLayoutManager
             adapter = BreweryAdapter(breweryList)
@@ -131,7 +129,11 @@ class BreweryAdapter(val breweryList: List<Brewery>): RecyclerView.Adapter<Brewe
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         Log.d("Home Adapter", breweryList[position].name)
-        holder.name?.text = breweryList[position].name
+        val brewery = breweryList[position]
+        holder.image?.setImageResource(R.drawable.ic_restaurant_black_48dp)
+        holder.name?.text = brewery.name
+        holder.address?.text = brewery.address!!.line1
+        holder.rating?.text = brewery.friendlinessRating!!.aggregate.toString()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -146,7 +148,11 @@ class BreweryAdapter(val breweryList: List<Brewery>): RecyclerView.Adapter<Brewe
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
+        val image = itemView.findViewById<ImageView>(R.id.breweryImage)
+
         val name = itemView.findViewById<MaterialTextView>(R.id.breweryName)
+        val address = itemView.findViewById<MaterialTextView>(R.id.breweryAddress)
+        val rating = itemView.findViewById<MaterialTextView>(R.id.breweryRating)
 
     }
 }
