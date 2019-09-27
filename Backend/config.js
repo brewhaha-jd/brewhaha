@@ -3,7 +3,7 @@
  */
 module.exports = {
 	'mongoConfig'   : 'mongodb://localhost:27017/brewhaha',
-	'tokenSecret'   : 'service123!',
+	'tokenSecret'   : 'SECRET HERE',
 	'tokenExpiresIn': 1140,
     	'refreshTokenExpiresIn': 2592000,
 	'geoCoderConfig': {

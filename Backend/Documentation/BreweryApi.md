@@ -242,8 +242,13 @@ Returns: 200
         }
     ]
     
+  ### Query Brewery By Location With Range and Ratings
+  `PUT localhost:3000/api/brewery?location=<long>,<lat>&range=<miles>&ratings=true&<ratingType>=<rating>[can have multiple]`  
+    
  ### Query Brewery By Ratings
- `GET localhost:3000/api/brewery?ratingType=<ratingType>&rating=<rating>`
+ `GET localhost:3000/api/brewery?ratings=true&<ratingType>=<rating>[can have multiple]`
+ 
+ EXAMPLE : `GET localhost:3000/api/brewery?ratings=true&aggregate=4.2&minRecommendedAge=14`
    
 RatingType can be :
 - aggregate: actual > query
