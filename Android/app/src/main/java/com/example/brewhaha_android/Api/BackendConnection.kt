@@ -13,13 +13,16 @@ class BackendConnection {
     private val backendApi: BackendInterface
     private val CONTENT_TYPE: String = "application/json"
 
-    enum class QueryParam {
-        Long,
-        Lat,
-        Range,
-        RatingType,
-        Rating,
-        Name,
+    enum class QueryParam(val value: String) {
+        Long("long"),
+        Lat("lat"),
+        Range("range"),
+        Aggregate("aggregate"),
+        KidsFood("kidsFood"),
+        KidsEntertainment("kidsEntertainment"),
+        Bathrooms("Bathrooms"),
+        MinReccomendedAge("minRecommendedAge"),
+        Name("name"),
     }
 
     init {
@@ -63,10 +66,31 @@ class BackendConnection {
     }
 
     fun filterBreweries(token: AuthToken, enumQueryMap: Map<QueryParam, String>) : Call<List<Brewery>> {
+        val checkIfFilteringByRatings: Boolean = createSetForRatings(enumQueryMap)
         val queryMap: HashMap<String, String> = HashMap()
         enumQueryMap.keys.forEach {
-            queryMap[it.name.toLowerCase()] = enumQueryMap.getValue((it))
+            queryMap[it.value] = enumQueryMap.getValue((it))
         }
+        if (checkIfFilteringByRatings) {
+            queryMap["ratings"] = "true"
+        }
+        val res = backendApi.filterBreweries(token.token, queryMap)
+        Log.d("View Breweries", res.request().url().toString())
         return backendApi.filterBreweries(token.token, queryMap)
+    }
+
+    private fun createSetForRatings(enumQueryMap: Map<QueryParam, String>) : Boolean {
+        val ratingsSet : HashSet<QueryParam> = HashSet()
+        ratingsSet.add(QueryParam.Aggregate)
+        ratingsSet.add(QueryParam.MinReccomendedAge)
+        ratingsSet.add(QueryParam.Bathrooms)
+        ratingsSet.add(QueryParam.KidsEntertainment)
+        ratingsSet.add(QueryParam.KidsFood)
+        for (key in enumQueryMap.keys) {
+            if (key in ratingsSet) {
+                return true
+            }
+        }
+        return false
     }
 }
