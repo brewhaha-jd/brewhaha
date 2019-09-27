@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.arlib.floatingsearchview.FloatingSearchView
 import com.example.brewhaha_android.Api.BackendConnection
 import com.example.brewhaha_android.Models.AuthToken
 import com.example.brewhaha_android.Models.Brewery
@@ -47,6 +48,15 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
         _filter_button!!.setOnClickListener {
         // TODO: make filter sheet
         }
+
+//        search_view.setOnQueryChangeListener(FloatingSearchView.OnQueryChangeListener() {
+//            fun onSearchTextChanged(oldQuery: String, newQuery: String) {
+//                 get new suggestions based on newQuery
+//                 then swap suggestions
+//                val new_suggestions = mutableListOf<String>("brewery1", "brewery2", "brewery3")
+//                search_view.swapSuggestions(new_suggestions)
+//            }
+//        })
 
         val progressDialog = ProgressDialog(this)
         progressDialog.isIndeterminate = true
