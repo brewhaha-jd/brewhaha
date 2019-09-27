@@ -1,9 +1,11 @@
 package com.example.brewhaha_android.Controllers
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import com.example.brewhaha_android.Api.BackendConnection
 import com.example.brewhaha_android.R
@@ -15,6 +17,7 @@ import kotlinx.android.synthetic.main.activity_register.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.toast
 import org.jetbrains.anko.uiThread
+import java.lang.Exception
 
 class LoginActivity(private val api: BackendConnection = BackendConnection()) : AppCompatActivity() {
 
@@ -79,6 +82,9 @@ class LoginActivity(private val api: BackendConnection = BackendConnection()) : 
                     var bundle = bundleOf("token" to token.token, "refreshToken" to token.refreshToken, "id" to token.userId)
                     val intent = Intent(baseContext, HomeActivity::class.java)
                     intent.putExtra("bundle", bundle)
+                    val imm: InputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+                    if (imm.isActive)
+                        imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
                     startActivity(intent)
                 }
             } else {
