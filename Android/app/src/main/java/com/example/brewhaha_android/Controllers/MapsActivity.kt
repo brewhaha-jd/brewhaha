@@ -1,5 +1,6 @@
 package com.example.brewhaha_android.Controllers
 
+import android.app.ProgressDialog
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -30,8 +31,22 @@ class MapsActivity(private val api: BackendConnection = BackendConnection()) : A
         tokenBundle = intent.getBundleExtra("bundle")
         val userId = tokenBundle!!["id"] as String
 
+        val progressDialog = ProgressDialog(this)
+        progressDialog.isIndeterminate = true
+        progressDialog.setMessage("Finding Breweries...")
+        progressDialog.show()
+
+        Log.d("Maps", "About to get breweries")
+        Log.d("Maps", "GetBreweries = ")
+
         getBreweries()
 
+        while (!(::breweryList.isInitialized)) {
+            Thread.sleep(1000)
+
+        }
+
+        progressDialog.cancel()
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
@@ -51,10 +66,13 @@ class MapsActivity(private val api: BackendConnection = BackendConnection()) : A
         mMap = googleMap
         // Add a marker in Atlanta and move the camera
         val myLocation = LatLng(33.7490, -84.3880)
-        mMap.addMarker(MarkerOptions().position(myLocation).title("Marker in Atlanta"))
-        //      breweryList.forEach {
-        //put lat lng marker here with name label
-        //      }
+        //mMap.addMarker(MarkerOptions().position(myLocation).title("Marker in Atlanta"))
+        breweryList.forEach {
+            val lng = it.address!!.location.coordinates[0]
+            val lat = it.address!!.location.coordinates[1]
+            val point = LatLng(lat.toDouble(), lng.toDouble())
+            mMap.addMarker(MarkerOptions().position(point).title(it.name))
+        }
         mMap.moveCamera(CameraUpdateFactory.newLatLng(myLocation))
         mMap.animateCamera(CameraUpdateFactory.zoomTo(15.0f))
         mMap.uiSettings.isZoomControlsEnabled = true
@@ -66,25 +84,25 @@ class MapsActivity(private val api: BackendConnection = BackendConnection()) : A
 
     private fun getBreweries() {
         val token = AuthToken(tokenBundle!!["token"] as String, "", "")
-        Log.d("Home Brewery Call", "getting all breweries")
+        Log.d("Maps Brewery Call", "getting all breweries")
         doAsync {
             val response = api.getAllBreweries(token).execute()
             if (response.isSuccessful) {
                 breweryList = response.body()
-                Log.d("Home Brewery Call", breweryList.toString())
+                Log.d("Maps Brewery Call", breweryList.toString())
                 uiThread {
-                    Log.d("Home Brewery Call", "success")
-                    Log.d("Home Brewery Call", "Size: " + breweryList.size)
+                    Log.d("Maps Brewery Call", "success")
+                    Log.d("Maps Brewery Call", "Size: " + breweryList.size)
                     breweryList.forEach {
-                        Log.d("Home Brewery Call", "Name: " + it)
+                        Log.d("Maps Brewery Call", "Name: " + it)
                     }
                 }
 
             } else {
                 uiThread {
-                    Log.d("Home Brewery Call", "Code: " + response.code())
-                    Log.d("Home Brewery Call", "Error Message: " + response.errorBody())
-                    Log.d("Home Brewery Call", "Response Body: " + response.message())
+                    Log.d("Maps Brewery Call", "Code: " + response.code())
+                    Log.d("Maps Brewery Call", "Error Message: " + response.errorBody())
+                    Log.d("Maps Brewery Call", "Response Body: " + response.message())
                 }
             }
         }
