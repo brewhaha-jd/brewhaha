@@ -5,9 +5,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/cardBackgroun"
+    android:background="@color/cardBackground"
     android:id="@+id/filter_sheet">
 
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:text="Filters"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textStyle="bold"
+        android:textColor="@color/cardText" />
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
