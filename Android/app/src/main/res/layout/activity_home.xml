@@ -9,7 +9,6 @@
 
     <RelativeLayout
         android:background="@color/colorBackground"
-
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <com.google.android.material.appbar.MaterialToolbar
@@ -20,15 +19,27 @@
             android:layout_alignParentTop="true"
             android:gravity="center"
             app:layout_constraintTop_toTopOf="parent">
-
             <com.google.android.material.textview.MaterialTextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:fontFamily="cursive"
-                android:gravity="center"
+                android:layout_gravity="center"
                 android:text="Brewhaha"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textSize="40sp" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/logoutButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|end"
+                android:layout_margin="10dp"
+                android:padding="8dp"
+                android:text="Logout"
+                android:textColor="@color/colorBackground"
+                android:textAppearance="@style/TextAppearance.AppCompat.Button"
+                android:textAlignment="center"
+                app:elevation="@dimen/cardview_default_elevation"
+                app:backgroundTint="@color/colorPrimaryDark" />
         </com.google.android.material.appbar.MaterialToolbar>
 
         <LinearLayout
@@ -42,72 +53,48 @@
             android:layout_below="@id/toolbar"
             app:layout_constraintBottom_toBottomOf="parent"
             android:orientation="vertical">
-        <LinearLayout
+            <LinearLayout
                 android:id="@+id/LinearLayoutWithText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/LinearLayout"
-                android:layout_marginTop="10dp"
-                android:layout_below="@id/LinearLayout"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="5dp">
+                app:layout_constraintTop_toTopOf="@id/LinearLayout"
+                android:orientation="horizontal">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_gravity="center_vertical|start"
+                    android:layout_weight="1"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textAutoComplete"
+                        android:textColor="@color/cardText"
+                        android:hint="Search"
+                        android:id="@+id/brewerySearchBar" />
+                </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/filterButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                        android:gravity="right"
-                        android:layout_marginEnd="40dp"
-                    android:padding="12dp"
+                    android:layout_gravity="center_vertical|end"
+                    android:layout_marginStart="10dp"
+                    android:padding="8dp"
                     android:text="Filters"
-                    android:textColor="@color/cardview_light_background"
+                    android:textColor="@color/cardBackground"
                     android:textAppearance="@style/TextAppearance.AppCompat.Button"
                     android:textAlignment="center"
                     app:backgroundTint="@color/colorPrimaryDark"
-                    app:elevation="@dimen/cardview_default_elevation"
-                    android:layout_weight="1"/>
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/logoutButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:padding="12dp"
-                        android:gravity="left"
-                    android:layout_weight="1"
-                    android:text="Logout"
-                    android:textColor="@color/cardview_light_background"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Button"
-                        android:layout_marginStart="40dp"
-                    android:textAlignment="center"
-                    app:elevation="@dimen/cardview_default_elevation"
-                    app:backgroundTint="@color/colorPrimaryDark" />
+                    app:elevation="@dimen/cardview_default_elevation"/>
             </LinearLayout>
-            <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:inputType="text"
-                    android:textColor="@color/cardview_dark_background"
-                    android:layout_marginBottom="5dp"
-                    android:id="@+id/brewerySearchBar" />
-        </LinearLayout>
-
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                    android:layout_marginTop="10dp"
-                android:scrollbars="vertical">
-
-
-            </androidx.recyclerview.widget.RecyclerView>
+                android:layout_marginTop="10dp"
+                android:scrollbars="vertical"/>
         </LinearLayout>
     </RelativeLayout>
 
