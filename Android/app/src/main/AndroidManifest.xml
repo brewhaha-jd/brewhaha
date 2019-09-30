@@ -37,7 +37,8 @@
 
         <activity android:name=".Controllers.MainActivity"></activity>
         <activity android:name=".Controllers.RegisterActivity"></activity>
-        <activity android:name=".Controllers.HomeActivity"></activity>
+        <activity android:name=".Controllers.HomeActivity"
+                android:windowSoftInputMode="stateHidden"></activity>
         <activity android:name=".Controllers.ViewBreweryActivity"></activity>
         <activity android:name=".Controllers.MapsActivity"></activity>
         <activity android:name=".Controllers.LoginActivity">

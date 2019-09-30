@@ -11,6 +11,13 @@
         android:background="@color/colorBackground"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <LinearLayout
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal"
+                android:id="@+id/dummyLayout"
+                android:layout_width="0px"
+                android:layout_height="0px"/>
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -67,12 +74,12 @@
                     android:layout_weight="1"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                     <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textAutoComplete"
-                        android:textColor="@color/cardText"
-                        android:hint="Search"
-                        android:id="@+id/brewerySearchBar" />
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textAutoComplete"
+                            android:textColor="@color/cardText"
+                            android:hint="Search"
+                            android:id="@+id/brewerySearchBar" />
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/filterButton"

@@ -1,6 +1,8 @@
 package com.example.brewhaha_android.Controllers
 
+import android.app.Activity
 import android.app.ProgressDialog
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -8,8 +10,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.View
 import android.view.WindowManager
+import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -27,6 +31,8 @@ import com.google.android.material.textview.MaterialTextView
 import com.jakewharton.rxbinding2.widget.textChanges
 import io.reactivex.Completable
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.filter_sheet.*
@@ -100,19 +106,26 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
         _brewery_search!!.textChanges()
             .debounce(500, TimeUnit.MILLISECONDS)
             .subscribe{
-                this
-                    .search(it.toString())
-                    .subscribeOn(Schedulers.computation())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe{
-                        val diffResult = DiffUtil.calculateDiff(
-                            BreweryDiffUtilCallBack(
-                                this.oldFilteredBreweryList, this.filteredBrewerylist))
-                        this.oldFilteredBreweryList.clear()
-                        this.oldFilteredBreweryList.addAll(this.filteredBrewerylist)
-                        diffResult.dispatchUpdatesTo(recyclerView.adapter!!)
-                        recyclerView.layoutManager!!.scrollToPosition(0)
+                if (it.isEmpty()) {
+                    runOnUiThread {
+                        findViewById<LinearLayout>(R.id.dummyLayout).requestFocus()
+                        dismissKeyboard()
                     }
+                } else {
+                    this
+                        .search(it.toString())
+                        .subscribeOn(Schedulers.computation())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe{
+                            val diffResult = DiffUtil.calculateDiff(
+                                BreweryDiffUtilCallBack(
+                                    this.oldFilteredBreweryList, this.filteredBrewerylist))
+                            this.oldFilteredBreweryList.clear()
+                            this.oldFilteredBreweryList.addAll(this.filteredBrewerylist)
+                            diffResult.dispatchUpdatesTo(recyclerView.adapter!!)
+                            recyclerView.layoutManager!!.scrollToPosition(0)
+                        }
+                }
             }
     }
 
@@ -143,6 +156,12 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
                 }
             }
         }
+    }
+
+    fun dismissKeyboard() {
+        // Code that keeps the keyboard minimized
+        val im = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        im.hideSoftInputFromWindow(_brewery_search!!.windowToken, 0)
     }
 
     fun mapView(tokenBundle: Bundle) {
