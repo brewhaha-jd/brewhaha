@@ -20,13 +20,16 @@ import com.example.brewhaha_android.Models.AuthToken
 import com.example.brewhaha_android.Models.Brewery
 import com.example.brewhaha_android.Models.LogoutUser
 import com.example.brewhaha_android.R
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textview.MaterialTextView
 import com.jakewharton.rxbinding2.widget.textChanges
 import io.reactivex.Completable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.filter_sheet.*
 import me.xdrop.fuzzywuzzy.FuzzySearch
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.toast
@@ -34,9 +37,11 @@ import org.jetbrains.anko.uiThread
 import java.util.concurrent.TimeUnit
 
 class HomeActivity(private val api: BackendConnection = BackendConnection()) : AppCompatActivity() {
+
+    var _mapView_button : MaterialButton? = null
     var _logout_button : MaterialButton? = null
     var _filter_button : MaterialButton? = null
-    var _brewery_search : EditText? = null
+    var _brewery_search : TextInputEditText? = null
     var tokenBundle: Bundle? = null
     lateinit var breweryList: ArrayList<Brewery>
     lateinit var oldFilteredBreweryList: ArrayList<Brewery>
@@ -47,17 +52,24 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        // Logout stuff
-        _logout_button = findViewById<MaterialButton>(R.id.logoutButton)
         tokenBundle = intent.getBundleExtra("bundle")
         val userId = tokenBundle!!["id"] as String
+
+        // Logout stuff
+        _logout_button = findViewById<MaterialButton>(R.id.logoutButton)
         _logout_button!!.setOnClickListener{
             logout(userId)
         }
-
+        
         _filter_button = findViewById<MaterialButton>(R.id.filterButton)
         _filter_button!!.setOnClickListener {
-        // TODO: make filter sheet
+            val bottomSheetFragment = BottomSheetFragment()
+            bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
+        }
+
+        _mapView_button = findViewById<MaterialButton>(R.id.mapView)
+        _mapView_button!!.setOnClickListener{
+            mapView(tokenBundle!!)
         }
 
         _brewery_search = findViewById(R.id.brewerySearchBar)
@@ -78,7 +90,6 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
         Log.d("Home", "Got Breweries")
         progressDialog.cancel()
 
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
 
         recyclerView.apply {
             layoutManager = linearLayoutManager
@@ -134,7 +145,13 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
         }
     }
 
-    fun getBreweries() {
+    fun mapView(tokenBundle: Bundle) {
+        val intent = Intent(baseContext, MapsActivity::class.java)
+        intent.putExtra("bundle", tokenBundle)
+        startActivity(intent)
+    }
+
+    private fun getBreweries() {
         val token = AuthToken(tokenBundle!!["token"] as String, "", "")
         Log.d("Home Brewery Call", "getting all breweries")
         doAsync {
@@ -149,11 +166,8 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
                     breweryList.forEach {
                         Log.d("Home Brewery Call", "Name: " + it)
                     }
-
                 }
-
-            }
-            else {
+            } else {
                 uiThread {
                     Log.d("Home Brewery Call","Code: " + response.code())
                     Log.d("Home Brewery Call", "Error Message: " + response.errorBody())
@@ -212,19 +226,15 @@ class BreweryAdapter(val breweryList: List<Brewery>): RecyclerView.Adapter<Brewe
         return ViewHolder(v)
     }
 
-
     override fun getItemCount(): Int {
         return breweryList.size
     }
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-
         val image = itemView.findViewById<ImageView>(R.id.breweryImage)
-
         val name = itemView.findViewById<MaterialTextView>(R.id.breweryName)
         val address = itemView.findViewById<MaterialTextView>(R.id.breweryAddress)
         val rating = itemView.findViewById<MaterialTextView>(R.id.breweryRating)
-
     }
 }
 
