@@ -33,7 +33,7 @@ class BackendConnection {
             .build()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://nickhutch.com:3000/api/")
+            .baseUrl("http://71.204.108.154:3000/api/")
             .addConverterFactory(MoshiConverterFactory.create())
             .client(client)
             .build()
