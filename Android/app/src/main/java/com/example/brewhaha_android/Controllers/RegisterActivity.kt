@@ -5,10 +5,12 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import com.example.brewhaha_android.Api.BackendConnection
+import com.example.brewhaha_android.Models.BreweryManager
 import com.example.brewhaha_android.Models.LoginUser
 import com.example.brewhaha_android.Models.Name
 import com.example.brewhaha_android.Models.UserWithPassword
@@ -29,6 +31,9 @@ class RegisterActivity(private val api: BackendConnection = BackendConnection())
     var _username: TextInputEditText? = null
     var _first_name: TextInputEditText? = null
     var _last_name: TextInputEditText? = null
+    var _radio_group: RadioGroup? = null
+
+    var isBreweryManager: Boolean = false
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +45,13 @@ class RegisterActivity(private val api: BackendConnection = BackendConnection())
         _first_name = findViewById<TextInputEditText>(R.id.firstName)
         _last_name = findViewById<TextInputEditText>(R.id.lastName)
         _register_button = findViewById<MaterialButton>(R.id.registerButton)
+        _radio_group = findViewById<RadioGroup>(R.id.radioGroup)
+
         _register_button!!.setOnClickListener{ createUser() }
+        _radio_group!!.setOnCheckedChangeListener { radioGroup, checkedId ->
+            isBreweryManager = (R.id.radioYes == checkedId)
+            Log.d("Registration", "Brewery Manager: " + isBreweryManager)
+        }
 
     }
 
@@ -65,7 +76,9 @@ class RegisterActivity(private val api: BackendConnection = BackendConnection())
         val email = _input_email!!.text.toString()
         val password = _input_password!!.text.toString()
 
-        val user = UserWithPassword(username, Name(firstName, lastName), email, password)
+        val breweryManager = BreweryManager(true, "")
+
+        val user = UserWithPassword(username, Name(firstName, lastName), email, password, breweryManager)
         doAsync {
             Log.d("Signup Activity", "Making createUser request")
             try {
