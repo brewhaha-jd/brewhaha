@@ -11,36 +11,62 @@
         android:background="@color/colorBackground"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:layout_alignParentTop="true"
-            android:gravity="center"
-            app:layout_constraintTop_toTopOf="parent">
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="12dp"
+                android:background="#FFFFFF"
+                android:clickable="true"
+                android:gravity="center"
+                android:focusableInTouchMode="true"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/profileButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|start"
+                    android:layout_margin="10dp"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:foregroundGravity="center"
+                    android:padding="8dp"
+                    app:backgroundTint="@color/cardBackground"
+                    app:elevation="0dp" />
+
             <com.google.android.material.textview.MaterialTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="cursive"
-                android:layout_gravity="center"
-                android:text="Brewhaha"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textSize="40sp" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="cursive"
+                    android:text="Brewhaha"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textSize="40sp" />
+
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/logoutButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|end"
-                android:layout_margin="10dp"
-                android:padding="8dp"
-                android:text="Logout"
-                android:textColor="@color/colorBackground"
-                android:textAppearance="@style/TextAppearance.AppCompat.Button"
-                android:textAlignment="center"
-                app:elevation="@dimen/cardview_default_elevation"
-                app:backgroundTint="@color/colorPrimaryDark" />
+                    android:id="@+id/logoutButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|end"
+                    android:layout_margin="10dp"
+                    android:padding="8dp"
+                    android:text="Logout"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Button"
+                    android:textColor="@color/colorBackground"
+                    app:backgroundTint="@color/colorPrimaryDark"
+                    app:elevation="@dimen/cardview_default_elevation" />
         </com.google.android.material.appbar.MaterialToolbar>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:orientation="horizontal"
+                android:focusable="true"
+                android:id="@+id/dummyLinearLayout"/>
 
         <LinearLayout
             android:id="@+id/LinearLayout"
@@ -72,6 +98,7 @@
                         android:inputType="textAutoComplete"
                         android:textColor="@color/cardText"
                         android:hint="Search"
+                            android:focusedByDefault="false"
                         android:id="@+id/brewerySearchBar" />
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.button.MaterialButton
