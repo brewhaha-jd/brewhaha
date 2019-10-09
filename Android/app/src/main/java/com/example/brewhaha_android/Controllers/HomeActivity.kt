@@ -1,16 +1,21 @@
 package com.example.brewhaha_android.Controllers
 
 import android.app.ProgressDialog
+import android.content.Context
 import android.content.Intent
+import android.graphics.fonts.Font
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.View
 import android.view.WindowManager
+import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,9 +27,11 @@ import com.example.brewhaha_android.Models.LogoutUser
 import com.example.brewhaha_android.R
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textview.MaterialTextView
 import com.jakewharton.rxbinding2.widget.textChanges
+import info.androidhive.fontawesome.FontDrawable
 import io.reactivex.Completable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -32,6 +39,7 @@ import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.filter_sheet.*
 import me.xdrop.fuzzywuzzy.FuzzySearch
 import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.find
 import org.jetbrains.anko.toast
 import org.jetbrains.anko.uiThread
 import java.util.concurrent.TimeUnit
@@ -40,8 +48,10 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
 
     var _mapView_button : MaterialButton? = null
     var _logout_button : MaterialButton? = null
+    var _profile_button: FloatingActionButton? = null
     var _filter_button : MaterialButton? = null
     var _brewery_search : TextInputEditText? = null
+    var _dummy_layout : LinearLayout? = null
     var tokenBundle: Bundle? = null
     lateinit var breweryList: ArrayList<Brewery>
     lateinit var oldFilteredBreweryList: ArrayList<Brewery>
@@ -59,6 +69,15 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
         _logout_button = findViewById<MaterialButton>(R.id.logoutButton)
         _logout_button!!.setOnClickListener{
             logout(userId)
+        }
+
+        _profile_button = findViewById(R.id.profileButton)
+
+        val drawable = FontDrawable(this, R.string.fa_user, true, false)
+        drawable.setTextColor(ContextCompat.getColor(this, android.R.color.white))
+        _profile_button!!.setImageDrawable(drawable)
+        _profile_button!!.setOnClickListener{
+            goToEditProfilePage()
         }
         
         _filter_button = findViewById<MaterialButton>(R.id.filterButton)
@@ -114,6 +133,12 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
                         recyclerView.layoutManager!!.scrollToPosition(0)
                     }
             }
+
+        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
+
+        _dummy_layout = findViewById<LinearLayout>(R.id.dummyLinearLayout)
+        _brewery_search!!.clearFocus()
+        _dummy_layout!!.requestFocus()
     }
 
     fun logout(userId: String) {
@@ -143,6 +168,12 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
                 }
             }
         }
+    }
+
+    fun goToEditProfilePage() {
+        val intent = Intent(baseContext, EditProfileActivity::class.java)
+        intent.putExtra("bundle", tokenBundle)
+        startActivity(intent)
     }
 
     fun mapView(tokenBundle: Bundle) {
