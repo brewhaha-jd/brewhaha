@@ -1,0 +1,752 @@
+[
+    {
+        "name": "SweetWater Brewing Company", 
+        "address": {
+            "county": "", 
+            "city": "Atlanta", 
+            "telephone": "+14046912537", 
+            "postalCode": "30324", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": "", 
+            "number": "195", 
+            "line1": "Ottley Dr NE", 
+            "line2": ""
+        }
+    }, 
+    {
+        "name": "Monday Night Brewing", 
+        "address": {
+            "county": "", 
+            "city": "Atlanta", 
+            "telephone": "+14043527703", 
+            "postalCode": "30318", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": "", 
+            "number": "670", 
+            "line1": "Trabert Ave NW", 
+            "line2": ""
+        }
+    }, 
+    {
+        "name": "Scofflaw Brewing", #######################
+        "address": {
+            "county": "", 
+            "city": "Atlanta", 
+            "telephone": "+14043432832", 
+            "postalCode": "30318", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": "",
+            "number": "1738", 
+            "line1": "Macarthur Blvd NW", 
+            "line2": ""
+        }
+    }, 
+    {
+        "name": "Orpheus Brewing", 
+        "address": {
+            "county": "", 
+            "city": "Atlanta", 
+            "telephone": "+14043471777", 
+            "postalCode": "30324", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": "", 
+            "number": "1440", 
+            "line1": "Dutch Valley Pl NE", 
+            "line2": ""
+        }
+    }, 
+    {
+        "name": "Torched Hop Brewing", 
+        "address": {
+            "county": "", 
+            "city": "Atlanta", 
+            "telephone": "+14048352040", 
+            "postalCode": "30308", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": "", 
+            "number": "249", 
+            "line1": "Ponce De Leon Ave NE", 
+            "line2": ""
+        }
+    }, 
+    {
+        "name": "Atlanta Brewing Co", 
+        "address": {
+            "county": "", 
+            "city": "Atlanta", 
+            "telephone": "+14043555558", 
+            "postalCode": "30318", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": "", 
+            "number": "2323", 
+            "line1": "Defoor Hills Rd NW", 
+            "line2": ""
+        }
+    }, 
+    {
+        "name": "Eventide Brewing", 
+        "address": {
+            "county": "", 
+            "city": "Atlanta", 
+            "telephone": "+14049074543", 
+            "postalCode": "30315", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": "", 
+            "number": "1015", 
+            "line1": "Grant St", 
+            "line2": ""
+        }
+    }, 
+    {
+        "name": "New Realm Brewing", 
+        "address": {
+            "county": "", 
+            "city": "Atlanta", 
+            "telephone": "+14049682777", 
+            "postalCode": "30306", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": "", 
+            "number": "550", 
+            "line1": "Somerset Ter NE", 
+            "line2": "Unit 101"
+        }
+    }, 
+    {
+        "name": "Second Self Beer Company", 
+        "address": {
+            "county": "", 
+            "city": "Atlanta", 
+            "telephone": "+16789168035", 
+            "postalCode": "30318", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": "", 
+            "number": "1317", 
+            "line1": "Logan Cir NW", 
+            "line2": ""
+        }
+    },
+    {
+        "name": "Three Taverns Brewery", ################################
+        "address": {
+            "county": "", 
+            "city": "Decatur", 
+            "telephone": "+14046003355", 
+            "postalCode": "30030", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": "", 
+            "number": "121", 
+            "line1": "New St", 
+            "line2": ""
+        }
+    }, 
+    {
+        "name": "Monday Night Brewing - Garage", 
+        "address": {
+            "county": "", 
+            "city": "Atlanta", 
+            "telephone": "+14043527703", 
+            "postalCode": "30310", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": null, 
+            "number": "933", 
+            "line1": "Lee St SW", 
+            "line2": ""
+        }
+    }, 
+    {
+        "name": "Wild Heaven Beer", ###############
+        "address": {
+            "county": "", 
+            "city": "Decatur", 
+            "telephone": "+14049978589", 
+            "postalCode": "30030", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": "", 
+            "number": "135B", 
+            "line1": "Maple St", 
+            "line2": ""
+        }
+    }, 
+    {
+        "name": "Wrecking Bar Brewpub", 
+        "address": {
+            "county": "", 
+            "city": "Atlanta", 
+            "telephone": "+14042212600", 
+            "postalCode": "30307", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": "", 
+            "number": "292", 
+            "line1": "Moreland Ave NE", 
+            "line2": ""
+        }
+    }, 
+    {
+        "name": "Georgia Beer Garden", 
+        "address": {
+            "county": "", 
+            "city": "Atlanta", 
+            "telephone": "+14044585690", 
+            "postalCode": "30312", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": null, 
+            "number": "420", 
+            "line1": "Edgewood Ave NE", 
+            "line2": ""
+        }
+    }, 
+    {
+        "name": "Bluetarp Brewing", ###############
+        "address": {
+            "county": "", 
+            "city": "Decatur", 
+            "telephone": "+14046696740", 
+            "postalCode": "30030", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": "", 
+            "number": "731", 
+            "line1": "E College Ave", 
+            "line2": ""
+        }
+    }, 
+    {
+        "name": "Red Hare Brewing Company", 
+        "address": {
+            "county": "", 
+            "city": "Marietta", 
+            "telephone": "+16784010600", 
+            "postalCode": "30067", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": "", 
+            "number": "1998", 
+            "line1": "Delk Industrial Blvd", 
+            "line2": ""
+        }
+    }, 
+    {
+        "name": "Peachtree Pint", 
+        "address": {
+            "county": "", 
+            "city": "Atlanta", 
+            "telephone": "+14048141223", 
+            "postalCode": "30326", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": "Food court", 
+            "number": "3393", 
+            "line1": "Peachtree Rd NE", 
+            "line2": ""
+        }
+    }, 
+    {###########################
+        "name": "Contrast Artisan Ales", 
+        "address": {
+            "county": "", 
+            "city": "Chamblee", 
+            "telephone": "", 
+            "postalCode": "30341", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": null, 
+            "number": "5504", 
+            "line1": "Peachtree Rd", 
+            "line2": ""
+        }
+    }, 
+    {############################
+        "name": "Arches Brewing", 
+        "address": {
+            "county": "", 
+            "city": "Hapeville", 
+            "telephone": "+16786532739", 
+            "postalCode": "30354", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": "", 
+            "number": "3361", 
+            "line1": "Dogwood Dr", 
+            "line2": ""
+        }
+    }, 
+    {######################
+        "name": "Urban Tree Cidery", 
+        "address": {
+            "county": "", 
+            "city": "Atlanta", 
+            "telephone": "+14048555546", 
+            "postalCode": "30318", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": "", 
+            "number": "1465", 
+            "line1": "Howell Mill Rd NW", 
+            "line2": ""
+        }
+    }, 
+    {
+        "name": "ASW Distillery", 
+        "address": {
+            "county": "", 
+            "city": "Atlanta", 
+            "telephone": "+14045902279", 
+            "postalCode": "30324", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": "", 
+            "number": "199", 
+            "line1": "Armour Dr NE", 
+            "line2": "Ste C"
+        }
+    }, 
+    {
+        "name": "Variant Brewing Company", 
+        "address": {
+            "county": "", 
+            "city": "Roswell", 
+            "telephone": "+16782428189", 
+            "postalCode": "30075", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": null, 
+            "number": "66", 
+            "line1": "Norcross St", 
+            "line2": ""
+        }
+    }, 
+    {
+        "name": "Max Lager's Wood-Fired Grill & Brewery", 
+        "address": {
+            "county": "", 
+            "city": "Atlanta", 
+            "telephone": "+14045254400", 
+            "postalCode": "30308", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": "", 
+            "number": "320", 
+            "line1": "Peachtree St NE", 
+            "line2": null
+        }
+    }, 
+    {
+        "name": "Gate City Brewing Company",
+        "address": {
+            "county": "",
+            "city": "Roswell",
+            "telephone": "+16784040961",
+            "postalCode": "30075",
+            "country": "US",
+            "stateOrProvince": "GA",
+            "line3": "",
+            "number": "43",
+            "line1": "Magnolia St",
+            "line2": ""
+        }
+    }, 
+    {
+        "name": "Naughty Soda / Ironmonger Brewing", 
+        "address": {
+            "county": "", 
+            "city": "Marietta", 
+            "telephone": "+16787428551", 
+            "postalCode": "30067", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": "", 
+            "number": "2129", 
+            "line1": "Northwest Pkwy SE", 
+            "line2": "Ste 105"
+        }
+    }, 
+    {#############################
+        "name": "Reformation Brewery", 
+        "address": {
+            "county": "", 
+            "city": "Woodstock", 
+            "telephone": "+16783410828", 
+            "postalCode": "30188", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": null, 
+            "number": "105", 
+            "line1": "Elm St", 
+            "line2": ""
+        }
+    }, 
+    {
+        "name": "Glover Park Brewery", 
+        "address": {
+            "county": "", 
+            "city": "Marietta", 
+            "telephone": "+14045551212", 
+            "postalCode": "30060", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": null, 
+            "number": "65", 
+            "line1": "Atlanta St SE", 
+            "line2": ""
+        }
+    }, 
+    {
+        "name": "The Porter Beer Bar", 
+        "address": {
+            "county": "", 
+            "city": "Atlanta", 
+            "telephone": "+14042230393", 
+            "postalCode": "30307", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": "", 
+            "number": "1156", 
+            "line1": "Euclid Ave NE", 
+            "line2": ""
+        }
+    }, 
+    {############################
+        "name": "Slow Pour Brewing Company", 
+        "address": {
+            "county": "", 
+            "city": "Lawrenceville", 
+            "telephone": "", 
+            "postalCode": "30046", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": null, 
+            "number": "407", 
+            "line1": "N Clayton St", 
+            "line2": ""
+        }
+    }, 
+    {
+        "name": "Jekyll Brewing", 
+        "address": {
+            "county": "", 
+            "city": "Alpharetta", 
+            "telephone": "+18444535955", 
+            "postalCode": "30005", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": "", 
+            "number": "2855", 
+            "line1": "Marconi Dr", 
+            "line2": "Ste 350"
+        }
+    }, 
+    {
+        "name": "Southern Beer Tours", 
+        "address": {
+            "county": "", 
+            "city": "Atlanta", 
+            "telephone": "+14045905278", 
+            "postalCode": "30324", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": "", 
+            "number": "573", 
+            "line1": "Main St", 
+            "line2": ""
+        }
+    }, 
+    {#########################
+        "name": "Old 4th Distillery", 
+        "address": {
+            "county": "", 
+            "city": "Atlanta", 
+            "telephone": "+14049642533", 
+            "postalCode": "30312", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": "", 
+            "number": "487", 
+            "line1": "Edgewood Ave", 
+            "line2": ""
+        }
+    }, 
+    {
+        "name": "Der Biergarten", 
+        "address": {
+            "county": "", 
+            "city": "Atlanta", 
+            "telephone": "+14045212728", 
+            "postalCode": "30313", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": "", 
+            "number": "300", 
+            "line1": "Marietta St NW", 
+            "line2": ""
+        }
+    }, 
+    {
+        "name": "Pontoon Brewing", 
+        "address": {
+            "county": "", 
+            "city": "Sandy Springs", 
+            "telephone": "+17049293821", 
+            "postalCode": "30350", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": "", 
+            "number": "8601", 
+            "line1": "Dunwoody Pl", 
+            "line2": "Ste 500"
+        }
+    }, 
+    {###################
+        "name": "Hopstix", 
+        "address": {
+            "county": "", 
+            "city": "Chamblee", 
+            "telephone": "+16788882306", 
+            "postalCode": "30341", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": null, 
+            "number": "3404", 
+            "line1": "Pierce Dr NE", 
+            "line2": ""
+        }
+    }, 
+    {
+        "name": "Hop City", 
+        "address": {
+            "county": "", 
+            "city": "Atlanta", 
+            "telephone": "+14043509998", 
+            "postalCode": "30318", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": "", 
+            "number": "1000", 
+            "line1": "Marietta St Nw", 
+            "line2": "Ste 302"
+        }
+    }, 
+    {
+        "name": "Porter Pizza and Brewery Gastropub", 
+        "address": {
+            "county": "", 
+            "city": "Sandy Springs", 
+            "telephone": "+16789966908", 
+            "postalCode": "30339", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": "", 
+            "number": "6370", 
+            "line1": "Powers Ferry Rd", 
+            "line2": "Ste 101"
+        }
+    }, 
+    {
+        "name": "Hop City", 
+        "address": {
+            "county": "", 
+            "city": "Atlanta", 
+            "telephone": "+14703552534", 
+            "postalCode": "30307", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": "", 
+            "number": "99", 
+            "line1": "Krog St NE", 
+            "line2": null
+        }
+    }, 
+    {
+        "name": "The Woodlands Project at Sweetwater", 
+        "address": {
+            "county": "", 
+            "city": "Atlanta", 
+            "telephone": "+14046912537", 
+            "postalCode": "30324", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": null, 
+            "number": "195", 
+            "line1": "Ottley Dr NE", 
+            "line2": ""
+        }
+    }, 
+    {####################################
+        "name": "Atlanta Beer Bus", 
+        "address": {
+            "county": "", 
+            "city": "Atlanta", 
+            "telephone": "+17706966080", 
+            "postalCode": "30308", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": "", 
+            "number": "", 
+            "line1": "", 
+            "line2": ""
+        }
+    }, 
+    {####################################
+        "name": "The Tap On Ponce", 
+        "address": {
+            "county": "", 
+            "city": "Atlanta", 
+            "telephone": "+14048352844", 
+            "postalCode": "30308", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": "", 
+            "number": "675", 
+            "line1": "Ponce De Leon Ave", 
+            "line2": ""
+        }
+    }, 
+    {#####################################
+        "name": "Burnt Hickory Brewery", 
+        "address": {
+            "county": "", 
+            "city": "Kennesaw", 
+            "telephone": "+17705148812", 
+            "postalCode": "30144", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": "", 
+            "number": "2260", 
+            "line1": "Moon Station Ct", 
+            "line2": "Ste 210"
+        }
+    }, 
+    {####################################
+        "name": "Dry County Brewing Company", 
+        "address": {
+            "county": "", 
+            "city": "Kennesaw", 
+            "telephone": "+17702500345", 
+            "postalCode": "30144", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": null, 
+            "number": "1500", 
+            "line1": "Lockhart Dr", 
+            "line2": ""
+        }
+    }, 
+    {
+        "name": "The Stout Brothers", 
+        "address": {
+            "county": "", 
+            "city": "Smyrna", 
+            "telephone": "+17703198200", 
+            "postalCode": "30080", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": "", 
+            "number": "1265", 
+            "line1": "W Spring St", 
+            "line2": "Ste D"
+        }
+    }, 
+    {
+        "name": "Gordon Biersch Brewery Restaurant", 
+        "address": {
+            "county": "", 
+            "city": "Atlanta", 
+            "telephone": "+14042640253", 
+            "postalCode": "30305", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": "", 
+            "number": "3242", 
+            "line1": "Peachtree Rd NE", 
+            "line2": ""
+        }
+    }, 
+    {
+        "name": "Good Word Brewing & Public House", 
+        "address": {
+            "county": "", 
+            "city": "Duluth", 
+            "telephone": "+14049732077", 
+            "postalCode": "30096", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": "", 
+            "number": "3085", 
+            "line1": "Main St", 
+            "line2": "Ste 520"
+        }
+    }, 
+    {
+        "name": "5 Seasons Westside", 
+        "address": {
+            "county": "", 
+            "city": "Atlanta", 
+            "telephone": "+14048753232", 
+            "postalCode": "30318", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": "", 
+            "number": "1000", 
+            "line1": "Marietta St NW", 
+            "line2": ""
+        }
+    }, 
+    {
+        "name": "Tucker Brewing Company", 
+        "address": {
+            "county": "", 
+            "city": "Tucker", 
+            "telephone": "+18337522400", 
+            "postalCode": "30084", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": null, 
+            "number": "2003", 
+            "line1": "South Bibb Dr", 
+            "line2": ""
+        }
+    }, 
+    {
+        "name": "From the Earth Brewing Company", 
+        "address": {
+            "county": "", 
+            "city": "Roswell", 
+            "telephone": "+17709109799", 
+            "postalCode": "30076", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": "", 
+            "number": "1570", 
+            "line1": "Holcomb Bridge Rd", 
+            "line2": "Ste 405"
+        }
+    }, 
+    {
+        "name": "The Viking Alchemist", 
+        "address": {
+            "county": "", 
+            "city": "Marietta", 
+            "telephone": "+16788582813", 
+            "postalCode": "30064", 
+            "country": "US", 
+            "stateOrProvince": "GA", 
+            "line3": "", 
+            "number": "703", 
+            "line1": "Fairgate", 
+            "line2": "Ste 301"
+        }
+    }
+]
