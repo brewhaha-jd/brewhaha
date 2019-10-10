@@ -124,6 +124,18 @@
                 android:scrollbars="vertical"/>
         </LinearLayout>
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/editBreweryButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="12dp"
+            android:padding="8dp"
+            android:layout_alignParentStart="true"
+            android:text="Edit Brewery"
+            android:textColor="@color/cardBackground"
+            android:textAppearance="@style/TextAppearance.AppCompat.Button"
+            app:backgroundTint="@color/colorPrimaryDark" />
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/mapView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

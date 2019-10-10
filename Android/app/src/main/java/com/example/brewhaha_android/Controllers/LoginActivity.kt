@@ -80,6 +80,7 @@ class LoginActivity(private val api: BackendConnection = BackendConnection()) : 
                     //TODO: when the user logs out clear this
 
                     var bundle = bundleOf("token" to token.token, "refreshToken" to token.refreshToken, "id" to token.userId)
+                    Log.d("Manager", "LoginId: " + bundle["id"])
                     val intent = Intent(baseContext, HomeActivity::class.java)
                     intent.putExtra("bundle", bundle)
                     val imm: InputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager

@@ -5,10 +5,10 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface BackendInterface {
-    @GET("api/user")
+    @GET("user")
     fun getAllUsers(@Header("x-access-token") accessToken: String) : Call<User>
 
-    @GET("api/user/{id}")
+    @GET("user/{id}")
     fun getUser(@Header("x-access-token") accessToken: String, @Path("id") id: String) : Call<User>
 
     @POST("auth/createUser")
