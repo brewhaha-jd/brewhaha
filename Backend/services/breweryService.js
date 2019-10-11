@@ -20,6 +20,12 @@ module.exports = {
 		})
 	},
 
+	updateBrewery: function(id, resource, callback) {
+		breweryRepo.update(id, resource, function (err, entity) {
+			callback(err, entity)
+		});
+	},
+
 	createBreweryAndMapCoordinates: function(resource, callback) {
 		let geocoder = NodeGeocoder(global.config.geoCoderConfig);
 		let addressToCode = resource.address.number + " " + resource.address.line1 + " " + resource.address.city;

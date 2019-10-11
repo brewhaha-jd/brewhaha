@@ -53,6 +53,16 @@ router.put('/', function (req, res, next) {
     })
 });
 
+router.post('/:id', function (req, res, next) {
+    breweryService.updateBrewery(req.params.id, req.body, function (err, entity) {
+        if (err) {
+            next(err)
+        } else {
+            res.status(200).json(entity)
+        }
+    })
+})
+
 router.use(function (err, req, res, next) {
     errorChecking.sendApiError(err, req, res)
 });

@@ -333,6 +333,70 @@ RatingType can be :
             "__v": 0
         }
     ]
+    
+ ### Update Brewery
+ `POST localhost:3000/api/brewery/<id>`
+ 
+ Body:
+ 
+     {
+         "address": {
+             "location": {
+                 "coordinates": [
+                     -84.3620936,
+                     33.8503143
+                 ],
+                 "type": "Point"
+             },
+             "number": 3179,
+             "line1": "Peachtree Road Northeast",
+             "line2": null,
+             "line3": null,
+             "city": "Atlanta",
+             "stateOrProvince": "Georgia",
+             "county": "Fulton County",
+             "country": "USA",
+             "postalCode": 30305,
+             "telephone": "4042314201"
+         },
+         "name": "Moondogs",
+         "website": "https://moondogs.club"
+     }
+ 
+ Returns: 200
+
+    {
+        "address": {
+            "location": {
+                "coordinates": [
+                    -84.3620936,
+                    33.8503143
+                ],
+                "type": "Point"
+            },
+            "number": 3179,
+            "line1": "Peachtree Road Northeast",
+            "line2": null,
+            "line3": null,
+            "city": "Atlanta",
+            "stateOrProvince": "Georgia",
+            "county": "Fulton County",
+            "country": "USA",
+            "postalCode": 30305,
+            "telephone": "4042314201"
+        },
+        "friendlinessRating": {
+            "aggregate": null,
+            "kidsFood": null,
+            "kidsEntertainment": null,
+            "bathrooms": null,
+            "minRecommendedAge": null
+        },
+        "_id": "5d9fc957c4591d6c7c3f0227",
+        "name": "Moondogs",
+        "website": "https://moondogs.club",
+        "__v": 1
+    }
 
 
 [Link to sample API requests in Postman]: https://www.getpostman.com/collections/1529c1cf1f37a266c471
