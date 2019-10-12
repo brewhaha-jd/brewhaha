@@ -4,6 +4,7 @@ import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
 import android.graphics.fonts.Font
+import android.opengl.Visibility
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -47,6 +48,7 @@ import java.util.concurrent.TimeUnit
 class HomeActivity(private val api: BackendConnection = BackendConnection()) : AppCompatActivity() {
 
     var _mapView_button : MaterialButton? = null
+    var _edit_brewery_button : MaterialButton? = null
     var _logout_button : MaterialButton? = null
     var _profile_button: FloatingActionButton? = null
     var _filter_button : MaterialButton? = null
@@ -64,6 +66,7 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
 
         tokenBundle = intent.getBundleExtra("bundle")
         val userId = tokenBundle!!["id"] as String
+        Log.d("Manager", "Home ID: " + userId)
 
         // Logout stuff
         _logout_button = findViewById<MaterialButton>(R.id.logoutButton)
@@ -91,7 +94,18 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
             mapView(tokenBundle!!)
         }
 
-        _brewery_search = findViewById(R.id.brewerySearchBar)
+        _edit_brewery_button = findViewById(R.id.editBreweryButton)
+        isManager(userId) {
+            Log.d("Manager", "Manager: " + it)
+            if (!it) {
+                _edit_brewery_button!!.visibility = View.GONE
+            }
+        }
+        _edit_brewery_button!!.setOnClickListener {
+            editBreweryView()
+        }
+
+        _brewery_search = findViewById<TextInputEditText>(R.id.brewerySearchBar)
 
         val progressDialog = ProgressDialog(this)
         progressDialog.isIndeterminate = true
@@ -113,7 +127,6 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
         recyclerView.apply {
             layoutManager = linearLayoutManager
             adapter = BreweryAdapter(oldFilteredBreweryList)
-//            addItemDecoration(DividerItemDecoration(this.context, DividerItemDecoration.VERTICAL))
         }
 
         _brewery_search!!.textChanges()
@@ -178,6 +191,31 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
 
     fun mapView(tokenBundle: Bundle) {
         val intent = Intent(baseContext, MapsActivity::class.java)
+        intent.putExtra("bundle", tokenBundle)
+        startActivity(intent)
+    }
+
+    fun isManager(userId: String, callback: (Boolean) -> Unit) {
+        var token = AuthToken(tokenBundle!!["token"] as String, "", "")
+        var ret = false
+        doAsync {
+            val response = api.getUser(token, userId).execute()
+            if (response.isSuccessful) {
+                val user = response.body()
+                if (user.breweryManager.isManager) {
+                    ret = true
+                }
+            } else {
+                Log.d("Manager", "Error Code: " + response.code())
+                Log.d("Manager", "Error Message: " + response.errorBody().string())
+                ret = false
+            }
+            callback(ret)
+        }
+    }
+
+    fun editBreweryView() {
+        val intent = Intent(baseContext, EditBreweryActivity::class.java)
         intent.putExtra("bundle", tokenBundle)
         startActivity(intent)
     }
