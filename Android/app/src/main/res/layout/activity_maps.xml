@@ -7,16 +7,17 @@
     android:layout_height="match_parent"
     tools:context=".Controllers.HomeActivity">
 
-    <RelativeLayout
+    <LinearLayout
+        android:id="@+id/LinearLayout"
         android:background="@color/colorBackground"
         android:layout_width="match_parent"
+        android:orientation="vertical"
         android:layout_height="match_parent">
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:layout_alignParentTop="true"
             android:gravity="center"
             app:layout_constraintTop_toTopOf="parent">
             <com.google.android.material.textview.MaterialTextView
@@ -40,29 +41,95 @@
                 android:textColor="@color/cardBackground"
                 android:textAppearance="@style/TextAppearance.AppCompat.Button"
                 app:backgroundTint="@color/colorPrimaryDark" />
-
-
         </com.google.android.material.appbar.MaterialToolbar>
-        
         <fragment
             android:id="@+id/map"
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/toolbar"
+            android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintBottom_toTopOf="@id/mapCard"
+            android:layout_weight="3"
             tools:context=".Controllers.MapsActivity" />
-        
         <androidx.cardview.widget.CardView
             android:id="@+id/mapCard"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout="@layout/brewery_card"
-            android:layout_alignParentBottom="true"
-            app:cardElevation="@dimen/cardview_default_elevation"
-            android:layout_centerVertical="true"
-            android:layout_margin="24dp"/>
+            android:layout_gravity="center_horizontal|bottom"
+            app:layout_constraintTop_toBottomOf="@id/map"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_margin="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="@dimen/cardview_default_elevation">
+            <LinearLayout
+                android:id="@+id/placeHolder"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?android:selectableItemBackground"
+                android:orientation="horizontal" >
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/cardBackground">
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_weight="3"
+                    android:layout_margin="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/breweryImage">
+                </androidx.appcompat.widget.AppCompatImageView>
+                <LinearLayout
+                    android:layout_weight="6"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/breweryName"
+                        android:gravity="start"
+                        android:textSize="16dp"
+                        android:textColor="@color/cardText"
+                        android:textStyle="bold"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="4dp"
+                        android:layout_gravity="start">
+                    </com.google.android.material.textview.MaterialTextView>
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/breweryAddress"
+                        android:gravity="start"
+                        android:textColor="@color/cardText"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:layout_gravity="start">
+                    </com.google.android.material.textview.MaterialTextView>
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/breweryRating"
+                        android:gravity="start"
+                        android:textColor="@color/cardText"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:layout_gravity="start">
+                    </com.google.android.material.textview.MaterialTextView>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-    </RelativeLayout>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
