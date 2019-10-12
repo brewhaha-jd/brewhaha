@@ -3,7 +3,9 @@ package com.example.brewhaha_android.Controllers
 import android.app.ProgressDialog
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import com.example.brewhaha_android.Api.BackendConnection
 import com.example.brewhaha_android.Models.AuthToken
 import com.example.brewhaha_android.Models.Brewery
@@ -15,6 +17,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.material.button.MaterialButton
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 
@@ -23,6 +26,8 @@ class MapsActivity(private val api: BackendConnection = BackendConnection()) : A
     private lateinit var mMap: GoogleMap
     lateinit var breweryList: List<Brewery>
     var tokenBundle: Bundle? = null
+    private lateinit var card: CardView
+    var _listViewButton : MaterialButton? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +35,11 @@ class MapsActivity(private val api: BackendConnection = BackendConnection()) : A
 
         tokenBundle = intent.getBundleExtra("bundle")
         val userId = tokenBundle!!["id"] as String
+
+        _listViewButton = findViewById<MaterialButton>(R.id.listView)
+        _listViewButton!!.setOnClickListener {
+            finish()
+        }
 
         val progressDialog = ProgressDialog(this)
         progressDialog.isIndeterminate = true
