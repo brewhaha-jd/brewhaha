@@ -1,5 +1,6 @@
 const
     Brewery = require('./breweryEntity');
+    errorHandler = require('../../error_handlers/errorHandler');
 
 module.exports = {
 
@@ -24,6 +25,19 @@ module.exports = {
     getByAggregate: function(query, callback) {
         Brewery.aggregate(query, function (err, entities) {
             callback(err, entities)
+        })
+    },
+
+    update: function(id, resource, callback) {
+        Brewery.findById(id, function (err, entity) {
+            if (err) return callback(err);
+            if (entity === null) return callback(errorHandler.throwMongoNotFoundError());
+            entity.address = resource.address;
+            entity.name = resource.name;
+            entity.website = resource.website;
+            entity.__v += 1;
+            entity.save();
+            callback(err, entity)
         })
     },
 
