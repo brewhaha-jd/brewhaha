@@ -3,7 +3,10 @@ package com.example.brewhaha_android.Controllers
 import android.app.ProgressDialog
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import com.example.brewhaha_android.Api.BackendConnection
 import com.example.brewhaha_android.Models.AuthToken
 import com.example.brewhaha_android.Models.Brewery
@@ -15,6 +18,8 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.textview.MaterialTextView
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 
@@ -22,7 +27,13 @@ class MapsActivity(private val api: BackendConnection = BackendConnection()) : A
 
     private lateinit var mMap: GoogleMap
     lateinit var breweryList: List<Brewery>
+    lateinit var curr_brewery: Brewery
     var tokenBundle: Bundle? = null
+    var _listViewButton : MaterialButton? = null
+    var _card_image : ImageView? = null
+    var _card_name : MaterialTextView? = null
+    var _card_address : MaterialTextView? = null
+    var _card_rating : MaterialTextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +41,11 @@ class MapsActivity(private val api: BackendConnection = BackendConnection()) : A
 
         tokenBundle = intent.getBundleExtra("bundle")
         val userId = tokenBundle!!["id"] as String
+
+        _listViewButton = findViewById<MaterialButton>(R.id.listView)
+        _listViewButton!!.setOnClickListener {
+            finish()
+        }
 
         val progressDialog = ProgressDialog(this)
         progressDialog.isIndeterminate = true
@@ -43,7 +59,6 @@ class MapsActivity(private val api: BackendConnection = BackendConnection()) : A
 
         while (!(::breweryList.isInitialized)) {
             Thread.sleep(1000)
-
         }
 
         progressDialog.cancel()
@@ -52,6 +67,12 @@ class MapsActivity(private val api: BackendConnection = BackendConnection()) : A
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
+        _card_image = findViewById<ImageView>(R.id.breweryImage)
+        _card_name = findViewById<MaterialTextView>(R.id.breweryName)
+        _card_address = findViewById<MaterialTextView>(R.id.breweryAddress)
+        _card_rating = findViewById<MaterialTextView>(R.id.breweryRating)
+        updateCard(breweryList[0])
     }
 
     /**
@@ -76,11 +97,33 @@ class MapsActivity(private val api: BackendConnection = BackendConnection()) : A
         mMap.moveCamera(CameraUpdateFactory.newLatLng(myLocation))
         mMap.animateCamera(CameraUpdateFactory.zoomTo(15.0f))
         mMap.uiSettings.isZoomControlsEnabled = true
+        mMap.setOnMarkerClickListener(this)
     }
 
+    override fun onMarkerClick(p0: Marker?): Boolean {
+        if (p0 != null) {
+            val name = p0.title
+            val clicked_brewery = breweryList.find { it.name == name }
+            if (clicked_brewery != null) {
+                curr_brewery = clicked_brewery
+                updateCard(curr_brewery)
+            }
+        }
+        return false
+    }
 
-    override fun onMarkerClick(p0: Marker?) = false
-
+    private fun updateCard(brewery: Brewery) {
+        _card_image?.setImageResource(R.drawable.beer_mugs)
+        _card_name?.text = brewery.name
+        _card_address?.text = String.format("%d %s, %s", brewery.address!!.number,
+            brewery.address.line1, brewery.address.postalCode)
+        val rating_double = brewery.friendlinessRating!!.aggregate
+        if (rating_double == null) {
+            _card_rating?.text = "Rating coming soon!"
+        } else {
+            _card_rating?.text = String.format("Rating: %d", rating_double.toString())
+        }
+    }
 
     private fun getBreweries() {
         val token = AuthToken(tokenBundle!!["token"] as String, "", "")

@@ -49,7 +49,7 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
 
     var _mapView_button : MaterialButton? = null
     var _edit_brewery_button : MaterialButton? = null
-    var _logout_button : MaterialButton? = null
+    var _logout_button : FloatingActionButton? = null
     var _profile_button: FloatingActionButton? = null
     var _filter_button : MaterialButton? = null
     var _brewery_search : TextInputEditText? = null
@@ -68,21 +68,25 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
         val userId = tokenBundle!!["id"] as String
         Log.d("Manager", "Home ID: " + userId)
 
-        // Logout stuff
-        _logout_button = findViewById<MaterialButton>(R.id.logoutButton)
+        // Logout Button
+        val logout_drawable = FontDrawable(this, R.string.fa_sign_out_alt_solid, true, false)
+        logout_drawable.setTextColor(ContextCompat.getColor(this, android.R.color.white))
+        _logout_button = findViewById<FloatingActionButton>(R.id.logoutButton)
+        _logout_button!!.setImageDrawable(logout_drawable)
         _logout_button!!.setOnClickListener{
             logout(userId)
         }
 
+        // Profile Button
+        val profile_drawable = FontDrawable(this, R.string.fa_user, true, false)
+        profile_drawable.setTextColor(ContextCompat.getColor(this, android.R.color.white))
         _profile_button = findViewById(R.id.profileButton)
-
-        val drawable = FontDrawable(this, R.string.fa_user, true, false)
-        drawable.setTextColor(ContextCompat.getColor(this, android.R.color.white))
-        _profile_button!!.setImageDrawable(drawable)
+        _profile_button!!.setImageDrawable(profile_drawable)
         _profile_button!!.setOnClickListener{
             goToEditProfilePage()
         }
-        
+
+        // Filter button
         _filter_button = findViewById<MaterialButton>(R.id.filterButton)
         _filter_button!!.setOnClickListener {
             val bottomSheetFragment = BottomSheetFragment()
