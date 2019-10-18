@@ -67,7 +67,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_margin="12dp"
-        android:gravity="center">
+        android:gravity="center|start">
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -85,27 +85,35 @@
                 android:layout_height="wrap_content"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:textAllCaps="false"
-                android:text="Any"/>
+                android:text="2+" />
             <com.google.android.material.button.MaterialButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:textAllCaps="false"
-                android:text="2+ star"/>
+                android:text="3+"/>
             <com.google.android.material.button.MaterialButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:textAllCaps="false"
-                android:text="3+ star"/>
-            <com.google.android.material.button.MaterialButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:textAllCaps="false"
-                android:text="4+ star"/>
+                android:text="4+"/>
 
         </com.google.android.material.button.MaterialButtonToggleGroup>
     </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:id="@+id/filters_done_button"
+        android:text="Done"
+        android:layout_margin="12dp"
+        android:layout_gravity="center_vertical|start"
+        android:textColor="@color/cardBackground"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textAlignment="center"
+        app:backgroundTint="@color/colorPrimaryDark"
+        app:elevation="@dimen/cardview_default_elevation"/>
 
 </LinearLayout>
