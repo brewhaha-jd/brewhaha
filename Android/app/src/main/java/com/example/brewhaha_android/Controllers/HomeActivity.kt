@@ -43,7 +43,10 @@ import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.find
 import org.jetbrains.anko.toast
 import org.jetbrains.anko.uiThread
+import java.util.*
 import java.util.concurrent.TimeUnit
+import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 
 class HomeActivity(private val api: BackendConnection = BackendConnection()) : AppCompatActivity() {
 
@@ -59,6 +62,9 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
     lateinit var oldFilteredBreweryList: ArrayList<Brewery>
     lateinit var filteredBrewerylist: ArrayList<Brewery>
     private lateinit var linearLayoutManager: LinearLayoutManager
+
+    var _distance_filter: String = ""
+    var _rating_filter: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -89,8 +95,8 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
         // Filter button
         _filter_button = findViewById<MaterialButton>(R.id.filterButton)
         _filter_button!!.setOnClickListener {
-            val bottomSheetFragment = BottomSheetFragment()
-            bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
+            val bottomSheetFragment = BottomSheetFragment.newInstance()
+            bottomSheetFragment.show(supportFragmentManager, "BOTTOM SHEET FRAGMENT")
         }
 
         _mapView_button = findViewById<MaterialButton>(R.id.mapView)
@@ -272,6 +278,62 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
             filteredBrewerylist.clear()
             filteredBrewerylist.addAll(wanted)
             it.onComplete()
+        }
+    }
+
+    fun customOnResume() {
+        this.onResume()
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        Log.d("Filters", "Resumed")
+
+        filterBreweryList(_rating_filter, _distance_filter) { filteredList, error ->
+            if (error) {
+                Log.d("Filters", "Got New List")
+                Log.d("Filters", "Filtered Size: " + filteredList.size)
+                filteredBrewerylist = filteredList
+                val diffResult = DiffUtil.calculateDiff(
+                    BreweryDiffUtilCallBack(
+                        this.oldFilteredBreweryList, this.filteredBrewerylist))
+                this.oldFilteredBreweryList.clear()
+                this.oldFilteredBreweryList.addAll(this.filteredBrewerylist)
+                diffResult.dispatchUpdatesTo(recyclerView.adapter!!)
+                recyclerView.layoutManager!!.scrollToPosition(0)
+            } else {
+                Log.d("Filters", "Some Error Occured")
+            }
+        }
+    }
+
+    fun filterBreweryList(rating_filter: String, distance_filter: String, callback: (ArrayList<Brewery>, Boolean) -> Unit) {
+        val token = AuthToken(tokenBundle!!["token"] as String, "", "")
+        Log.d("Home Brewery Call", "getting filtered breweries")
+        val queryMap: HashMap<BackendConnection.QueryParam, String> = HashMap()
+        if (!rating_filter.isEmpty()) {
+            queryMap.put(BackendConnection.QueryParam.Aggregate, rating_filter)
+        }
+        if (!distance_filter.isEmpty()) {
+            queryMap.put(BackendConnection.QueryParam.Range, distance_filter)
+        }
+        doAsync {
+            val response = api.filterBreweries(token, queryMap).execute()
+            if (response.isSuccessful) {
+                uiThread {
+                    Log.d("Filters", "success")
+                    Log.d("Filters", "Size: " + breweryList.size)
+                    callback(ArrayList(response.body()), true)
+                }
+            } else {
+                uiThread {
+                    Log.d("Filters","Code: " + response.code())
+                    Log.d("Filters", "Error Message: " + response.errorBody())
+                    Log.d("Filters", "Response Body: " + response.message())
+                    callback(ArrayList(), false)
+                }
+            }
         }
     }
 }
