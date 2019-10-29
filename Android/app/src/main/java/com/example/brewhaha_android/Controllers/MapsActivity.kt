@@ -1,6 +1,7 @@
 package com.example.brewhaha_android.Controllers
 
 import android.app.ProgressDialog
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -34,6 +35,7 @@ class MapsActivity(private val api: BackendConnection = BackendConnection()) : A
     var _card_name : MaterialTextView? = null
     var _card_address : MaterialTextView? = null
     var _card_rating : MaterialTextView? = null
+    var _map_card : CardView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,7 +74,16 @@ class MapsActivity(private val api: BackendConnection = BackendConnection()) : A
         _card_name = findViewById<MaterialTextView>(R.id.breweryName)
         _card_address = findViewById<MaterialTextView>(R.id.breweryAddress)
         _card_rating = findViewById<MaterialTextView>(R.id.breweryRating)
-        updateCard(breweryList[0])
+        curr_brewery = breweryList[0]
+        updateCard()
+
+        _map_card = findViewById<CardView>(R.id.mapCard)
+        _map_card!!.setOnClickListener {
+            val intent = Intent(baseContext, ViewBreweryActivity::class.java)
+            intent.putExtra("brewery", curr_brewery)
+            startActivity(intent)
+        }
+
     }
 
     /**
@@ -106,18 +117,18 @@ class MapsActivity(private val api: BackendConnection = BackendConnection()) : A
             val clicked_brewery = breweryList.find { it.name == name }
             if (clicked_brewery != null) {
                 curr_brewery = clicked_brewery
-                updateCard(curr_brewery)
+                updateCard()
             }
         }
         return false
     }
 
-    private fun updateCard(brewery: Brewery) {
+    private fun updateCard() {
         _card_image?.setImageResource(R.drawable.beer_mugs)
-        _card_name?.text = brewery.name
-        _card_address?.text = String.format("%d %s, %s", brewery.address!!.number,
-            brewery.address.line1, brewery.address.postalCode)
-        val rating_double = brewery.friendlinessRating!!.aggregate
+        _card_name?.text = curr_brewery.name
+        _card_address?.text = String.format("%d %s, %s", curr_brewery.address!!.number,
+            curr_brewery.address!!.line1, curr_brewery.address!!.postalCode)
+        val rating_double = curr_brewery.friendlinessRating!!.aggregate
         if (rating_double == null) {
             _card_rating?.text = "Rating coming soon!"
         } else {

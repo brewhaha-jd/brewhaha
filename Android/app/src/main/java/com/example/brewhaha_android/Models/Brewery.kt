@@ -1,5 +1,7 @@
 package com.example.brewhaha_android.Models
 
+import java.io.Serializable
+
 data class Brewery(
     val name: String,
     val address: Address? = null,
@@ -8,7 +10,7 @@ data class Brewery(
     val website: String? = null,
     val _id: String? = null,
     val __v: String? = null
-)
+): Serializable
 
 data class Address(
     val location: BreweryLocation,
@@ -21,7 +23,7 @@ data class Address(
     val country: String,
     val postalCode: String,
     val telephone: String
-)
+): Serializable
 
 data class FriendlinessRating(
     val aggregate: Double? = null,
@@ -29,12 +31,12 @@ data class FriendlinessRating(
     val kidsEntertainment: Double? = null,
     val bathrooms: Double? = null,
     val minRecommendedAge: Int? = null
-)
+): Serializable
 
 data class BreweryLocation(
     val coordinates: List<Float>,
     val type: String
-)
+): Serializable
 
 data class AddBrewery(
     val address: Address,
