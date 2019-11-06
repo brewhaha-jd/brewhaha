@@ -40,6 +40,7 @@
         <activity android:name=".Controllers.HomeActivity"></activity>
         <activity android:name=".Controllers.ViewBreweryActivity"></activity>
         <activity android:name=".Controllers.MapsActivity"></activity>
+        <activity android:name=".Controllers.EditBreweryActivity"></activity>
         <activity android:name=".Controllers.EditProfileActivity"></activity>
         <activity android:name=".Controllers.LoginActivity">
             <intent-filter>

@@ -227,7 +227,10 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
 
     fun editBreweryView() {
         val intent = Intent(baseContext, EditBreweryActivity::class.java)
+        //TODO: CHANGE IT FROM CALLING breweryList[1] TO CALLING THE BREWERY THE USER IN IN CHARGE OF
+        val brewery = breweryList[1]
         intent.putExtra("bundle", tokenBundle)
+        intent.putExtra("brewery", brewery)
         startActivity(intent)
     }
 
