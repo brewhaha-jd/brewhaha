@@ -26,6 +26,9 @@ interface BackendInterface {
     @GET("brewery/{id}")
     fun getBrewery(@Header("x-access-token") accessToken: String, @Path("id") id: String) : Call<Brewery>
 
+    @POST("brewery/{id}")
+    fun updateBrewery(@Header("x-access-token") accessToken: String, @Header("Content-type") contentType: String, @Path("id") id: String, @Body brewery: AddBrewery) : Call<Brewery>
+
     @PUT("brewery")
     fun addBrewery(@Header("x-access-token") accessToken: String, @Header("Content-type") contentType: String, @Body brewery: AddBrewery) : Call<Map<String, String>>
 

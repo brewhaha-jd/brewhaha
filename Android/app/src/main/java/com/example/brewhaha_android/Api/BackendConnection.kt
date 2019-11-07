@@ -65,6 +65,10 @@ class BackendConnection {
         return backendApi.getBrewery(token.token, id)
     }
 
+    fun updateBrewery(token: AuthToken, id: String, addBrewery: AddBrewery) : Call<Brewery> {
+        return backendApi.updateBrewery(token.token, CONTENT_TYPE, id, addBrewery)
+    }
+
     fun filterBreweries(token: AuthToken, enumQueryMap: Map<QueryParam, String>) : Call<List<Brewery>> {
         val checkIfFilteringByRatings: Boolean = createSetForRatings(enumQueryMap)
         val queryMap: HashMap<String, String> = HashMap()
