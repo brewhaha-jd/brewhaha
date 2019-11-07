@@ -110,7 +110,7 @@ class EditBreweryActivity(private val api: BackendConnection = BackendConnection
 
         val location = brewery!!.address!!.location
 
-        
+
 
         val updatedBrewery = AddBrewery(Address(brewery.address!!.location, stNumber, address1, address2, brewery.address!!.line3, city, state, brewery.address!!.county, brewery.address!!.country, zipCode, phone), breweryName, website)
 
@@ -119,11 +119,11 @@ class EditBreweryActivity(private val api: BackendConnection = BackendConnection
             try {
                 val update_response = api.updateBrewery(token, brewery._id!!, updatedBrewery).execute()
                 if (update_response!!.isSuccessful) {
-                    Log.d("Signup Activity", "Successful registration")
+                    Log.d("EditBrewery", "Successful brewery update")
                     uiThread {
                         progressDialog.cancel()
                         _update_button!!.isEnabled = true
-                        Toast.makeText(baseContext, "Welcome!", Toast.LENGTH_LONG).show()
+                        Toast.makeText(baseContext, "Update Complete", Toast.LENGTH_LONG).show()
                     }
                 }
 
