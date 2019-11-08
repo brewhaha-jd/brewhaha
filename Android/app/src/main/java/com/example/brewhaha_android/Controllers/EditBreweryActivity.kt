@@ -92,10 +92,6 @@ class EditBreweryActivity(private val api: BackendConnection = BackendConnection
 
         var token = AuthToken(tokenBundle!!["token"] as String, "", "")
 
-        //BELOW SHOULD BE EVERYTHING NEEDED FOR UPDATE BREWERY API
-        //EXCEPT FOR LAT, LNG
-        //TODO: VALIDATE INPUTS
-        //TODO: REVERSE ADDRESS LOOKUP (address to LAT, LNG)
 
         val breweryName = _breweryName?.text.toString()
         val address = _addressLine1?.text.toString()
