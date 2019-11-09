@@ -18,6 +18,7 @@ data class Address(
     val line1: String,
     val line2: String,
     val line3: String,
+    val city: String,
     val stateOrProvince: String,
     val county: String,
     val country: String,
@@ -42,7 +43,7 @@ data class AddBrewery(
     val address: Address,
     val name: String,
     val website: String
-)
+): Serializable
 
 enum class RatingType {
     aggregate,

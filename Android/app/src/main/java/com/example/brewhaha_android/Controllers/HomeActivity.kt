@@ -159,7 +159,6 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
             }
 
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
-
         _dummy_layout = findViewById<LinearLayout>(R.id.dummyLinearLayout)
         _brewery_search!!.clearFocus()
         _dummy_layout!!.requestFocus()
@@ -227,8 +226,28 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
 
     fun editBreweryView() {
         val intent = Intent(baseContext, EditBreweryActivity::class.java)
-        intent.putExtra("bundle", tokenBundle)
-        startActivity(intent)
+
+        var token = AuthToken(tokenBundle!!["token"] as String, "", "")
+        var userId = tokenBundle!!["id"] as String
+        var ret = false
+        doAsync {
+            val response = api.getUser(token, userId).execute()
+            if (response.isSuccessful) {
+                val user = response.body()
+                if (user.breweryManager.isManager) {
+                    val breweryID = user.breweryManager.brewery
+                    val breweryLookup = api.getBreweryById(token, breweryID).execute()
+                    val brewery = breweryLookup.body()
+                    intent.putExtra("bundle", tokenBundle)
+                    intent.putExtra("brewery", brewery)
+                    startActivity(intent)
+                }
+            } else {
+                Log.d("Manager", "Error Code: " + response.code())
+                Log.d("Manager", "Error Message: " + response.errorBody().string())
+                ret = false
+            }
+        }
     }
 
     private fun getBreweries() {
