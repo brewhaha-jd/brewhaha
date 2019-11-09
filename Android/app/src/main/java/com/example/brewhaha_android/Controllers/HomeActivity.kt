@@ -62,6 +62,7 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
     lateinit var oldFilteredBreweryList: ArrayList<Brewery>
     lateinit var filteredBrewerylist: ArrayList<Brewery>
     private lateinit var linearLayoutManager: LinearLayoutManager
+    private lateinit var recycler_view: RecyclerView
 
     var _distance_filter: String = ""
     var _rating_filter: String = ""
@@ -358,14 +359,27 @@ class BreweryAdapter(val breweryList: List<Brewery>): RecyclerView.Adapter<Brewe
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.brewery_card, parent, false)
-        return ViewHolder(v)
+        return ViewHolder(v).listen { pos, type ->
+            val brewery = breweryList.get(pos)
+            val context = v.context
+            val intent = Intent(context, ViewBreweryActivity::class.java)
+            intent.putExtra("brewery", brewery)
+            context.startActivity(intent)
+        }
+    }
+
+    fun <T : RecyclerView.ViewHolder> T.listen(event: (position: Int, type: Int) -> Unit): T {
+        itemView.setOnClickListener {
+            event.invoke(getAdapterPosition(), getItemViewType())
+        }
+        return this
     }
 
     override fun getItemCount(): Int {
         return breweryList.size
     }
 
-    class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val image = itemView.findViewById<ImageView>(R.id.breweryImage)
         val name = itemView.findViewById<MaterialTextView>(R.id.breweryName)
         val address = itemView.findViewById<MaterialTextView>(R.id.breweryAddress)
