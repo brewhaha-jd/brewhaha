@@ -14,4 +14,10 @@
       - EditBreweryActivity.kt
       
 2. Backend
-
+ * All written code can be found in the following folders
+      - controllers
+      - error_handlers
+      - middleware
+      - models
+      - services
+ * Typical code path is controller -> middleware -> service -> entityMapper -> entityRepository -> Entity
