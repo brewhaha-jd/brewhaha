@@ -27,6 +27,7 @@ import com.example.brewhaha_android.Models.FriendlinessRating
 import com.example.brewhaha_android.Models.SubmitReviewModel
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.toast
+import org.jetbrains.anko.uiThread
 import org.w3c.dom.Text
 import java.time.LocalDateTime
 import java.util.*
@@ -122,8 +123,10 @@ class ViewBreweryActivity(private val api: BackendConnection = BackendConnection
             submitReview(brewery) {
                 if (it) {
                     toast("Review successfully submitted")
+                    popupWindow.dismiss()
                 } else {
                     toast("Error submitting review, please try again")
+                    popupWindow.dismiss()
                 }
             }
         }
@@ -171,6 +174,8 @@ class ViewBreweryActivity(private val api: BackendConnection = BackendConnection
             return
         }
 
+        val authToken = AuthToken(token!!, "", "")
+
         val friendlinessRating = FriendlinessRating(
             aggregateRating.toDouble(),
             foodRating.toDouble(),
@@ -180,15 +185,29 @@ class ViewBreweryActivity(private val api: BackendConnection = BackendConnection
         )
 
         val submitReview = SubmitReviewModel(
-            0,
-            brewery._id!!.toInt(),
+            userId!!,
+            brewery._id!!,
             Calendar.getInstance().time,
             friendlinessRating,
             reviewText.toString()
         )
 
         doAsync {
+            val result = api.submitReview(authToken, submitReview).execute()
+            if (result.isSuccessful) {
+                Log.d("Review", "Success")
+                val map = result.body()!!
+                Log.d("Review", map["reviewLink"])
+                uiThread{
+                    callback(true)
+                }
 
+            } else {
+                Log.d("Error", result.message())
+                uiThread{
+                    callback(false)
+                }
+            }
         }
 
     }

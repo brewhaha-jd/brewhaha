@@ -212,12 +212,12 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
             val response = api.getUser(token, userId).execute()
             if (response.isSuccessful) {
                 val user = response.body()
-                if (user.breweryManager.isManager) {
+                if (user!!.breweryManager.isManager) {
                     ret = true
                 }
             } else {
                 Log.d("Manager", "Error Code: " + response.code())
-                Log.d("Manager", "Error Message: " + response.errorBody().string())
+                Log.d("Manager", "Error Message: " + response.errorBody()!!.string())
                 ret = false
             }
             callback(ret)
@@ -234,7 +234,7 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
             val response = api.getUser(token, userId).execute()
             if (response.isSuccessful) {
                 val user = response.body()
-                if (user.breweryManager.isManager) {
+                if (user!!.breweryManager.isManager) {
                     val breweryID = user.breweryManager.brewery
                     val breweryLookup = api.getBreweryById(token, breweryID).execute()
                     val brewery = breweryLookup.body()
@@ -244,7 +244,7 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
                 }
             } else {
                 Log.d("Manager", "Error Code: " + response.code())
-                Log.d("Manager", "Error Message: " + response.errorBody().string())
+                Log.d("Manager", "Error Message: " + response.errorBody()!!.string())
                 ret = false
             }
         }
@@ -256,8 +256,8 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
         doAsync {
             val response = api.getAllBreweries(token).execute()
             if (response.isSuccessful) {
-                breweryList = ArrayList(response.body())
-                oldFilteredBreweryList = ArrayList(response.body())
+                breweryList = ArrayList(response.body()!!)
+                oldFilteredBreweryList = ArrayList(response.body()!!)
                 filteredBrewerylist = ArrayList()
                 uiThread {
                     Log.d("Home Brewery Call", "success")
@@ -344,7 +344,7 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
                 uiThread {
                     Log.d("Filters", "success")
                     Log.d("Filters", "Size: " + breweryList.size)
-                    callback(ArrayList(response.body()), true)
+                    callback(ArrayList(response.body()!!), true)
                 }
             } else {
                 uiThread {

@@ -2,10 +2,11 @@ package com.example.brewhaha_android.Api
 
 import android.util.Log
 import com.example.brewhaha_android.Models.*
+import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 class BackendConnection {
@@ -32,9 +33,11 @@ class BackendConnection {
             .writeTimeout(20, TimeUnit.SECONDS)
             .build()
 
+        val gson = GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss").create()
+
         val retrofit = Retrofit.Builder()
             .baseUrl("http://71.204.108.154:3000/api/")
-            .addConverterFactory(MoshiConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(gson))
             .client(client)
             .build()
 
@@ -83,8 +86,12 @@ class BackendConnection {
         return backendApi.filterBreweries(token.token, queryMap)
     }
 
+    fun submitReview(token: AuthToken, reviewModel: SubmitReviewModel) : Call<Map<String, String>> {
+        return backendApi.submitReview(token.token, CONTENT_TYPE, reviewModel)
+    }
+
     private fun createSetForRatings(enumQueryMap: Map<QueryParam, String>) : Boolean {
-        val ratingsSet : HashSet<QueryParam> = HashSet()
+        val ratingsSet: HashSet<QueryParam> = HashSet()
         ratingsSet.add(QueryParam.Aggregate)
         ratingsSet.add(QueryParam.MinReccomendedAge)
         ratingsSet.add(QueryParam.Bathrooms)

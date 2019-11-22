@@ -98,13 +98,13 @@ class RegisterActivity(private val api: BackendConnection = BackendConnection())
 
                             val sharedPref = getSharedPreferences("BREWHAHA_PREF", Context.MODE_PRIVATE)
                             var editor = sharedPref.edit()
-                            editor.putString("token", token.token)
+                            editor.putString("token", token!!.token)
                             editor.putString("refreshToken", token.refreshToken)
                             editor.commit()
                             //TODO: when the user logs out clear this
 
                             var bundle = bundleOf(
-                                "token" to token.token,
+                                "token" to token!!.token,
                                 "refreshToken" to token.refreshToken,
                                 "id" to token.userId
                             )

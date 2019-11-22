@@ -142,7 +142,7 @@ class MapsActivity(private val api: BackendConnection = BackendConnection()) : A
         doAsync {
             val response = api.getAllBreweries(token).execute()
             if (response.isSuccessful) {
-                breweryList = response.body()
+                breweryList = response.body()!!
                 Log.d("Maps Brewery Call", breweryList.toString())
                 uiThread {
                     Log.d("Maps Brewery Call", "success")
