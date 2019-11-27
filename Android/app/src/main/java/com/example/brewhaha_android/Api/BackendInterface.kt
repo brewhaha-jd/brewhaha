@@ -34,4 +34,7 @@ interface BackendInterface {
 
     @GET("brewery")
     fun filterBreweries(@Header("x-access-token") accessToken: String, @QueryMap queryMap: Map<String, String>) : Call<List<Brewery>>
+
+    @PUT("review")
+    fun submitReview(@Header("x-access-token") accessToken: String, @Header("Content-type") contentType: String, @Body review: SubmitReviewModel) : Call<Map<String, String>>
 }
