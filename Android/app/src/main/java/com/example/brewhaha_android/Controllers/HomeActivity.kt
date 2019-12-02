@@ -17,6 +17,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -39,6 +40,7 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.filter_sheet.*
 import me.xdrop.fuzzywuzzy.FuzzySearch
+import me.zhanghai.android.materialratingbar.MaterialRatingBar
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.find
 import org.jetbrains.anko.toast
@@ -137,7 +139,7 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
 
         recyclerView.apply {
             layoutManager = linearLayoutManager
-            adapter = BreweryAdapter(oldFilteredBreweryList)
+            adapter = BreweryAdapter(oldFilteredBreweryList, tokenBundle!!)
         }
 
         _brewery_search!!.textChanges()
@@ -358,7 +360,7 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
     }
 }
 
-class BreweryAdapter(val breweryList: List<Brewery>): RecyclerView.Adapter<BreweryAdapter.ViewHolder>() {
+class BreweryAdapter(val breweryList: List<Brewery>, val tokenBundle: Bundle): RecyclerView.Adapter<BreweryAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         Log.d("Home Adapter", breweryList[position].name)
@@ -369,9 +371,11 @@ class BreweryAdapter(val breweryList: List<Brewery>): RecyclerView.Adapter<Brewe
             brewery.address.line1, brewery.address.postalCode)
         val rating_double = brewery.friendlinessRating!!.aggregate
         if (rating_double == null) {
-            holder.rating?.text = "Rating coming soon!"
+            holder.rating?.rating = 3f
+            holder.numRatings?.text = "0 reviews"
         } else {
-            holder.rating?.text = String.format("Rating: %d", rating_double.toString())
+            holder.rating?.rating = rating_double.toFloat()
+            holder.numRatings?.text = "%d reviews".format(100)
         }
 
     }
@@ -383,6 +387,7 @@ class BreweryAdapter(val breweryList: List<Brewery>): RecyclerView.Adapter<Brewe
             val context = v.context
             val intent = Intent(context, ViewBreweryActivity::class.java)
             intent.putExtra("brewery", brewery)
+            intent.putExtra("bundle", tokenBundle)
             context.startActivity(intent)
         }
     }
@@ -402,7 +407,8 @@ class BreweryAdapter(val breweryList: List<Brewery>): RecyclerView.Adapter<Brewe
         val image = itemView.findViewById<ImageView>(R.id.breweryImage)
         val name = itemView.findViewById<MaterialTextView>(R.id.breweryName)
         val address = itemView.findViewById<MaterialTextView>(R.id.breweryAddress)
-        val rating = itemView.findViewById<MaterialTextView>(R.id.breweryRating)
+        val numRatings = itemView.findViewById<MaterialTextView>(R.id.numRatings)
+        val rating = itemView.findViewById<MaterialRatingBar>(R.id.ratingBar)
     }
 }
 

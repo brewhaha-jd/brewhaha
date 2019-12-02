@@ -2,6 +2,8 @@ package com.example.brewhaha_android.Controllers
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
@@ -21,14 +23,17 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textview.MaterialTextView
 import kotlinx.android.synthetic.main.activity_view_brewery.*
 import android.graphics.Point
+import android.os.AsyncTask
 import android.view.WindowManager
 import android.widget.*
 import com.example.brewhaha_android.Models.FriendlinessRating
 import com.example.brewhaha_android.Models.SubmitReviewModel
+import me.zhanghai.android.materialratingbar.MaterialRatingBar
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.toast
 import org.jetbrains.anko.uiThread
 import org.w3c.dom.Text
+import java.lang.Exception
 import java.time.LocalDateTime
 import java.util.*
 
@@ -41,39 +46,110 @@ class ViewBreweryActivity(private val api: BackendConnection = BackendConnection
     var _aggregateRating: RatingBar? = null
     var _agePicker: NumberPicker? = null
     var _reviewTextInput: TextInputEditText? = null
+    var tokenBundle: Bundle? = null
+    var brewery: Brewery? = null
+    lateinit var reviewsList: List<SubmitReviewModel>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(com.example.brewhaha_android.R.layout.activity_view_brewery)
         Log.d("BreweryView", "Created Brewery Activity")
-        val brewery = intent.getSerializableExtra("brewery") as? Brewery
+        brewery = intent.getSerializableExtra("brewery") as? Brewery
+        tokenBundle = intent.getBundleExtra("bundle")
 
-        val _breweryName = findViewById<MaterialTextView>(com.example.brewhaha_android.R.id.detailedName)
-        val _breweryImage = findViewById<ImageView>(com.example.brewhaha_android.R.id.detailedImage)
-        val _breweryRating = findViewById<MaterialTextView>(com.example.brewhaha_android.R.id.detailedRating)
-        val _breweryAddress = findViewById<MaterialTextView>(com.example.brewhaha_android.R.id.detailedAddress)
-        val _addReviewButton = findViewById<MaterialButton>(com.example.brewhaha_android.R.id.detailedAddRating)
+//        getReviews()
+//        while (!(::reviewsList.isInitialized)) {
+//            Thread.sleep(1000)
+//        }
 
-        _breweryImage.setImageResource(com.example.brewhaha_android.R.drawable.beer_mugs)
+        val _breweryName = findViewById<MaterialTextView>(R.id.detailedName)
+        val _breweryImage = findViewById<ImageView>(R.id.detailedImage)
+        val _breweryRating = findViewById<MaterialRatingBar>(R.id.aggregateRating)
+        val _numRatings = findViewById<MaterialTextView>(R.id.numRatings)
+        val _breweryAddress = findViewById<MaterialTextView>(R.id.detailedAddress)
+        val _addReviewButton = findViewById<MaterialButton>(R.id.detailedAddRating)
+
+        _breweryImage.setImageResource(R.drawable.beer_mugs)
         _breweryName.text = brewery!!.name
-        _breweryAddress.text = String.format("%d %s, %s", brewery.address!!.number,
-            brewery.address.line1, brewery.address.postalCode)
-        val rating_double = brewery.friendlinessRating!!.aggregate
+        _breweryAddress.text = String.format("%d %s, %s",
+            brewery!!.address!!.number, brewery!!.address!!.line1, brewery!!.address!!.postalCode)
+        val rating_double = brewery!!.friendlinessRating!!.aggregate
         if (rating_double == null) {
-            _breweryRating.text = "Rating coming soon!"
+            _breweryRating.rating = 3f
+            _numRatings?.text = "0 reviews"
         } else {
-            _breweryRating.text = String.format("Rating: %d", rating_double.toString())
+            _breweryRating?.rating = rating_double.toFloat()
+            _breweryRating.isEnabled = false
+            _numRatings?.text = "%d reviews".format(reviewsList.size)
+        }
+        _addReviewButton.setOnClickListener {
+            showReviewPopup(brewery!!)
         }
 
-        _addReviewButton.setOnClickListener {
-            showReviewPopup(brewery)
+        val _mapLocator = DownloadImageTask(findViewById<ImageView>(R.id.mapLocation))
+        val lng = brewery!!.address!!.location.coordinates[0].toString()
+        val lat = brewery!!.address!!.location.coordinates[1].toString()
+        val API_KEY = "AIzaSyDmL2YGFYrTImNsXEV7RFP9iHNkY1Z-lS8"
+        val center = "center=%s,%s".format(lat, lng)
+        val zoomSize = "&zoom=15&size=300x300"
+        val markers = "&markers=color:red%7Clabel:%7C" + lat + "," + lng
+        val key = "&key=" + API_KEY
+        val url = ("http://maps.google.com/maps/api/staticmap?" + center + zoomSize + markers + key)
+
+        _mapLocator.execute(url)
+
+    }
+
+    private class DownloadImageTask(var bmImage: ImageView): AsyncTask<String, Void, Bitmap>() {
+
+        override fun doInBackground(vararg p0: String?): Bitmap {
+            val url = p0[0]
+            lateinit var icon: Bitmap
+            try {
+                val in_stream = java.net.URL(url).openStream()
+                icon = BitmapFactory.decodeStream(in_stream)
+            } catch (e: Exception) {
+                Log.e("BreweryView", e.message)
+                e.printStackTrace()
+            }
+            return icon
+        }
+
+        override fun onPostExecute(result: Bitmap) {
+            bmImage.setImageBitmap(result)
+        }
+    }
+
+    private fun getReviews() {
+        val token = AuthToken(tokenBundle!!["token"] as String, "", "")
+        Log.d("BreweryView getReviews", "getting all reviews")
+        doAsync {
+            val response = api.getReviews(token, brewery!!._id!!).execute()
+            if (response.isSuccessful) {
+                reviewsList = response.body()!!
+                Log.d("BreweryView getReviews", reviewsList.toString())
+                uiThread {
+                    Log.d("BreweryView getReviews", "success")
+                    Log.d("BreweryView getReviews", "Size: " + reviewsList.size)
+                    reviewsList.forEach {
+                        Log.d("BreweryView getReviews", "Name: " + it)
+                    }
+                }
+
+            } else {
+                uiThread {
+                    Log.d("BreweryView getReviews", "Code: " + response.code())
+                    Log.d("BreweryView getReviews", "Error Message: " + response.errorBody())
+                    Log.d("BreweryView getReviews", "Response Body: " + response.message())
+                }
+            }
         }
 
     }
 
     fun showReviewPopup(brewery: Brewery) {
         val inflater: LayoutInflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val view = inflater.inflate(com.example.brewhaha_android.R.layout.rate_brewery_popup, null)
+        val view = inflater.inflate(R.layout.rate_brewery_popup, null)
 
         val display = windowManager.defaultDisplay
         val size = Point()

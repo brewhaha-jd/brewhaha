@@ -72,7 +72,7 @@ class LoginActivity(private val api: BackendConnection = BackendConnection()) : 
 
                     val sharedPref = getSharedPreferences("BREWHAHA_PREF", Context.MODE_PRIVATE)
                     var editor = sharedPref.edit()
-                    editor.putString("token", token.token)
+                    editor.putString("token", token!!.token)
                     editor.putString("refreshToken", token.refreshToken)
                     Log.d("Login Id", token.userId)
                     editor.putString("id", token.userId)

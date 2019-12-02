@@ -90,6 +90,10 @@ class BackendConnection {
         return backendApi.submitReview(token.token, CONTENT_TYPE, reviewModel)
     }
 
+    fun getReviews(token: AuthToken, id: String) : Call<List<SubmitReviewModel>> {
+        return backendApi.getReviews(token.token, id)
+    }
+
     private fun createSetForRatings(enumQueryMap: Map<QueryParam, String>) : Boolean {
         val ratingsSet: HashSet<QueryParam> = HashSet()
         ratingsSet.add(QueryParam.Aggregate)

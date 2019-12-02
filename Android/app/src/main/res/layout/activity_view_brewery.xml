@@ -36,14 +36,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
-                <com.google.android.material.textview.MaterialTextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/detailedRating"
-                    android:layout_gravity="center"
-                    android:layout_margin="10dp"
-                    android:textAlignment="center"
-                    android:textColor="@color/cardText" />
+                    android:layout_height="40dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+                    <me.zhanghai.android.materialratingbar.MaterialRatingBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/aggregateRating"
+                        android:layout_margin="8dp"
+                        android:isIndicator="true"
+                        style="@style/Widget.MaterialRatingBar.RatingBar" />
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/numRatings"
+                        android:textColor="@color/cardText"
+                        android:layout_gravity="center_vertical|start"
+                        android:layout_margin="8dp"/>
+                </LinearLayout>
                 <com.google.android.material.button.MaterialButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -58,17 +70,50 @@
                     android:backgroundTint="@color/colorPrimaryDark" />
             </LinearLayout>
         </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/cardText" />
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/detailedAddress"
             android:gravity="start"
             android:textColor="@color/cardText"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:paddingTop="4dp"
-            android:paddingBottom="4dp"
+            android:padding="8dp"
+            android:layout_marginStart="22dp"
+            android:layout_marginEnd="22dp"
             android:layout_gravity="left">
         </com.google.android.material.textview.MaterialTextView>
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center_horizontal"
+            android:background="#000000"
+            android:padding="1dp"
+            android:id="@+id/mapLocation"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/cardText" />
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:text="Reviews"
+            android:textColor="@color/cardText"
+            android:textSize="24dp"
+            android:padding="8dp"
+            android:layout_marginStart="22dp"
+            android:layout_marginEnd="22dp"
+            android:layout_gravity="left"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

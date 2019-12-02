@@ -37,4 +37,8 @@ interface BackendInterface {
 
     @PUT("review")
     fun submitReview(@Header("x-access-token") accessToken: String, @Header("Content-type") contentType: String, @Body review: SubmitReviewModel) : Call<Map<String, String>>
+
+    @GET("brewery/{id}/reviews")
+    fun getReviews(@Header("x-access-token") accessToken: String, @Path("id") id: String) : Call<List<SubmitReviewModel>>
+
 }

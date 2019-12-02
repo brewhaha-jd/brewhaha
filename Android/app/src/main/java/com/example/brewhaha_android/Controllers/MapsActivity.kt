@@ -21,6 +21,7 @@ import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textview.MaterialTextView
+import me.zhanghai.android.materialratingbar.MaterialRatingBar
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 
@@ -34,7 +35,8 @@ class MapsActivity(private val api: BackendConnection = BackendConnection()) : A
     var _card_image : ImageView? = null
     var _card_name : MaterialTextView? = null
     var _card_address : MaterialTextView? = null
-    var _card_rating : MaterialTextView? = null
+    var _card_rating : MaterialRatingBar? = null
+    var _card_numRating : MaterialTextView? = null
     var _map_card : CardView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -73,7 +75,8 @@ class MapsActivity(private val api: BackendConnection = BackendConnection()) : A
         _card_image = findViewById<ImageView>(R.id.breweryImage)
         _card_name = findViewById<MaterialTextView>(R.id.breweryName)
         _card_address = findViewById<MaterialTextView>(R.id.breweryAddress)
-        _card_rating = findViewById<MaterialTextView>(R.id.breweryRating)
+        _card_rating = findViewById<MaterialRatingBar>(R.id.ratingBar)
+        _card_numRating = findViewById<MaterialTextView>(R.id.numRatings)
         curr_brewery = breweryList[0]
         updateCard()
 
@@ -106,7 +109,7 @@ class MapsActivity(private val api: BackendConnection = BackendConnection()) : A
             mMap.addMarker(MarkerOptions().position(point).title(it.name))
         }
         mMap.moveCamera(CameraUpdateFactory.newLatLng(myLocation))
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(15.0f))
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(12.0f))
         mMap.uiSettings.isZoomControlsEnabled = true
         mMap.setOnMarkerClickListener(this)
     }
@@ -130,9 +133,11 @@ class MapsActivity(private val api: BackendConnection = BackendConnection()) : A
             curr_brewery.address!!.line1, curr_brewery.address!!.postalCode)
         val rating_double = curr_brewery.friendlinessRating!!.aggregate
         if (rating_double == null) {
-            _card_rating?.text = "Rating coming soon!"
+            _card_rating?.rating = 0f
+            _card_numRating?.text = "0 reviews"
         } else {
-            _card_rating?.text = String.format("Rating: %d", rating_double.toString())
+            _card_rating?.rating = rating_double.toFloat()
+            _card_numRating?.text = "%d reviews".format(100)
         }
     }
 
