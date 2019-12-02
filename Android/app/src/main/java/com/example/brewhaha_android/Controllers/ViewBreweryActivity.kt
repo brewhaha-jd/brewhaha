@@ -80,7 +80,7 @@ class ViewBreweryActivity(private val api: BackendConnection = BackendConnection
         } else {
             _breweryRating?.rating = rating_double.toFloat()
             _breweryRating.isEnabled = false
-            _numRatings?.text = "%d reviews".format(reviewsList.size)
+            _numRatings?.text = "%d reviews".format(10)
         }
         _addReviewButton.setOnClickListener {
             showReviewPopup(brewery!!)
@@ -257,7 +257,7 @@ class ViewBreweryActivity(private val api: BackendConnection = BackendConnection
             foodRating.toDouble(),
             entertainmentRating.toDouble(),
             bathroomsRating.toDouble(),
-            minAge
+            minAge.toDouble()
         )
 
         val submitReview = SubmitReviewModel(

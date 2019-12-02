@@ -72,6 +72,7 @@ class HomeActivity(private val api: BackendConnection = BackendConnection()) : A
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+        Log.d("Home", "Creating home now")
 
         tokenBundle = intent.getBundleExtra("bundle")
         val userId = tokenBundle!!["id"] as String

@@ -9,6 +9,7 @@ data class Brewery(
     val operatingHours: List<String>? = null,
     val website: String? = null,
     val _id: String? = null,
+    val numReviews: Double? = null,
     val __v: String? = null
 ): Serializable
 
@@ -31,7 +32,7 @@ data class FriendlinessRating(
     val kidsFood: Double? = null,
     val kidsEntertainment: Double? = null,
     val bathrooms: Double? = null,
-    val minRecommendedAge: Int? = null
+    val minRecommendedAge: Double? = null
 ): Serializable
 
 data class BreweryLocation(
