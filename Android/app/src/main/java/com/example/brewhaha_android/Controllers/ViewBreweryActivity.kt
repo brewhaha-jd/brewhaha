@@ -11,8 +11,6 @@ import android.os.Bundle
 import android.transition.Slide
 import android.transition.TransitionManager
 import android.util.Log
-import android.view.Gravity
-import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import com.example.brewhaha_android.Api.BackendConnection
 import com.example.brewhaha_android.Models.AuthToken
@@ -24,8 +22,10 @@ import com.google.android.material.textview.MaterialTextView
 import kotlinx.android.synthetic.main.activity_view_brewery.*
 import android.graphics.Point
 import android.os.AsyncTask
-import android.view.WindowManager
+import android.view.*
 import android.widget.*
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.brewhaha_android.Models.FriendlinessRating
 import com.example.brewhaha_android.Models.SubmitReviewModel
 import me.zhanghai.android.materialratingbar.MaterialRatingBar
@@ -49,6 +49,8 @@ class ViewBreweryActivity(private val api: BackendConnection = BackendConnection
     var tokenBundle: Bundle? = null
     var brewery: Brewery? = null
     lateinit var reviewsList: List<SubmitReviewModel>
+    private lateinit var linearLayoutManager: LinearLayoutManager
+    private lateinit var recycler_view: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,10 +59,17 @@ class ViewBreweryActivity(private val api: BackendConnection = BackendConnection
         brewery = intent.getSerializableExtra("brewery") as? Brewery
         tokenBundle = intent.getBundleExtra("bundle")
 
+//        linearLayoutManager = LinearLayoutManager(this)
+//
 //        getReviews()
 //        while (!(::reviewsList.isInitialized)) {
 //            Thread.sleep(1000)
 //        }
+//        recycler_view.apply {
+//            layoutManager = linearLayoutManager
+//            adapter = ReviewAdapter(reviewsList, tokenBundle!!)
+//        }
+//
 
         val _breweryName = findViewById<MaterialTextView>(R.id.detailedName)
         val _breweryImage = findViewById<ImageView>(R.id.detailedImage)
@@ -146,6 +155,58 @@ class ViewBreweryActivity(private val api: BackendConnection = BackendConnection
         }
 
     }
+
+//    class ReviewAdapter(val reviewsList: List<SubmitReviewModel>, val tokenBundle: Bundle): RecyclerView.Adapter<ReviewAdapter.ViewHolder>() {
+//
+//        override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+//            Log.d("BreweryView Adapter", reviewsList[position].brewery)
+//            val brewery = reviewsList[position]
+//            holder.image?.setImageResource(R.drawable.beer_mugs)
+//            holder.name?.text = brewery.name
+//            holder.address?.text = String.format("%d %s, %s", brewery.address!!.number,
+//                brewery.address.line1, brewery.address.postalCode)
+//            val rating_double = brewery.friendlinessRating!!.aggregate
+//            if (rating_double == null) {
+//                holder.rating?.rating = 3f
+//                holder.numRatings?.text = "0 reviews"
+//            } else {
+//                holder.rating?.rating = rating_double.toFloat()
+//                holder.numRatings?.text = "%d reviews".format(100)
+//            }
+//
+//        }
+//
+//        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+//            val v = LayoutInflater.from(parent.context).inflate(R.layout.brewery_card, parent, false)
+//            return ViewHolder(v).listen { pos, type ->
+//                val brewery = reviewsList.get(pos)
+//                val context = v.context
+//                val intent = Intent(context, ViewBreweryActivity::class.java)
+//                intent.putExtra("brewery", brewery)
+//                intent.putExtra("bundle", tokenBundle)
+//                context.startActivity(intent)
+//            }
+//        }
+//
+//        fun <T : RecyclerView.ViewHolder> T.listen(event: (position: Int, type: Int) -> Unit): T {
+//            itemView.setOnClickListener {
+//                event.invoke(getAdapterPosition(), getItemViewType())
+//            }
+//            return this
+//        }
+//
+//        override fun getItemCount(): Int {
+//            return breweryList.size
+//        }
+//
+//        inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+//            val image = itemView.findViewById<ImageView>(R.id.breweryImage)
+//            val name = itemView.findViewById<MaterialTextView>(R.id.breweryName)
+//            val address = itemView.findViewById<MaterialTextView>(R.id.breweryAddress)
+//            val numRatings = itemView.findViewById<MaterialTextView>(R.id.numRatings)
+//            val rating = itemView.findViewById<MaterialRatingBar>(R.id.ratingBar)
+//        }
+//    }
 
     fun showReviewPopup(brewery: Brewery) {
         val inflater: LayoutInflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
