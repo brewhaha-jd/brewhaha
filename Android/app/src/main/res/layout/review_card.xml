@@ -43,6 +43,13 @@
                 android:paddingBottom="4dp"
                 android:layout_gravity="left">
             </com.google.android.material.textview.MaterialTextView>
+            <me.zhanghai.android.materialratingbar.MaterialRatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ratingBar"
+                android:layout_margin="8dp"
+                android:isIndicator="true"
+                style="@style/Widget.MaterialRatingBar.RatingBar" />
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

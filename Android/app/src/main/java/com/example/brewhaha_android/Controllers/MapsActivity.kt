@@ -84,6 +84,7 @@ class MapsActivity(private val api: BackendConnection = BackendConnection()) : A
         _map_card!!.setOnClickListener {
             val intent = Intent(baseContext, ViewBreweryActivity::class.java)
             intent.putExtra("brewery", curr_brewery)
+            intent.putExtra("bundle", tokenBundle)
             startActivity(intent)
         }
 
