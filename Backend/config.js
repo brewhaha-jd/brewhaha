@@ -8,6 +8,6 @@ module.exports = {
     	'refreshTokenExpiresIn': 2592000,
 	'geoCoderConfig': {
 		provider: 'opencage',
-		apiKey: 'API KEY HERE'
+		apiKey: '9589894c80264e6e9ba94eec10ff56bf'
 	}
 };

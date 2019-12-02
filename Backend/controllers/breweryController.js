@@ -41,6 +41,16 @@ router.get('/:id', function (req, res, next) {
     });
 });
 
+router.get('/:id/reviews', function (req, res, next) {
+    breweryService.getBreweryReviews(req.params.id, function (err, reviewEntities) {
+        if (err) {
+            next(err);
+        } else {
+            res.status(200).json(reviewEntities)
+        }
+    });
+});
+
 router.put('/', function (req, res, next) {
     let breweryResource = req.body;
     breweryService.createBreweryAndMapCoordinates(breweryResource, function (err, breweryEntity) {

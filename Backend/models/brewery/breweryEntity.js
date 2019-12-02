@@ -87,6 +87,9 @@ const brewerySchema = mongoose.Schema({
 			type: Number,
 			required: false
 		}
+	},
+	numReviews : {
+		type: Number
 	}
 });
 

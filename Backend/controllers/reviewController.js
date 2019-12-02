@@ -11,6 +11,16 @@ router.use(function (req, res, next) {
     tokenValidation.validateToken(req, res, next)
 });
 
+router.get('/:id', function (req, res, next) {
+    reviewService.getById(req.params.id, function (err, reviewEntity) {
+        if (err) {
+            next(err);
+        } else {
+            res.status(200).json(reviewEntity)
+        }
+    });
+});
+
 router.put('/', function (req, res, next) {
     let reviewResource = req.body;
     let user = req.decoded;
