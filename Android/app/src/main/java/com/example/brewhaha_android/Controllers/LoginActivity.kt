@@ -86,6 +86,8 @@ class LoginActivity(private val api: BackendConnection = BackendConnection()) : 
                     val imm: InputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
                     if (imm.isActive)
                         imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
+                    Log.d("Manager after input", "LoginId: " + bundle["id"])
+
                     startActivity(intent)
                 }
             } else {
