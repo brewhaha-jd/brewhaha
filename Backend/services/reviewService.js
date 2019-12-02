@@ -16,6 +16,15 @@ module.exports = {
 		})
 	},
 
+	getById: function (id, callback) {
+		reviewRepo.getById(id, function (err, entity) {
+			if (entity == null && err != null) {
+				err = errorHandler.throwMongoNotFoundError();
+			}
+			callback(err, entity);
+		})
+	},
+
 	getReviewsByBrewery: function (breweryId, callback) {
 		let query = {"brewery" : breweryId};
 		reviewRepo.getByQuery(query, function (err, entities) {

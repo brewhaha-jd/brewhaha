@@ -51,12 +51,14 @@ module.exports = {
         Brewery.findById(id, function (err, entity) {
             if (err) return callback(err);
             if (entity === null) return callback(errorHandler.throwMongoNotFoundError());
+            if (isNaN(entity.numReviews)) entity.numReviews = 0;
             // noinspection DuplicatedCode
             entity.friendlinessRating.aggregate = reviewAverages.aggregate;
             entity.friendlinessRating.kidsFood = reviewAverages.kidsFoodAvg;
             entity.friendlinessRating.kidsEntertainment = reviewAverages.kidsEntertainmentAvg;
             entity.friendlinessRating.bathrooms = reviewAverages.bathroomsAvg;
             entity.friendlinessRating.minRecommendedAge = reviewAverages.minAgeAvg;
+            entity.numReviews += 1;
             entity.__v += 1;
             entity.save();
             callback(err, entity)

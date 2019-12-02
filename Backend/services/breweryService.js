@@ -151,7 +151,14 @@ module.exports = {
 				callback(err, entities)
 			})
 		})
+	},
+
+	getBreweryReviews: function (id, callback) {
+		reviewService.getReviewsByBrewery(id, function (err, reviewEntities) {
+			callback(err, reviewEntities);
+		})
 	}
+
 };
 
 function calculateAggregate(reviewAverages) {
