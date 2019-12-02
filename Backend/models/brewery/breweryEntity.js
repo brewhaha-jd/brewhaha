@@ -27,7 +27,7 @@ const brewerySchema = mongoose.Schema({
 		},
 		city: {
 			type: String,
-			required: true
+			required: false
 		},
 		stateOrProvince: {
 			type: String,
